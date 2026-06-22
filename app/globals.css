@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --charged-yellow: #FFC100;
+  --charged-black: #020413;
+  --charged-navy: #171E3A;
+  --charged-light: #F7F7F7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--charged-black);
+  color: var(--charged-light);
+}
+
+/* Caramel font — self-hosted. Drop caramel.woff2 into /public/fonts/ */
+@font-face {
+  font-family: "Caramel";
+  src: url("/fonts/caramel.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Selection colour */
+::selection {
+  background-color: var(--charged-yellow);
+  color: var(--charged-black);
+}
