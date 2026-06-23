@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import Button from "@/components/Button";
 
 /** Primary nav links. Edit here to add/remove top-level destinations. */
 // Blog is intentionally NOT in the nav — it lives in the footer for SEO
 // (crawlable + sitewide internal link) while the nav stays conversion-focused.
 const NAV_LINKS = [
+  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/contact" },
@@ -41,7 +43,7 @@ export default function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled || open
-          ? "border-b border-white/10 bg-charged-black/80 backdrop-blur-md"
+          ? "border-b border-border bg-bg/80 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -71,19 +73,16 @@ export default function Nav() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="font-inter text-sm font-medium text-charged-light/80 transition-colors hover:text-charged-light"
+                  className="font-inter text-sm font-medium text-text/80 transition-colors hover:text-text"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <Link
-            href={CTA.href}
-            className="bg-white px-6 py-3 font-inter text-sm font-bold uppercase tracking-widest text-charged-black transition-colors hover:bg-neutral-200"
-          >
+          <Button href={CTA.href} size="sm">
             {CTA.label}
-          </Link>
+          </Button>
         </div>
 
         {/* Mobile toggle */}
@@ -95,17 +94,17 @@ export default function Nav() {
           className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
         >
           <span
-            className={`h-0.5 w-6 bg-charged-light transition-transform duration-300 ${
+            className={`h-0.5 w-6 bg-text transition-transform duration-300 ${
               open ? "translate-y-2 rotate-45" : ""
             }`}
           />
           <span
-            className={`h-0.5 w-6 bg-charged-light transition-opacity duration-300 ${
+            className={`h-0.5 w-6 bg-text transition-opacity duration-300 ${
               open ? "opacity-0" : "opacity-100"
             }`}
           />
           <span
-            className={`h-0.5 w-6 bg-charged-light transition-transform duration-300 ${
+            className={`h-0.5 w-6 bg-text transition-transform duration-300 ${
               open ? "-translate-y-2 -rotate-45" : ""
             }`}
           />
@@ -121,7 +120,7 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="border-t border-white/10 bg-charged-black/95 backdrop-blur-md md:hidden"
+            className="border-t border-border bg-bg md:hidden"
           >
             <ul className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-6 py-6">
               {NAV_LINKS.map((link) => (
@@ -129,20 +128,20 @@ export default function Nav() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 font-anton text-2xl uppercase text-charged-light transition-colors hover:text-charged-yellow"
+                    className="block py-3 font-anton text-2xl uppercase text-text transition-colors hover:text-accent"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
               <li className="pt-4">
-                <Link
+                <Button
                   href={CTA.href}
                   onClick={() => setOpen(false)}
-                  className="block bg-white px-6 py-4 text-center font-inter text-sm font-bold uppercase tracking-widest text-charged-black transition-colors hover:bg-neutral-200"
+                  className="w-full"
                 >
                   {CTA.label}
-                </Link>
+                </Button>
               </li>
             </ul>
           </motion.div>

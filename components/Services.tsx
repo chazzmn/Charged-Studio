@@ -1,9 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Badge from "@/components/Badge";
+import { BoltMark } from "@/components/icons";
 
 type Service = {
+  slug: string;
   label: string;
   title: string;
   description: string;
@@ -14,6 +17,7 @@ type Service = {
 /** Websites lead. Software & SEO are the growth services. Branding supports. */
 const SERVICES: Service[] = [
   {
+    slug: "websites",
     label: "Websites",
     title: "A website that brings in customers.",
     description:
@@ -27,6 +31,7 @@ const SERVICES: Service[] = [
     featured: true,
   },
   {
+    slug: "software",
     label: "Software & Apps",
     title: "Tools that run your business better.",
     description:
@@ -38,6 +43,7 @@ const SERVICES: Service[] = [
     ],
   },
   {
+    slug: "seo",
     label: "SEO & Digital Presence",
     title: "Get found by local customers.",
     description:
@@ -50,6 +56,7 @@ const SERVICES: Service[] = [
     ],
   },
   {
+    slug: "branding",
     label: "Branding & Creative",
     title: "Look the part, everywhere.",
     description:
@@ -64,10 +71,8 @@ const SERVICES: Service[] = [
 
 function Feature({ children }: { children: string }) {
   return (
-    <li className="flex gap-3 font-inter text-sm text-charged-light/70">
-      <span aria-hidden className="mt-0.5 text-charged-yellow">
-        ⚡
-      </span>
+    <li className="flex gap-3 font-inter text-sm text-text/70">
+      <BoltMark className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
       <span>{children}</span>
     </li>
   );
@@ -90,7 +95,7 @@ export default function Services() {
   };
 
   const cardClass =
-    "rounded-xl border border-white/10 bg-charged-navy/40 p-8 transition-colors hover:border-white/20";
+    "rounded-xl bg-surface/40 shadow-e1 p-8 transition-colors hover:border-border";
 
   return (
     <section id="services" className="mx-auto w-full max-w-7xl px-6 py-24 md:py-32">
@@ -102,10 +107,10 @@ export default function Services() {
         className="max-w-2xl"
       >
         <Badge>What we do</Badge>
-        <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-charged-light sm:text-4xl lg:text-5xl">
+        <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
           Everything your business needs to grow online.
         </h2>
-        <p className="mt-5 font-inter text-lg leading-relaxed text-charged-light/70">
+        <p className="mt-5 font-inter text-lg leading-relaxed text-text/70">
           Websites first — plus the software, visibility, and brand to back them
           up. Most clients stay on monthly, so we look after the lot and you stay
           focused on running your business.
@@ -129,12 +134,18 @@ export default function Services() {
           >
             <div className={service.featured ? "md:w-1/2" : ""}>
               <Badge>{service.label}</Badge>
-              <h3 className="mt-5 font-inter text-2xl font-bold text-charged-light">
+              <h3 className="mt-5 font-inter text-2xl font-bold text-text">
                 {service.title}
               </h3>
-              <p className="mt-3 font-inter text-base leading-relaxed text-charged-light/70">
+              <p className="mt-3 font-inter text-base leading-relaxed text-text/70">
                 {service.description}
               </p>
+              <Link
+                href={`/services/${service.slug}`}
+                className="mt-5 inline-block font-inter text-sm font-semibold text-text transition-colors hover:text-accent"
+              >
+                Explore {service.label} →
+              </Link>
             </div>
             <ul
               className={`mt-6 space-y-3 ${

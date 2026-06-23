@@ -1,31 +1,36 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import Image from "next/image";
 import Badge from "@/components/Badge";
+import { Stars, GoogleG } from "@/components/icons";
 
-type Testimonial = { quote: string; name: string };
+type Testimonial = { quote: string; name: string; image?: string };
 
-/** Best 5 real quotes from the live site. Headshots swap in later. */
+/** Best 5 real quotes from the live site. */
 const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "They understood our vision and turned it into a platform that our clients love. Their attention to detail, communication, and genuine care for our project made the whole process effortless.",
     name: "Tariq Salfo",
+    image: "/images/testimonials/tariq-salfo.jpg",
   },
   {
     quote:
       "Charged created a clean, modern website that our clients love. The whole process felt organised, simple and smooth.",
     name: "Jane Gold",
+    image: "/images/testimonials/jane-gold.png",
   },
   {
     quote:
       "Our new site finally matches the quality of our service. Clear, fast and polished, with excellent communication throughout.",
     name: "Jack Smith",
+    image: "/images/testimonials/jack-smith.png",
   },
   {
     quote:
       "Charged delivered a sharp, professional website that has already increased enquiries. Great experience from start to finish.",
     name: "Olivia Johnson",
+    image: "/images/testimonials/olivia-johnson.png",
   },
   {
     quote:
@@ -42,61 +47,74 @@ function initials(name: string): string {
     .join("");
 }
 
-export default function Testimonials() {
-  const reduceMotion = useReducedMotion();
-
-  const container: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.08 } },
-  };
-  const item: Variants = {
-    hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
+function ReviewCard({ t }: { t: Testimonial }) {
   return (
-    <section className="mx-auto w-full max-w-7xl px-6 py-24 md:py-32">
-      <div className="max-w-2xl">
-        <Badge>What clients say</Badge>
-        <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-charged-light sm:text-4xl lg:text-5xl">
-          Trusted by businesses across the South West.
-        </h2>
+    <figure className="flex w-[300px] shrink-0 flex-col rounded-xl bg-surface/40 shadow-e1 p-7 shadow-e1 sm:w-[360px]">
+      <Stars className="h-4 w-4" label="5 out of 5 stars" />
+      <blockquote className="mt-4 flex-1 font-inter text-base leading-relaxed text-text/80">
+        “{t.quote}”
+      </blockquote>
+      <figcaption className="mt-6 flex items-center gap-3">
+        {t.image ? (
+          <Image
+            src={t.image}
+            alt={`${t.name} — Charged Studio client`}
+            width={40}
+            height={40}
+            className="h-10 w-10 shrink-0 rounded-full object-cover"
+          />
+        ) : (
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/15 font-inter text-sm font-bold uppercase text-accent">
+            {initials(t.name)}
+          </span>
+        )}
+        <span className="font-inter text-sm font-semibold text-text">
+          {t.name}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+export default function Testimonials() {
+  return (
+    <section className="w-full py-24 md:py-32">
+      <div className="mx-auto w-full max-w-7xl px-6">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <Badge>What clients say</Badge>
+            <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
+              Trusted by businesses across the South West.
+            </h2>
+          </div>
+
+          {/* Google rating badge — real figures from the Charged Studio
+              Google Business Profile (5.0 from 16 reviews). */}
+          <div className="inline-flex items-center gap-2.5 self-start rounded-full bg-surface/40 shadow-e1 px-4 py-2.5 shadow-e1">
+            <GoogleG className="h-5 w-5" />
+            <span className="font-inter text-sm font-semibold text-text">5.0</span>
+            <Stars className="h-3.5 w-3.5" label="Rated 5.0 from 16 Google reviews" />
+            <span className="font-inter text-xs text-text/60">16 Google reviews</span>
+          </div>
+        </div>
       </div>
 
-      <motion.ul
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-      >
-        {TESTIMONIALS.map((t) => (
-          <motion.li
-            key={t.name}
-            variants={item}
-            className="flex flex-col rounded-xl border border-white/10 bg-charged-navy/40 p-7"
-          >
-            <div aria-hidden className="font-inter text-sm tracking-widest text-charged-yellow">
-              ★★★★★
-            </div>
-            <blockquote className="mt-4 flex-1 font-inter text-base leading-relaxed text-charged-light/80">
-              “{t.quote}”
-            </blockquote>
-            <div className="mt-6 flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-charged-yellow/15 font-inter text-sm font-bold uppercase text-charged-yellow">
-                {initials(t.name)}
-              </span>
-              <span className="font-inter text-sm font-semibold text-charged-light">
-                {t.name}
-              </span>
-            </div>
-          </motion.li>
-        ))}
-      </motion.ul>
+      {/* Scrolling marquee. Pauses on hover; manual scroll for reduced-motion. */}
+      <div className="marquee-pause relative mt-14 overflow-hidden motion-reduce:overflow-x-auto">
+        {/* edge fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg to-transparent" />
+
+        <div className="flex w-max animate-marquee gap-6 px-6">
+          {TESTIMONIALS.map((t) => (
+            <ReviewCard key={t.name} t={t} />
+          ))}
+          {/* duplicate for a seamless loop */}
+          {TESTIMONIALS.map((t) => (
+            <ReviewCard key={`dup-${t.name}`} t={t} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

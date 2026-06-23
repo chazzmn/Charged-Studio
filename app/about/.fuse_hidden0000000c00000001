@@ -1,0 +1,162 @@
+import type { Metadata } from "next";
+import Badge from "@/components/Badge";
+import CTASection from "@/components/CTASection";
+
+export const metadata: Metadata = {
+  title: "About Charged Studio — The Story Behind the Brand",
+  description:
+    "Learn about Charged Studio, founder Charlie Norona, and the belief-led approach that makes us different. Based in Exeter, built for businesses ready to grow.",
+  alternates: { canonical: "https://chargedstudio.co.uk/about" },
+  openGraph: {
+    title: "About Charged Studio — The Story Behind the Brand",
+    description:
+      "The belief-led studio behind Charged. Based in Exeter, working with businesses across the South West.",
+    url: "https://chargedstudio.co.uk/about",
+    siteName: "Charged Studio",
+    type: "website",
+  },
+};
+
+const VALUES = [
+  {
+    title: "Websites that work",
+    body: "Not just good-looking — built to load fast, rank locally, and turn visitors into enquiries. A website should earn its keep.",
+  },
+  {
+    title: "A real partner",
+    body: "We're not a vendor you brief and forget. We learn your business, stay close, and treat your growth as the measure of our work.",
+  },
+  {
+    title: "Local and hands-on",
+    body: "Based in Exeter, working across Devon and the South West. You get a real person who knows your patch — not a faceless agency.",
+  },
+];
+
+const PROCESS = [
+  {
+    step: "01",
+    title: "Immerse",
+    body: "Before a pixel moves, we get inside your business — your customers, your goals, what winning actually looks like. The hard thinking happens first.",
+  },
+  {
+    step: "02",
+    title: "Plan",
+    body: "A clear scope, timeline and milestones up front. Drawing on a formal project-management background, you always know what's happening and what comes next.",
+  },
+  {
+    step: "03",
+    title: "Design & build",
+    body: "We build sharp, fast, on-brand work — with structured feedback points along the way, so nothing's signed off until it's right.",
+  },
+  {
+    step: "04",
+    title: "Launch & look after",
+    body: "We go live, then stick around — hosting, updates and ongoing support, so your site keeps pulling its weight long after launch.",
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="mx-auto w-full max-w-4xl px-6 pt-32 md:pt-40">
+        <Badge>About</Badge>
+        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-charged-light sm:text-5xl lg:text-6xl">
+          Built on belief.
+        </h1>
+        <p className="mt-5 max-w-2xl font-inter text-lg leading-relaxed text-charged-light/70">
+          Charged Studio is a creative studio for growing businesses — websites
+          first, plus the software, visibility, and brand to back them up. We
+          believe the businesses that deserve to win are too often let down by
+          their digital presence. We&apos;re here to change that.
+        </p>
+      </section>
+
+      {/* Story */}
+      <section className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 px-6 py-16 md:py-24 lg:grid-cols-2 lg:gap-16">
+        <div className="space-y-5 font-inter text-lg leading-relaxed text-charged-light/70">
+          <p>
+            Charlie Norona started Charged with a belief most agencies don&apos;t
+            act on: that a website isn&apos;t a one-off project you tick off — it&apos;s
+            the foundation a business grows on, and it deserves looking after.
+          </p>
+          <p>
+            Too many small businesses across Devon get handed a template, an
+            invoice, and a goodbye. We do the opposite. We build sharp, fast,
+            modern sites — then stick around to keep them working, so you can
+            focus on running your business while your digital presence pulls its
+            weight.
+          </p>
+          <p>
+            We&apos;re small, deliberately. That means you deal with the people
+            actually doing the work, every step of the way.
+          </p>
+        </div>
+
+        {/* Photo placeholder — swap for /public/images/charlie-norona.png */}
+        <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-charged-light to-charged-light">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="font-anton text-3xl uppercase text-charged-light/10">
+              Charlie Norona
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Process — leans on the project-management background */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+        <div className="max-w-2xl">
+          <Badge>How we work</Badge>
+          <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-charged-light sm:text-4xl lg:text-5xl">
+            Structured, not chaotic.
+          </h2>
+          <p className="mt-5 font-inter text-lg leading-relaxed text-charged-light/70">
+            Every project runs on a clear process — as intentional and organised
+            as it is creative. That&apos;s why working with Charged feels
+            effortless: the hard thinking happens long before the design does.
+          </p>
+        </div>
+
+        <ol className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {PROCESS.map((p) => (
+            <li
+              key={p.step}
+              className="rounded-xl bg-charged-navy/40 shadow-e1 p-7"
+            >
+              <span className="font-anton text-3xl text-charged-yellow">
+                {p.step}
+              </span>
+              <h3 className="mt-4 font-inter text-lg font-bold text-charged-light">
+                {p.title}
+              </h3>
+              <p className="mt-2 font-inter text-sm leading-relaxed text-charged-light/70">
+                {p.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* Values */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {VALUES.map((v) => (
+            <div
+              key={v.title}
+              className="rounded-xl bg-charged-navy/40 shadow-e1 p-8"
+            >
+              <h2 className="font-inter text-xl font-bold text-charged-light">
+                {v.title}
+              </h2>
+              <p className="mt-3 font-inter text-base leading-relaxed text-charged-light/70">
+                {v.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <CTASection />
+    </>
+  );
+}

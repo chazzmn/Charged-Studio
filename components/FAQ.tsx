@@ -34,12 +34,12 @@ export default function FAQ() {
     <section id="faq" className="mx-auto w-full max-w-3xl px-6 py-24 md:py-32">
       <div className="text-center">
         <Badge>FAQ</Badge>
-        <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-charged-light sm:text-4xl lg:text-5xl">
+        <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
           Questions, answered.
         </h2>
       </div>
 
-      <div className="mt-12 divide-y divide-white/10 border-y border-white/10">
+      <div className="mt-12 divide-y divide-charged-black/10 border-y border-border">
         {FAQS.map((item, i) => {
           const isOpen = open === i;
           return (
@@ -50,12 +50,12 @@ export default function FAQ() {
                 aria-expanded={isOpen}
                 className="flex w-full items-center justify-between gap-4 py-5 text-left"
               >
-                <span className="font-inter text-lg font-semibold text-charged-light">
+                <span className="font-inter text-lg font-semibold text-text">
                   {item.q}
                 </span>
                 <span
                   aria-hidden
-                  className={`shrink-0 text-2xl text-charged-yellow transition-transform duration-300 ${
+                  className={`shrink-0 text-2xl text-accent transition-transform duration-300 ${
                     isOpen ? "rotate-45" : ""
                   }`}
                 >
@@ -72,7 +72,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="pb-5 font-inter text-base leading-relaxed text-charged-light/70">
+                    <p className="pb-5 font-inter text-base leading-relaxed text-text/70">
                       {item.a}
                     </p>
                   </motion.div>

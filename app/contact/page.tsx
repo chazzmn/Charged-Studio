@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import Badge from "@/components/Badge";
+import Button from "@/components/Button";
 import ProjectForm from "@/components/ProjectForm";
 
 export const metadata: Metadata = {
   title: "Contact Charged Studio — Let's Start Something",
   description:
-    "Ready to grow your brand? Get in touch with Charged Studio. Based in Exeter, working with businesses across Devon and the South West.",
+    "Get in touch with Charged Studio. Send a quick message, book a free consultation, or start a project. Based in Exeter, working across Devon and the South West.",
   alternates: { canonical: "https://chargedstudio.co.uk/contact" },
   openGraph: {
     title: "Contact Charged Studio — Let's Start Something",
     description:
-      "Ready to grow? Get in touch with Charged Studio, Exeter.",
+      "Send a quick message, book a free consultation, or start a project. Charged Studio, Exeter.",
     url: "https://chargedstudio.co.uk/contact",
     siteName: "Charged Studio",
     type: "website",
@@ -21,7 +22,7 @@ const CALENDLY = "https://calendly.com/hello-chargedstudio/15min";
 const EMAIL = "hello@chargedstudio.co.uk";
 
 const linkClass =
-  "font-inter text-charged-light/80 transition-colors hover:text-charged-light";
+  "font-inter text-text/80 transition-colors hover:text-text";
 
 export default function ContactPage() {
   return (
@@ -29,17 +30,18 @@ export default function ContactPage() {
       {/* Details */}
       <div>
         <Badge>Contact</Badge>
-        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-charged-light sm:text-5xl">
+        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl">
           Let&apos;s start something.
         </h1>
-        <p className="mt-5 max-w-md font-inter text-lg leading-relaxed text-charged-light/70">
-          Tell us what you need and we&apos;ll get back to you within one working
-          day. Prefer to talk? Book a quick call — no pressure, no hard sell.
+        <p className="mt-5 max-w-md font-inter text-lg leading-relaxed text-text/70">
+          Send a quick message and we&apos;ll get back to you within one working
+          day. Prefer to talk it through first? Book a free consultation — no
+          pressure, no hard sell.
         </p>
 
         <dl className="mt-10 space-y-6">
           <div>
-            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/50">
+            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
               Email
             </dt>
             <dd className="mt-1">
@@ -49,7 +51,7 @@ export default function ContactPage() {
             </dd>
           </div>
           <div>
-            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/50">
+            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
               Phone
             </dt>
             <dd className="mt-1">
@@ -59,8 +61,8 @@ export default function ContactPage() {
             </dd>
           </div>
           <div>
-            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/50">
-              Book a call
+            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
+              Book a free consultation
             </dt>
             <dd className="mt-1">
               <a
@@ -69,24 +71,43 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className={linkClass}
               >
-                15-minute intro call →
+                Grab a free 15-minute slot →
               </a>
             </dd>
           </div>
           <div>
-            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/50">
+            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
               Studio
             </dt>
-            <dd className="mt-1 font-inter text-charged-light/80">
+            <dd className="mt-1 font-inter text-text/80">
               Exeter, Devon — working across the South West
             </dd>
           </div>
         </dl>
+
+        {/* Bigger project → the full step-by-step brief */}
+        <div className="mt-10 rounded-xl bg-surface/40 shadow-e1 p-6">
+          <h2 className="font-inter text-lg font-bold text-text">
+            Got a bigger project in mind?
+          </h2>
+          <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
+            Walk us through it step by step and we&apos;ll come back with a
+            tailored plan and quote.
+          </p>
+          <Button href="/start-a-project" size="sm" className="mt-5">
+            Start a Project
+          </Button>
+        </div>
       </div>
 
-      {/* Form */}
-      <div className="rounded-xl border border-white/10 bg-charged-navy/40 p-6 sm:p-8 lg:self-start">
-        <ProjectForm kind="project" />
+      {/* Quick message form */}
+      <div className="rounded-xl bg-surface/40 shadow-e1 p-6 sm:p-8 lg:self-start">
+        <h2 className="font-inter text-sm font-semibold uppercase tracking-wider text-text/50">
+          Send a quick message
+        </h2>
+        <div className="mt-5">
+          <ProjectForm kind="project" />
+        </div>
       </div>
     </section>
   );

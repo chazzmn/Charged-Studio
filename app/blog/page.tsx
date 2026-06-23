@@ -22,10 +22,10 @@ export default function BlogIndex() {
   return (
     <section className="mx-auto w-full max-w-7xl px-6 pb-24 pt-32 md:pt-40">
       <Badge>Blog</Badge>
-      <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-charged-light sm:text-5xl lg:text-6xl">
+      <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl lg:text-6xl">
         Insights on web, SEO &amp; growth
       </h1>
-      <p className="mt-5 max-w-2xl font-inter text-lg leading-relaxed text-charged-light/70">
+      <p className="mt-5 max-w-2xl font-inter text-lg leading-relaxed text-text/70">
         Plain-English thinking on web design, getting found online, and turning
         your digital presence into real enquiries.
       </p>
@@ -35,18 +35,18 @@ export default function BlogIndex() {
           <li key={post.slug}>
             <Link
               href={`/blog/${post.slug}`}
-              className="flex h-full flex-col rounded-xl border border-white/10 bg-charged-navy/40 p-7 transition-colors hover:border-white/20"
+              className="flex h-full flex-col rounded-xl bg-surface/40 shadow-e1 p-7 transition-colors hover:border-border"
             >
-              <p className="font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/50">
+              <p className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
                 {post.category} · {post.readingTime}
               </p>
-              <h2 className="mt-3 font-inter text-xl font-bold leading-snug text-charged-light">
+              <h2 className="mt-3 font-inter text-xl font-bold leading-snug text-text">
                 {post.title}
               </h2>
-              <p className="mt-3 flex-1 font-inter text-base leading-relaxed text-charged-light/70">
+              <p className="mt-3 flex-1 font-inter text-base leading-relaxed text-text/70">
                 {post.excerpt}
               </p>
-              <span className="mt-6 font-inter text-sm font-bold uppercase tracking-widest text-charged-yellow">
+              <span className="mt-6 font-inter text-sm font-bold uppercase tracking-widest text-accent">
                 Read article →
               </span>
             </Link>

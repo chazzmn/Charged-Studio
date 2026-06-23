@@ -1,5 +1,7 @@
 # Design System — Charged Studio
 
+> ⚠️ **Superseded by [`BRAND-SYSTEM.md`](./BRAND-SYSTEM.md) (v1.0, 2026-06-23)** — the consolidated, conflict-free source of truth (fixes the Anton weight, white-vs-yellow button, and dark-mode hex conflicts that lived here). Use `BRAND-SYSTEM.md` for all decisions.
+
 > The visual rulebook. Every component, spacing decision, and animation should reference this doc.
 
 ---

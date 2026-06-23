@@ -32,16 +32,39 @@ const VALUES = [
   },
 ];
 
+const PROCESS = [
+  {
+    step: "01",
+    title: "Immerse",
+    body: "Before a pixel moves, we get inside your business — your customers, your goals, what winning actually looks like. The hard thinking happens first.",
+  },
+  {
+    step: "02",
+    title: "Plan",
+    body: "A clear scope, timeline and milestones up front. Drawing on a formal project-management background, you always know what's happening and what comes next.",
+  },
+  {
+    step: "03",
+    title: "Design & build",
+    body: "We build sharp, fast, on-brand work — with structured feedback points along the way, so nothing's signed off until it's right.",
+  },
+  {
+    step: "04",
+    title: "Launch & look after",
+    body: "We go live, then stick around — hosting, updates and ongoing support, so your site keeps pulling its weight long after launch.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
       {/* Hero */}
       <section className="mx-auto w-full max-w-4xl px-6 pt-32 md:pt-40">
         <Badge>About</Badge>
-        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-charged-light sm:text-5xl lg:text-6xl">
+        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl lg:text-6xl">
           Built on belief.
         </h1>
-        <p className="mt-5 max-w-2xl font-inter text-lg leading-relaxed text-charged-light/70">
+        <p className="mt-5 max-w-2xl font-inter text-lg leading-relaxed text-text/70">
           Charged Studio is a creative studio for growing businesses — websites
           first, plus the software, visibility, and brand to back them up. We
           believe the businesses that deserve to win are too often let down by
@@ -51,7 +74,7 @@ export default function AboutPage() {
 
       {/* Story */}
       <section className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 px-6 py-16 md:py-24 lg:grid-cols-2 lg:gap-16">
-        <div className="space-y-5 font-inter text-lg leading-relaxed text-charged-light/70">
+        <div className="space-y-5 font-inter text-lg leading-relaxed text-text/70">
           <p>
             Charlie Norona started Charged with a belief most agencies don&apos;t
             act on: that a website isn&apos;t a one-off project you tick off — it&apos;s
@@ -71,13 +94,47 @@ export default function AboutPage() {
         </div>
 
         {/* Photo placeholder — swap for /public/images/charlie-norona.png */}
-        <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-charged-navy to-charged-black">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-anton text-3xl uppercase text-charged-light/10">
+            <span className="font-anton text-3xl uppercase text-text/10">
               Charlie Norona
             </span>
           </div>
         </div>
+      </section>
+
+      {/* Process — leans on the project-management background */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+        <div className="max-w-2xl">
+          <Badge>How we work</Badge>
+          <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
+            Structured, not chaotic.
+          </h2>
+          <p className="mt-5 font-inter text-lg leading-relaxed text-text/70">
+            Every project runs on a clear process — as intentional and organised
+            as it is creative. That&apos;s why working with Charged feels
+            effortless: the hard thinking happens long before the design does.
+          </p>
+        </div>
+
+        <ol className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {PROCESS.map((p) => (
+            <li
+              key={p.step}
+              className="rounded-xl bg-surface/40 shadow-e1 p-7"
+            >
+              <span className="font-anton text-3xl text-accent">
+                {p.step}
+              </span>
+              <h3 className="mt-4 font-inter text-lg font-bold text-text">
+                {p.title}
+              </h3>
+              <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
+                {p.body}
+              </p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       {/* Values */}
@@ -86,12 +143,12 @@ export default function AboutPage() {
           {VALUES.map((v) => (
             <div
               key={v.title}
-              className="rounded-xl border border-white/10 bg-charged-navy/40 p-8"
+              className="rounded-xl bg-surface/40 shadow-e1 p-8"
             >
-              <h2 className="font-inter text-xl font-bold text-charged-light">
+              <h2 className="font-inter text-xl font-bold text-text">
                 {v.title}
               </h2>
-              <p className="mt-3 font-inter text-base leading-relaxed text-charged-light/70">
+              <p className="mt-3 font-inter text-base leading-relaxed text-text/70">
                 {v.body}
               </p>
             </div>

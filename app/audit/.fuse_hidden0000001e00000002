@@ -1,0 +1,58 @@
+import type { Metadata } from "next";
+import ProjectForm from "@/components/ProjectForm";
+import { BoltMark } from "@/components/icons";
+
+export const metadata: Metadata = {
+  title: "Free Website Audit — Charged Studio",
+  description:
+    "Get a free, no-obligation audit of your current website. We'll show you what's holding your digital presence back — and how to fix it.",
+  alternates: { canonical: "https://chargedstudio.co.uk/audit" },
+  openGraph: {
+    title: "Free Website Audit — Charged Studio",
+    description:
+      "Get a free, no-obligation audit of your current website. We'll show you what's holding your digital presence back.",
+    url: "https://chargedstudio.co.uk/audit",
+    siteName: "Charged Studio",
+    type: "website",
+  },
+};
+
+const CHECKS = [
+  "Speed & Core Web Vitals — what's slowing you down",
+  "How you show up on Google for local searches",
+  "First impressions, design & mobile experience",
+  "Where you're losing enquiries — and quick wins to fix it",
+];
+
+export default function AuditPage() {
+  return (
+    <section className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 pb-24 pt-32 md:pt-40 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-charged-yellow">
+          Free Website Audit
+        </p>
+        <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.95] text-charged-black sm:text-5xl">
+          See what&apos;s holding your website back.
+        </h1>
+        <p className="mt-5 max-w-xl font-inter text-lg leading-relaxed text-charged-black/70">
+          Send us your site and we&apos;ll send back a free, no-obligation
+          review — plain English, no jargon, no hard sell. Here&apos;s what we
+          look at:
+        </p>
+
+        <ul className="mt-8 space-y-4">
+          {CHECKS.map((check) => (
+            <li key={check} className="flex gap-3 font-inter text-charged-black/80">
+              <BoltMark className="mt-1 h-4 w-4 shrink-0 text-charged-yellow" />
+              <span>{check}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="rounded-xl bg-white shadow-e1 p-6 sm:p-8 lg:self-start">
+        <ProjectForm kind="audit" />
+      </div>
+    </section>
+  );
+}

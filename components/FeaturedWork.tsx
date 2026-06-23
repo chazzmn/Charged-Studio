@@ -19,9 +19,9 @@ export default function FeaturedWork() {
         className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
       >
         {/* Placeholder image — swap for a next/image of the real project shot */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-charged-navy to-charged-black">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-anton text-6xl uppercase text-charged-light/5">
+            <span className="font-anton text-6xl uppercase text-text/5">
               Devon Nurseries
             </span>
           </div>
@@ -30,10 +30,10 @@ export default function FeaturedWork() {
         {/* Copy */}
         <div>
           <Badge>Case Study</Badge>
-          <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-charged-light sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
             Devon Nurseries
           </h2>
-          <p className="mt-4 font-inter text-lg leading-relaxed text-charged-light/70">
+          <p className="mt-4 font-inter text-lg leading-relaxed text-text/70">
             A five-site childcare group across Devon with fragmented branding and
             websites. We consolidated them into one credible, unified digital
             presence — easier to find, easier to trust, and built to bring in more
@@ -44,7 +44,7 @@ export default function FeaturedWork() {
             {RESULTS.map((r) => (
               <li
                 key={r}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 font-inter text-sm text-charged-light/80"
+                className="rounded-full border border-border bg-text/5 px-4 py-2 font-inter text-sm text-text/80"
               >
                 {r}
               </li>
@@ -53,7 +53,7 @@ export default function FeaturedWork() {
 
           <Link
             href="/devon-nurseries"
-            className="mt-8 inline-block font-inter text-sm font-bold uppercase tracking-widest text-charged-yellow transition-opacity hover:opacity-80"
+            className="mt-8 inline-block font-inter text-sm font-bold uppercase tracking-widest text-accent transition-opacity hover:opacity-80"
           >
             View the case study →
           </Link>

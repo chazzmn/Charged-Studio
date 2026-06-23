@@ -12,9 +12,27 @@
 
 **Confirmed decisions:** Reposition to websites-led (software/SEO added, branding demoted). Site's job = lead gen. ICP = local Devon/SW service businesses. Primary CTA = project form; Free Audit secondary; Book-a-call tertiary. Blog = footer-only (SEO), not nav. Case studies: Devon Nurseries = flagship; CHAZZMN deferred; The Unaffiliated dropped.
 
-**Next up:** SEO/technical wiring (sitemap + robots via next-sitemap, homepage Organization JSON-LD, GA4, OG image) → Charlie's visual design pass + real imagery → go-live (domain/DNS, verify Resend domain, cancel Framer).
+**Theme decision (2026-06-23 — REVERTED TO DARK):** Charlie trialled a light theme then reversed it — the site is back **DARK**: `#020413` page background, `#F7F7F7` primary text, yellow `#FFC100` the single accent, navy `#171E3A` surfaces. This now **matches the canonical `BRAND-SYSTEM.md`** (which always read dark), so no reconciliation pass is needed. Implemented by flipping `:root` semantic tokens + dark-tuned shadows in `globals.css` and reversing the literal theme classes across all pages/components (page text → `charged-light`, cards → `bg-charged-navy/40`, borders → `border-white/x`, gradients + marquee edge-fades → dark). Nav + Footer were already dark bookends. Chatbot re-skinned to dark. tsc clean; Tailwind compiles. (Light-theme work is recoverable in git history if ever wanted again.)
+
+**AI chat bot (2026-06-23 — NEW):** Simple floating chat button, bottom-right, answers general visitor questions. Charlie has existing working code (currently live on chargedstudio.co.uk) to reuse. Scoped as a port/reuse, not a new build.
+
+**Next up:** Direction lock (light theme + hero) → **Phase 3.5 design pass & IA v2** (apply light theme, remove emojis, hero video, scrolling reviews, per-service pages, contact redesign, about-process, AI bot) → SEO/technical wiring (sitemap + robots, Organization JSON-LD, GA4, OG image) → go-live (domain/DNS, verify Resend, cancel Framer).
 
 **Pending on Charlie:** verify domain in Resend; visual design (post-course); supply real images (pull from Framer); legally review Privacy/Terms templates.
+
+---
+
+## NEXT SESSION — confirmed requirements (Charlie, 2026-06-23) — NOT yet built
+
+These are the agreed next jobs. Do these, then push (Charlie said "we're very close to a finished product").
+
+1. **Start a Project → LONG MULTI-STEP FORM.** Charlie wants the "Start a Project" CTA to open a long, multi-step / wizard-style form (not the current single short form: name/email/business/message). Think structured intake broken into steps (e.g. what you need → project details → budget/timeline → about you/contact). Triggered by the existing "Start a Project" buttons. Replaces/extends `components/ProjectForm.tsx` (kind="project") + `app/start-a-project/page.tsx`. Still posts to `/api/contact` (extend the payload + the email template in `app/api/contact/route.ts` to include the new fields). EXACT steps/fields not yet specified by Charlie — confirm the field list with him before building, OR propose a sensible structured intake and let him adjust.
+2. **Audit feature — REDESIGN TO MATCH CHARLIE'S REFERENCE PHOTO.** Charlie has a screenshot/photo of what the `/audit` page should look like. ⚠️ **The image did NOT come through in chat (uploads folder was empty) — ASK CHARLIE TO RE-SEND IT before building.** Current `/audit` is just a URL request form that emails the request. Likely direction (confirm against the photo): an instant/automated audit experience (e.g. visitor enters URL → live PageSpeed/SEO scores shown on-page) — but DO NOT assume; get the reference image first.
+
+### Already DONE this session (2026-06-23, code; verify with `npm run dev`)
+- **Theme reverted to DARK** + **full semantic-token migration** (re-theme now = edit `app/globals.css` `:root` only).
+- **Nav reverted** to transparent-over-hero → translucent `bg-bg/80 backdrop-blur-md` on scroll (was a solid attention-drawing bar). `components/Nav.tsx`.
+- **Testimonial headshots wired in.** Files copied to `public/images/testimonials/` (kebab-named): tariq-salfo.jpg, jane-gold.png, jack-smith.png, olivia-johnson.png (+ ivan.jpg unused). `components/Testimonials.tsx` now renders `next/image` with an initials fallback. ⚠️ **Denise Russell has no headshot; Ivan has a photo but no quote** — Charlie to decide (add a Denise photo, or give Ivan a quote and swap). Originals live in `public/content/testimonial headshots/`.
 
 ---
 
@@ -81,6 +99,29 @@
 | Case study: The Unaffiliated (`/the-unaffiliated`) | ❌ Dropped — lost client, can't stand behind it |
 | Privacy Policy (`/privacy`) | 🟡 Template built (UK/GDPR) — Charlie to review before relying on it |
 | Terms of Service (`/terms-of-service`) | 🟡 Template built (England & Wales) — Charlie to review |
+
+---
+
+## Phase 3.5 — Design Pass & IA v2 (CURRENT FOCUS — added 2026-06-23)
+
+Distilled from Charlie's design notes. Gated by the direction lock (light theme + hero concept).
+
+| Task | Owner | Status |
+|---|---|---|
+| **Lock direction:** light theme confirmed (`#F7F7F7`); confirm hero concept (full-bleed bg video vs split video-right/black-left) + mobile behaviour | Charlie | 🟡 Theme ✅ light; hero concept TBC |
+| Reconcile `BRAND-SYSTEM.md` with the theme | Claude | ✅ N/A — site reverted to DARK (2026-06-23), which already matches BRAND-SYSTEM.md. No reconciliation needed. |
+| ~~Apply light theme~~ → **REVERTED to dark** across all pages/components (tokens, surfaces, borders, gradients, chatbot) | Claude | ✅ Done — light trial reversed; :root tokens + literal classes flipped back to dark; tsc clean, Tailwind compiles |
+| **Semantic-token migration** — replace ALL hardcoded colour classes (`bg-charged-*`, `text-charged-*`, `*-white`) with role tokens (`bg-bg`, `bg-surface`, `text-text`, `text-text-inverse`, `border-border`, `text-accent`, etc.). Makes re-theming a one-file edit. | Claude | ✅ Done 2026-06-23 — 0 literal colour classes remain in app/components; opacity preserved (`text-text/70`); tsc clean, Tailwind compiles. **Re-theme = edit `app/globals.css` `:root` only.** Note: nav/footer/chatbot now flip WITH the theme (no permanent dark bookends — re-add as a deliberate override if wanted). |
+| **Remove ALL emojis** (⚡ in Services, audit-form icons) → bolt-motif SVG or thin line icons | Claude | ✅ Done — `components/icons.tsx` (BoltMark + SVG Stars); zero emojis remain |
+| Hero: generate background image + seamless loop video (no camera move, dark charged moment) + overlay text/CTAs | Claude/Charlie | ⏸️ Parked — image gen plan-gated (Recraft/video need paid Higgsfield); z_image draft was "mid". Prompts drafted |
+| Scrolling reviews (testimonial marquee) | Claude | ✅ Done — Testimonials = pausable marquee, edge fades, reduced-motion fallback |
+| Trust signals: 5-star Google rating badge + social connectors | Claude | ✅ Done — real figures (5.0 / 16 Google reviews) in reviews header; socials in footer |
+| Restyle Privacy + Terms into properly designed pages | Claude | ⬜ |
+| **Separate page per service** (Websites, Software/Apps, SEO, Branding) — SEO play, real copy each | Claude | ✅ Done — `/services` hub + `/services/[slug]` (data in `app/services/services-data.ts`). Per-page metadata + FAQPage JSON-LD + cross-links; wired into Nav, footer, homepage cards. Also fixed flip bug: mobile hamburger lines were invisible (`bg-charged-light`→`bg-charged-black`) |
+| Contact page redesign: quick get-in-touch form + "Book a free consultation" (reframe from "call") + contact details (number/email/location) + button to Start-a-Project form | Claude | ✅ Done |
+| About page: add a process section (lean on APM / PM background) | Claude | ✅ Done — "How we work / Structured, not chaotic", 4 steps |
+| **Chat bot** — floating button bottom-right, general Q&A; port existing code from chargedstudio.co.uk | Claude | 🟡 INTERIM — ported + improved (`components/Chatbot.tsx`, site-wide). **Charlie: "will do for now" but flagged it must be REDEVELOPED before the site is delivered.** Likely path: AI-backed (`/api/chat` + LLM key) and/or richer flows. Do NOT ship as-is. |
+| Consolidate image assets (currently `public/Imagary/`, `content/` empty) + clean filenames | Claude/Charlie | ⬜ |
 
 ---
 

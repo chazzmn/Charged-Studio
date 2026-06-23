@@ -19,19 +19,19 @@ export const metadata: Metadata = {
 export default function StartAProjectPage() {
   return (
     <section className="mx-auto w-full max-w-3xl px-6 pb-24 pt-32 md:pt-40">
-      <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-charged-yellow">
+      <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-accent">
         Start a Project
       </p>
-      <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.95] text-charged-light sm:text-5xl">
+      <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl">
         Tell us what you need.
       </h1>
-      <p className="mt-5 max-w-xl font-inter text-lg leading-relaxed text-charged-light/70">
+      <p className="mt-5 max-w-xl font-inter text-lg leading-relaxed text-text/70">
         A few details is all it takes to get started. We&apos;ll read every word
         and get back to you within one working day — no call required unless you
         want one.
       </p>
 
-      <div className="mt-10 rounded-xl border border-white/10 bg-charged-navy/40 p-6 sm:p-8">
+      <div className="mt-10 rounded-xl bg-surface/40 shadow-e1 p-6 sm:p-8">
         <ProjectForm kind="project" />
       </div>
     </section>

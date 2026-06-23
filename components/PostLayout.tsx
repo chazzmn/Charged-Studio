@@ -35,20 +35,20 @@ export default function PostLayout({
       <header className="mx-auto w-full max-w-3xl px-6 pt-32 md:pt-40">
         <Link
           href="/blog"
-          className="font-inter text-sm font-semibold uppercase tracking-wider text-charged-yellow transition-opacity hover:opacity-80"
+          className="font-inter text-sm font-semibold uppercase tracking-wider text-accent transition-opacity hover:opacity-80"
         >
           ← All articles
         </Link>
-        <p className="mt-6 font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/50">
+        <p className="mt-6 font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
           {post.category} · <time dateTime={post.date}>{post.dateDisplay}</time> ·{" "}
           {post.readingTime}
         </p>
-        <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.98] text-charged-light sm:text-5xl">
+        <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.98] text-text sm:text-5xl">
           {post.title}
         </h1>
       </header>
 
-      <div className="mx-auto mt-10 w-full max-w-3xl px-6 pb-8 font-inter text-lg [&_a]:text-charged-yellow [&_a]:underline [&_h2]:mt-10 [&_h2]:font-anton [&_h2]:text-2xl [&_h2]:uppercase [&_h2]:text-charged-light [&_li]:leading-relaxed [&_li]:text-charged-light/75 [&_p]:mt-5 [&_p]:leading-relaxed [&_p]:text-charged-light/75 [&_strong]:text-charged-light [&_ul]:mt-5 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6">
+      <div className="mx-auto mt-10 w-full max-w-3xl px-6 pb-8 font-inter text-lg [&_a]:text-accent [&_a]:underline [&_h2]:mt-10 [&_h2]:font-anton [&_h2]:text-2xl [&_h2]:uppercase [&_h2]:text-text [&_li]:leading-relaxed [&_li]:text-text/75 [&_p]:mt-5 [&_p]:leading-relaxed [&_p]:text-text/75 [&_strong]:text-text [&_ul]:mt-5 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6">
         {children}
       </div>
 

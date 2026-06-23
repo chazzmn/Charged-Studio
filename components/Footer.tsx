@@ -3,6 +3,7 @@ import Image from "next/image";
 
 const STUDIO_LINKS = [
   { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
@@ -30,15 +31,15 @@ const PHONE_DISPLAY = "+44 7453 388798";
 const PHONE_HREF = "+447453388798";
 
 const headingClass =
-  "font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/50";
+  "font-inter text-xs font-semibold uppercase tracking-wider text-text/50";
 const linkClass =
-  "font-inter text-sm text-charged-light/80 transition-colors hover:text-charged-light";
+  "font-inter text-sm text-text/70 transition-colors hover:text-text";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-charged-black">
+    <footer className="border-t border-border bg-bg">
       <div className="mx-auto w-full max-w-7xl px-6 py-16 md:py-20">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-12">
           {/* Brand */}
@@ -53,11 +54,11 @@ export default function Footer() {
                 className="h-7 w-auto"
               />
             </Link>
-            <p className="mt-5 max-w-xs font-inter text-sm leading-relaxed text-charged-light/70">
+            <p className="mt-5 max-w-xs font-inter text-sm leading-relaxed text-text/70">
               We build the brand your business deserves. Websites, software, and
               digital presence for businesses ready to grow.
             </p>
-            <p className="mt-4 font-inter text-sm text-charged-light/50">
+            <p className="mt-4 font-inter text-sm text-text/50">
               Exeter, Devon — working across the UK
             </p>
           </div>
@@ -135,13 +136,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-inter text-xs text-charged-light/50">
+        <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-inter text-xs text-text/50">
             © {year} Charged Studio. All rights reserved.
           </p>
           <Link
             href="/start-a-project"
-            className="font-inter text-xs font-semibold uppercase tracking-widest text-charged-yellow transition-opacity hover:opacity-80"
+            className="font-inter text-xs font-semibold uppercase tracking-widest text-accent transition-opacity hover:opacity-80"
           >
             Start a Project →
           </Link>

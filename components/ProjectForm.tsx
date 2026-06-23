@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Button from "@/components/Button";
+import Field from "@/components/Field";
+import Card from "@/components/Card";
 
 type Kind = "project" | "audit";
-
-const labelClass =
-  "block font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/60";
-const inputClass =
-  "mt-2 w-full rounded-md border border-white/10 bg-white/5 px-4 py-3 font-inter text-base text-charged-light placeholder:text-charged-light/30 outline-none transition-colors focus:border-charged-yellow/70 focus:bg-white/[0.07]";
 
 export default function ProjectForm({ kind = "project" }: { kind?: Kind }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -55,70 +53,53 @@ export default function ProjectForm({ kind = "project" }: { kind?: Kind }) {
 
   if (status === "ok") {
     return (
-      <div className="rounded-lg border border-charged-yellow/30 bg-charged-yellow/5 p-8 text-center">
-        <p className="font-anton text-3xl uppercase text-charged-light">
+      <Card tone="accent" className="text-center">
+        <p className="font-anton text-3xl uppercase text-text">
           Got it — thank you.
         </p>
-        <p className="mt-3 font-inter text-charged-light/70">
+        <p className="mt-3 font-inter text-text/70">
           {kind === "audit"
             ? "We'll review your site and get back to you within 2 working days."
             : "We'll be in touch within 1 working day to talk through your project."}
         </p>
-      </div>
+      </Card>
     );
   }
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
-      <div>
-        <label htmlFor="name" className={labelClass}>
-          Your name
-        </label>
-        <input id="name" name="name" type="text" required autoComplete="name" className={inputClass} />
-      </div>
+      <Field id="name" name="name" label="Your name" required autoComplete="name" />
 
-      <div>
-        <label htmlFor="email" className={labelClass}>
-          Email
-        </label>
-        <input id="email" name="email" type="email" required autoComplete="email" className={inputClass} />
-      </div>
+      <Field id="email" name="email" type="email" label="Email" required autoComplete="email" />
 
       {kind === "audit" ? (
-        <div>
-          <label htmlFor="website" className={labelClass}>
-            Your website address
-          </label>
-          <input
-            id="website"
-            name="website"
-            type="text"
-            required
-            placeholder="yourbusiness.co.uk"
-            className={inputClass}
-          />
-        </div>
+        <Field
+          id="website"
+          name="website"
+          label="Your website address"
+          required
+          placeholder="yourbusiness.co.uk"
+        />
       ) : (
         <>
-          <div>
-            <label htmlFor="business" className={labelClass}>
-              Business name <span className="text-charged-light/30">(optional)</span>
-            </label>
-            <input id="business" name="business" type="text" className={inputClass} />
-          </div>
-          <div>
-            <label htmlFor="message" className={labelClass}>
-              What do you need?
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              required
-              placeholder="A new website, a redesign, help getting found on Google…"
-              className={`${inputClass} resize-y`}
-            />
-          </div>
+          <Field
+            id="business"
+            name="business"
+            label={
+              <>
+                Business name <span className="text-text/30">(optional)</span>
+              </>
+            }
+          />
+          <Field
+            id="message"
+            name="message"
+            label="What do you need?"
+            as="textarea"
+            rows={4}
+            required
+            placeholder="A new website, a redesign, help getting found on Google…"
+          />
         </>
       )}
 
@@ -129,22 +110,18 @@ export default function ProjectForm({ kind = "project" }: { kind?: Kind }) {
       </div>
 
       {status === "error" && (
-        <p role="alert" className="font-inter text-sm text-red-400">
+        <p role="alert" className="font-inter text-sm text-error">
           {error}
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className="w-full bg-white px-8 py-4 font-inter text-sm font-bold uppercase tracking-widest text-charged-black transition-colors hover:bg-neutral-200 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
-      >
+      <Button type="submit" disabled={status === "sending"} className="w-full sm:w-auto">
         {status === "sending"
           ? "Sending…"
           : kind === "audit"
             ? "Get my free audit"
             : "Send enquiry"}
-      </button>
+      </Button>
     </form>
   );
 }

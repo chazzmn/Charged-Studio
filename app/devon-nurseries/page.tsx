@@ -44,21 +44,21 @@ export default function DevonNurseriesPage() {
       {/* Hero */}
       <section className="mx-auto w-full max-w-4xl px-6 pt-32 md:pt-40">
         <Badge>Case Study</Badge>
-        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-charged-light sm:text-5xl lg:text-6xl">
+        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl lg:text-6xl">
           Devon Nurseries
         </h1>
-        <p className="mt-5 max-w-2xl font-inter text-lg leading-relaxed text-charged-light/70">
+        <p className="mt-5 max-w-2xl font-inter text-lg leading-relaxed text-text/70">
           Five childcare sites across Devon, unified under one credible digital
           presence.
         </p>
 
-        <dl className="mt-10 grid grid-cols-1 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
+        <dl className="mt-10 grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-3">
           {META.map((m) => (
             <div key={m.label}>
-              <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-charged-light/50">
+              <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
                 {m.label}
               </dt>
-              <dd className="mt-1 font-inter text-charged-light">{m.value}</dd>
+              <dd className="mt-1 font-inter text-text">{m.value}</dd>
             </div>
           ))}
         </dl>
@@ -66,9 +66,9 @@ export default function DevonNurseriesPage() {
 
       {/* Main image placeholder — swap for a next/image of the real project */}
       <section className="mx-auto w-full max-w-5xl px-6 py-14 md:py-20">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-charged-navy to-charged-black">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-anton text-6xl uppercase text-charged-light/5 sm:text-7xl">
+            <span className="font-anton text-6xl uppercase text-text/5 sm:text-7xl">
               Project Image
             </span>
           </div>
@@ -79,10 +79,10 @@ export default function DevonNurseriesPage() {
       <section className="mx-auto w-full max-w-3xl space-y-12 px-6 pb-8">
         {BLOCKS.map((block) => (
           <div key={block.heading}>
-            <h2 className="font-anton text-2xl uppercase text-charged-light sm:text-3xl">
+            <h2 className="font-anton text-2xl uppercase text-text sm:text-3xl">
               {block.heading}
             </h2>
-            <p className="mt-4 font-inter text-lg leading-relaxed text-charged-light/70">
+            <p className="mt-4 font-inter text-lg leading-relaxed text-text/70">
               {block.body}
             </p>
           </div>
@@ -94,10 +94,10 @@ export default function DevonNurseriesPage() {
         {[0, 1].map((i) => (
           <div
             key={i}
-            className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-charged-navy to-charged-black"
+            className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg"
           >
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-anton text-4xl uppercase text-charged-light/5">
+              <span className="font-anton text-4xl uppercase text-text/5">
                 charged
               </span>
             </div>

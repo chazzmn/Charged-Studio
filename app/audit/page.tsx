@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProjectForm from "@/components/ProjectForm";
+import { BoltMark } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Free Website Audit — Charged Studio",
@@ -27,13 +28,13 @@ export default function AuditPage() {
   return (
     <section className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 pb-24 pt-32 md:pt-40 lg:grid-cols-2 lg:gap-16">
       <div>
-        <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-charged-yellow">
+        <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-accent">
           Free Website Audit
         </p>
-        <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.95] text-charged-light sm:text-5xl">
+        <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl">
           See what&apos;s holding your website back.
         </h1>
-        <p className="mt-5 max-w-xl font-inter text-lg leading-relaxed text-charged-light/70">
+        <p className="mt-5 max-w-xl font-inter text-lg leading-relaxed text-text/70">
           Send us your site and we&apos;ll send back a free, no-obligation
           review — plain English, no jargon, no hard sell. Here&apos;s what we
           look at:
@@ -41,17 +42,15 @@ export default function AuditPage() {
 
         <ul className="mt-8 space-y-4">
           {CHECKS.map((check) => (
-            <li key={check} className="flex gap-3 font-inter text-charged-light/80">
-              <span aria-hidden className="mt-1 text-charged-yellow">
-                ⚡
-              </span>
+            <li key={check} className="flex gap-3 font-inter text-text/80">
+              <BoltMark className="mt-1 h-4 w-4 shrink-0 text-accent" />
               <span>{check}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="rounded-xl border border-white/10 bg-charged-navy/40 p-6 sm:p-8 lg:self-start">
+      <div className="rounded-xl bg-surface/40 shadow-e1 p-6 sm:p-8 lg:self-start">
         <ProjectForm kind="audit" />
       </div>
     </section>

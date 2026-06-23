@@ -15,13 +15,13 @@ const WORK_ITEMS = [
 
 function Tile({ label }: { label: string }) {
   return (
-    <div className="relative aspect-[4/3] w-[260px] shrink-0 overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-charged-navy to-charged-black sm:w-[340px]">
+    <div className="relative aspect-[4/3] w-[260px] shrink-0 overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg sm:w-[340px]">
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="font-anton text-5xl uppercase text-charged-light/5">
+        <span className="font-anton text-5xl uppercase text-text/5">
           charged
         </span>
       </div>
-      <span className="absolute bottom-3 left-3 font-inter text-[10px] font-semibold uppercase tracking-[0.2em] text-charged-light/40">
+      <span className="absolute bottom-3 left-3 font-inter text-[10px] font-semibold uppercase tracking-[0.2em] text-text/40">
         {label}
       </span>
     </div>

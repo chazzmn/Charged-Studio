@@ -1,5 +1,7 @@
 # Brand Guide — Charged Studio
 
+> ⚠️ **Superseded by [`BRAND-SYSTEM.md`](./BRAND-SYSTEM.md) (v1.0, 2026-06-23)** — the consolidated, conflict-free source of truth. This file is kept for history; use `BRAND-SYSTEM.md` for all decisions.
+
 > Source of truth for all visual brand decisions. Every design choice in the site must be rooted here.
 
 ---

@@ -1,0 +1,39 @@
+import type { Metadata } from "next";
+import ProjectForm from "@/components/ProjectForm";
+
+export const metadata: Metadata = {
+  title: "Start a Project — Charged Studio",
+  description:
+    "Tell us about your project and we'll get back to you within one working day. Web design for service businesses across Devon and the South West.",
+  alternates: { canonical: "https://chargedstudio.co.uk/start-a-project" },
+  openGraph: {
+    title: "Start a Project — Charged Studio",
+    description:
+      "Tell us about your project and we'll get back to you within one working day.",
+    url: "https://chargedstudio.co.uk/start-a-project",
+    siteName: "Charged Studio",
+    type: "website",
+  },
+};
+
+export default function StartAProjectPage() {
+  return (
+    <section className="mx-auto w-full max-w-3xl px-6 pb-24 pt-32 md:pt-40">
+      <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-charged-yellow">
+        Start a Project
+      </p>
+      <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.95] text-charged-black sm:text-5xl">
+        Tell us what you need.
+      </h1>
+      <p className="mt-5 max-w-xl font-inter text-lg leading-relaxed text-charged-black/70">
+        A few details is all it takes to get started. We&apos;ll read every word
+        and get back to you within one working day — no call required unless you
+        want one.
+      </p>
+
+      <div className="mt-10 rounded-xl bg-white shadow-e1 p-6 sm:p-8">
+        <ProjectForm kind="project" />
+      </div>
+    </section>
+  );
+}
