@@ -136,3 +136,13 @@ grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
 | `lg` | 1024px | Full desktop layout |
 | `xl` | 1280px | Wider containers |
 | `2xl` | 1536px | Max width caps at 1280px — no layout changes |
+
+---
+
+## Components built (2026-06-23)
+
+Reusable: `Container`, `Badge` (yellow pill), `Nav` (client; fixed, scroll-aware, mobile menu), `Footer`, `ProjectForm` (client; `kind="project"|"audit"`), `LegalLayout`, `PostLayout` (blog post wrapper + BlogPosting JSON-LD), `CTASection`.
+
+Homepage sections: `Hero` (contained browser-mockup reel + placeholder video), `WorkMarquee` (CSS infinite scroll, pauses on hover/reduced-motion), `Services` (Websites featured + Software/SEO/Branding), `ValueProp`, `FeaturedWork` (Devon Nurseries), `Testimonials` (initials avatars), `FAQ` (accordion).
+
+> These are functional skeletons styled with brand tokens — built so the VISUAL design pass (Charlie's) can restyle globally via tokens without touching structure. The current look is deliberately plain; the craft layer (bolt motif, depth, grain, richer motion, real imagery) is the next phase.

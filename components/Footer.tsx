@@ -5,14 +5,14 @@ const STUDIO_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/faq" },
+  { label: "FAQ", href: "/#faq" },
   { label: "Free Audit", href: "/audit" },
 ];
 
 const WORK_LINKS = [
   { label: "Devon Nurseries", href: "/devon-nurseries" },
-  { label: "CHAZZMN", href: "/chazzmn" },
-  { label: "The Unaffiliated", href: "/the-unaffiliated" },
+  // CHAZZMN — deferred until its rebuild is live.
+  // The Unaffiliated — removed (past client).
 ];
 
 const LEGAL_LINKS = [

@@ -9,6 +9,12 @@
 - `[~]` In progress / sourcing
 - `[x]` Done — file saved to `/public/`
 
+## Current state (2026-06-23)
+- The site is BUILT with tasteful placeholder tiles/divs sized to final dimensions — so dropping real images in won't shift layout. All section images are placeholders; the logo SVGs are real and in use.
+- Brand logo SVGs already in `/public/`: `logo.svg`, `logo-dark.svg`, `logo-c.svg`, `favicon.svg`. Caramel font self-hosted at `/public/fonts/Caramel-Regular.woff2`.
+- **Case study decisions:** Devon Nurseries = flagship (build properly with real shots). CHAZZMN = deferred until its rebuild is live. The Unaffiliated = dropped (lost client) — removed from the site.
+- **Priority real assets to pull from the live Framer site (framerusercontent.com):** homepage work-marquee shots, Devon Nurseries hero + gallery, testimonial headshots (currently initials avatars), Charlie's about photo, a hero showreel video (`/public/videos/hero-reel.mp4` + poster `/public/images/hero-poster.jpg`), and a real `/public/og-image.jpg`.
+
 ---
 
 ## Brand Assets

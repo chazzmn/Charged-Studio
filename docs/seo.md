@@ -8,12 +8,18 @@
 
 - [x] Google Search Console account created — active, linked to Framer site
 - [x] Site verified — re-verify when domain points to Vercel (re-submit sitemap after go-live)
-- [ ] Google Analytics 4 property created — Measurement ID added to `.env.local`
-- [ ] `next-sitemap` installed and configured — generates `/sitemap.xml` and `/robots.txt` on build
-- [ ] OG image created and set as default
-- [ ] Structured data (JSON-LD) added to homepage
-- [ ] Canonical tags on every page
-- [ ] All images have `alt` text
+- [ ] Google Analytics 4 property created — Measurement ID added to `.env.local` (NOT done — GA4 script not yet in layout)
+- [~] `next-sitemap` — installed, NOT yet configured. Needs `next-sitemap.config.js` + a postbuild script to generate `/sitemap.xml` and `/robots.txt`
+- [ ] OG image created and set as default (currently references `/og-image.jpg` which doesn't exist yet)
+- [~] Structured data (JSON-LD) — DONE on blog posts (BlogPosting via `components/PostLayout.tsx`). Homepage Organization schema still TODO
+- [x] Canonical tags on every page — self-referencing via metadata `alternates.canonical`
+- [~] All images have `alt` text — logo done; section images are placeholders until real assets
+
+### Blog & content (built)
+- `/blog` index + 5 posts live. Source of truth: `app/blog/posts.ts`; shared `components/PostLayout.tsx` adds BlogPosting JSON-LD. Add a post = entry in posts.ts + `app/blog/<slug>/page.tsx`.
+- Posts: what-is-aeo, website-speed, how-much-does-a-website-cost-uk, how-to-get-found-on-google, signs-you-need-a-website-redesign. SEO-targeted + cross-linked + linking to /audit & /start-a-project.
+- **Blog is footer-only, NOT in the nav** (by design): footer = sitewide crawlable internal link for SEO; nav stays conversion-focused. Discoverability comes from footer link + sitemap, so this is fine.
+- AEO note: consider an `llms.txt` later. FAQ content on homepage helps featured snippets/AEO.
 
 ---
 

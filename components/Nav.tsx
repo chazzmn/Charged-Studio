@@ -6,10 +6,11 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 /** Primary nav links. Edit here to add/remove top-level destinations. */
+// Blog is intentionally NOT in the nav — it lives in the footer for SEO
+// (crawlable + sitewide internal link) while the nav stays conversion-focused.
 const NAV_LINKS = [
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/faq" },
+  { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
