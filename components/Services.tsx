@@ -1,0 +1,153 @@
+"use client";
+
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import Badge from "@/components/Badge";
+
+type Service = {
+  label: string;
+  title: string;
+  description: string;
+  features: string[];
+  featured?: boolean;
+};
+
+/** Websites lead. Software & SEO are the growth services. Branding supports. */
+const SERVICES: Service[] = [
+  {
+    label: "Websites",
+    title: "A website that brings in customers.",
+    description:
+      "Your website is your hardest-working salesperson. We build fast, modern sites that turn local searches into booked jobs and enquiries — fully managed, so you never have to touch a thing.",
+    features: [
+      "Custom design built around your business",
+      "Fast, mobile-first, built to convert",
+      "Hosting, domain & SSL all handled",
+      "Ongoing updates & maintenance",
+    ],
+    featured: true,
+  },
+  {
+    label: "Software & Apps",
+    title: "Tools that run your business better.",
+    description:
+      "Booking systems, customer portals, internal tools — bespoke software that removes the busywork and helps you operate smarter as you grow.",
+    features: [
+      "Booking & enquiry systems",
+      "Customer portals & dashboards",
+      "Workflow & automation tools",
+    ],
+  },
+  {
+    label: "SEO & Digital Presence",
+    title: "Get found by local customers.",
+    description:
+      "Being the best in town means nothing if nobody can find you. We get you ranking for the searches that matter across Devon and the South West.",
+    features: [
+      "Local SEO for Exeter & Devon",
+      "Google Business Profile setup",
+      "Speed & Core Web Vitals",
+      "Content built to rank",
+    ],
+  },
+  {
+    label: "Branding & Creative",
+    title: "Look the part, everywhere.",
+    description:
+      "A sharp, consistent brand that earns trust at a glance — identity and assets that keep you looking professional across every channel.",
+    features: [
+      "Logo & visual identity",
+      "Brand guidelines",
+      "Social & marketing assets",
+    ],
+  },
+];
+
+function Feature({ children }: { children: string }) {
+  return (
+    <li className="flex gap-3 font-inter text-sm text-charged-light/70">
+      <span aria-hidden className="mt-0.5 text-charged-yellow">
+        ⚡
+      </span>
+      <span>{children}</span>
+    </li>
+  );
+}
+
+export default function Services() {
+  const reduceMotion = useReducedMotion();
+
+  const container: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.1 } },
+  };
+  const item: Variants = {
+    hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const cardClass =
+    "rounded-xl border border-white/10 bg-charged-navy/40 p-8 transition-colors hover:border-white/20";
+
+  return (
+    <section id="services" className="mx-auto w-full max-w-7xl px-6 py-24 md:py-32">
+      <motion.div
+        initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+        className="max-w-2xl"
+      >
+        <Badge>What we do</Badge>
+        <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-charged-light sm:text-4xl lg:text-5xl">
+          Everything your business needs to grow online.
+        </h2>
+        <p className="mt-5 font-inter text-lg leading-relaxed text-charged-light/70">
+          Websites first — plus the software, visibility, and brand to back them
+          up. Most clients stay on monthly, so we look after the lot and you stay
+          focused on running your business.
+        </p>
+      </motion.div>
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3"
+      >
+        {SERVICES.map((service) => (
+          <motion.article
+            key={service.label}
+            variants={item}
+            className={`${cardClass} ${
+              service.featured ? "md:col-span-3 md:flex md:gap-10" : ""
+            }`}
+          >
+            <div className={service.featured ? "md:w-1/2" : ""}>
+              <Badge>{service.label}</Badge>
+              <h3 className="mt-5 font-inter text-2xl font-bold text-charged-light">
+                {service.title}
+              </h3>
+              <p className="mt-3 font-inter text-base leading-relaxed text-charged-light/70">
+                {service.description}
+              </p>
+            </div>
+            <ul
+              className={`mt-6 space-y-3 ${
+                service.featured ? "md:mt-0 md:w-1/2 md:self-center" : ""
+              }`}
+            >
+              {service.features.map((f) => (
+                <Feature key={f}>{f}</Feature>
+              ))}
+            </ul>
+          </motion.article>
+        ))}
+      </motion.div>
+    </section>
+  );
+}

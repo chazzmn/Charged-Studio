@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Anton, Inter_Tight } from "next/font/google";
+import localFont from "next/font/local";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const anton = Anton({
@@ -12,6 +15,14 @@ const anton = Anton({
 const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-inter-tight",
+  display: "swap",
+});
+
+const caramel = localFont({
+  src: "../public/fonts/Caramel-Regular.woff2",
+  weight: "400",
+  style: "normal",
+  variable: "--font-caramel",
   display: "swap",
 });
 
@@ -36,9 +47,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${anton.variable} ${interTight.variable}`}>
-      <body className="bg-charged-black text-charged-light font-inter antialiased min-h-full flex flex-col">
-        {children}
+    <html
+      lang="en"
+      className={`${anton.variable} ${interTight.variable} ${caramel.variable}`}
+    >
+      <body className="flex min-h-screen flex-col bg-charged-black font-inter text-charged-light antialiased">
+        {/* Nav is fixed + transparent over the top of each page's hero.
+            Pages without a full-bleed hero should add their own top spacing. */}
+        <Nav />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
