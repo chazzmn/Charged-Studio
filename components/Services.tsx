@@ -1,104 +1,82 @@
 "use client";
 
-import Link from "next/link";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import Badge from "@/components/Badge";
-import { BoltMark } from "@/components/icons";
+import Button from "@/components/Button";
+import { Chevron, BoltMark } from "@/components/icons";
+import { SERVICES } from "@/app/services/services-data";
 
-type Service = {
-  slug: string;
-  label: string;
-  title: string;
-  description: string;
-  features: string[];
-  featured?: boolean;
+/**
+ * Homepage Services — "pinned scroll" pattern.
+ * Each service row: the title + CTA stick on the left (lg+) while the visual
+ * and an accordion of detail points scroll past on the right. Collapses to a
+ * single-column, touch-friendly stack on mobile (sticky disabled, native
+ * <details> accordions). Content comes from app/services/services-data.ts.
+ */
+
+// Real work shots where they land; brand panels for the abstract services.
+const VISUALS: Record<string, { src: string; alt: string } | null> = {
+  websites: {
+    src: "/images/work/dn-home.jpg",
+    alt: "The Devon Nurseries website homepage we designed and built",
+  },
+  branding: {
+    src: "/images/work/chazzmn.jpg",
+    alt: "Branding work for the CHAZZMN clothing label",
+  },
+  software: null,
+  seo: null,
 };
 
-/** Websites lead. Software & SEO are the growth services. Branding supports. */
-const SERVICES: Service[] = [
-  {
-    slug: "websites",
-    label: "Websites",
-    title: "A website that brings in customers.",
-    description:
-      "Your website is your hardest-working salesperson. We build fast, modern sites that turn local searches into booked jobs and enquiries — fully managed, so you never have to touch a thing.",
-    features: [
-      "Custom design built around your business",
-      "Fast, mobile-first, built to convert",
-      "Hosting, domain & SSL all handled",
-      "Ongoing updates & maintenance",
-    ],
-    featured: true,
-  },
-  {
-    slug: "software",
-    label: "Software & Apps",
-    title: "Tools that run your business better.",
-    description:
-      "Booking systems, customer portals, internal tools — bespoke software that removes the busywork and helps you operate smarter as you grow.",
-    features: [
-      "Booking & enquiry systems",
-      "Customer portals & dashboards",
-      "Workflow & automation tools",
-    ],
-  },
-  {
-    slug: "seo",
-    label: "SEO & Digital Presence",
-    title: "Get found by local customers.",
-    description:
-      "Being the best in town means nothing if nobody can find you. We get you ranking for the searches that matter across Devon and the South West.",
-    features: [
-      "Local SEO for Exeter & Devon",
-      "Google Business Profile setup",
-      "Speed & Core Web Vitals",
-      "Content built to rank",
-    ],
-  },
-  {
-    slug: "branding",
-    label: "Branding & Creative",
-    title: "Look the part, everywhere.",
-    description:
-      "A sharp, consistent brand that earns trust at a glance — identity and assets that keep you looking professional across every channel.",
-    features: [
-      "Logo & visual identity",
-      "Brand guidelines",
-      "Social & marketing assets",
-    ],
-  },
-];
-
-function Feature({ children }: { children: string }) {
+function Visual({ slug, index }: { slug: string; index: number }) {
+  const v = VISUALS[slug];
+  if (v) {
+    return (
+      <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-surface">
+        <Image
+          src={v.src}
+          alt={v.alt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover object-top"
+        />
+      </div>
+    );
+  }
+  // Brand panel for abstract services.
   return (
-    <li className="flex gap-3 font-inter text-sm text-text/70">
-      <BoltMark className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-      <span>{children}</span>
-    </li>
+    <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
+      <span className="pointer-events-none absolute -right-4 -top-10 font-anton text-[12rem] leading-none text-accent/10">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <BoltMark className="absolute bottom-6 left-6 h-12 w-12 text-accent/80" />
+    </div>
+  );
+}
+
+function AccordionItem({ title, body }: { title: string; body: string }) {
+  return (
+    <details className="group border-b border-border last:border-b-0">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
+        <span className="font-inter text-base font-semibold text-text">
+          {title}
+        </span>
+        <Chevron className="h-5 w-5 shrink-0 text-accent transition-transform duration-base ease-out group-open:rotate-180" />
+      </summary>
+      <p className="pb-5 font-inter text-sm leading-relaxed text-text/70">
+        {body}
+      </p>
+    </details>
   );
 }
 
 export default function Services() {
   const reduceMotion = useReducedMotion();
 
-  const container: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.1 } },
-  };
-  const item: Variants = {
-    hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
-  const cardClass =
-    "rounded-xl bg-surface/40 shadow-e1 p-8 transition-colors hover:border-border";
-
   return (
     <section id="services" className="mx-auto w-full max-w-7xl px-6 py-24 md:py-32">
+      {/* Section intro */}
       <motion.div
         initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -117,48 +95,53 @@ export default function Services() {
         </p>
       </motion.div>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3"
-      >
-        {SERVICES.map((service) => (
-          <motion.article
-            key={service.label}
-            variants={item}
-            className={`${cardClass} ${
-              service.featured ? "md:col-span-3 md:flex md:gap-10" : ""
-            }`}
+      {/* Service rows */}
+      <div className="mt-16 md:mt-20">
+        {SERVICES.map((service, i) => (
+          <motion.div
+            key={service.slug}
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="grid grid-cols-1 gap-8 border-t border-border py-12 lg:grid-cols-2 lg:gap-16 lg:py-20"
           >
-            <div className={service.featured ? "md:w-1/2" : ""}>
-              <Badge>{service.label}</Badge>
-              <h3 className="mt-5 font-inter text-2xl font-bold text-text">
-                {service.title}
+            {/* Left — sticks on lg+ */}
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <div className="flex items-center gap-4">
+                <span className="font-anton text-2xl text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <Badge>{service.eyebrow}</Badge>
+              </div>
+              <h3 className="mt-5 font-anton text-3xl uppercase leading-[0.95] text-text sm:text-4xl">
+                {service.h1}
               </h3>
-              <p className="mt-3 font-inter text-base leading-relaxed text-text/70">
-                {service.description}
+              <p className="mt-5 font-inter text-base leading-relaxed text-text/70">
+                {service.intro}
               </p>
-              <Link
+              <Button
                 href={`/services/${service.slug}`}
-                className="mt-5 inline-block font-inter text-sm font-semibold text-text transition-colors hover:text-accent"
+                variant="secondary"
+                size="sm"
+                className="mt-7"
               >
-                Explore {service.label} →
-              </Link>
+                Explore {service.name} →
+              </Button>
             </div>
-            <ul
-              className={`mt-6 space-y-3 ${
-                service.featured ? "md:mt-0 md:w-1/2 md:self-center" : ""
-              }`}
-            >
-              {service.features.map((f) => (
-                <Feature key={f}>{f}</Feature>
-              ))}
-            </ul>
-          </motion.article>
+
+            {/* Right — visual + accordion */}
+            <div>
+              <Visual slug={service.slug} index={i} />
+              <div className="mt-6">
+                {service.features.map((f) => (
+                  <AccordionItem key={f.title} title={f.title} body={f.body} />
+                ))}
+              </div>
+            </div>
+          </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
