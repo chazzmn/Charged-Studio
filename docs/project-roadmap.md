@@ -59,7 +59,7 @@ These are the agreed next jobs. Do these, then push (Charlie said "we're very cl
 | Confirm typography (Anton / Inter Tight / Caramel) | Charlie | ✅ Done |
 | Google Search Console active + verified | Charlie | ✅ Done |
 | Export logo SVG (light + dark) | Charlie | ⬜ |
-| Export favicon | Charlie/Claude | ✅ **DONE 2026-06-24** — branded favicon from the c-mark: `app/icon.svg` (dark squircle + yellow "c"), `app/apple-icon.png` (180, iOS), regenerated `app/favicon.ico` (16/32/48/64). Auto-wired by Next App Router; replaced the default Next favicon. (Charlie's uploaded logo-dark.svg = identical to repo's, no logo change.) |
+| Export favicon | Charlie/Claude | ✅ **DONE 2026-06-24** — branded favicon from the c-mark: `app/icon.svg` (yellow "c", **transparent bg** per Charlie), `app/apple-icon.png` (180, iOS), regenerated `app/favicon.ico` (16/32/48/64). Note: yellow-on-transparent is a touch low-contrast on white browser tabs (acceptable; swap to dark-squircle bg if it ever bothers). Auto-wired by Next App Router; replaced the default Next favicon. (Charlie's uploaded logo-dark.svg = identical to repo's, no logo change.) |
 | Download all site images from Framer CDN | Charlie | ⬜ |
 | Download all testimonial headshots | Charlie | ⬜ |
 | Download Charlie's about photo | Charlie | ⬜ |
