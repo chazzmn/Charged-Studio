@@ -3,12 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Button from "@/components/Button";
 
-/** Primary nav links. Edit here to add/remove top-level destinations. */
-// Blog is intentionally NOT in the nav — it lives in the footer for SEO
-// (crawlable + sitewide internal link) while the nav stays conversion-focused.
+/** Primary nav links. Blog is intentionally footer-only (SEO, not nav). */
 const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
@@ -21,7 +18,6 @@ const CTA = { label: "Start a Project", href: "/start-a-project" } as const;
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const reduceMotion = useReducedMotion();
 
   // Transparent at the top, solid once the user scrolls.
   useEffect(() => {
@@ -93,72 +89,51 @@ export default function Nav() {
           onClick={() => setOpen((v) => !v)}
           className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
         >
-          <span
-            className={`h-0.5 w-6 bg-text transition-transform duration-300 ${
-              open ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-text transition-opacity duration-300 ${
-              open ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-text transition-transform duration-300 ${
-              open ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
+          <span className={`h-0.5 w-6 bg-text transition-transform duration-300 ${open ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`h-0.5 w-6 bg-text transition-opacity duration-300 ${open ? "opacity-0" : "opacity-100"}`} />
+          <span className={`h-0.5 w-6 bg-text transition-transform duration-300 ${open ? "-translate-y-2 -rotate-45" : ""}`} />
         </button>
       </nav>
 
-      {/* Mobile menu — full-screen opaque overlay (no background clash) */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            key="mobile-menu"
-            initial={reduceMotion ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed inset-0 z-40 bg-bg md:hidden"
-          >
-            <div className="flex h-full flex-col px-6 pb-10 pt-24">
-              <ul className="flex flex-col gap-1">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className="block py-3 font-anton text-3xl uppercase text-text transition-colors hover:text-accent"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto">
-                <Button
-                  href={CTA.href}
+      {/* Mobile menu — full-screen opaque overlay, CSS fade (no animation lib) */}
+      <div
+        aria-hidden={!open}
+        className={`fixed inset-0 z-40 bg-bg transition-opacity duration-200 ease-out md:hidden motion-reduce:transition-none ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <div className="flex h-full flex-col px-6 pb-10 pt-24">
+          <ul className="flex flex-col gap-1">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
                   onClick={() => setOpen(false)}
-                  className="w-full"
+                  tabIndex={open ? 0 : -1}
+                  className="block py-3 font-anton text-3xl uppercase text-text transition-colors hover:text-accent"
                 >
-                  {CTA.label}
-                </Button>
-                <div className="mt-6 font-inter text-sm text-text/60">
-                  <a
-                    href="mailto:hello@chargedstudio.co.uk"
-                    className="block transition-colors hover:text-accent"
-                  >
-                    hello@chargedstudio.co.uk
-                  </a>
-                  <span className="mt-1 block">Exeter, Devon — South West UK</span>
-                </div>
-              </div>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto">
+            <Button href={CTA.href} onClick={() => setOpen(false)} className="w-full">
+              {CTA.label}
+            </Button>
+            <div className="mt-6 font-inter text-sm text-text/60">
+              <a
+                href="mailto:hello@chargedstudio.co.uk"
+                className="block transition-colors hover:text-accent"
+              >
+                hello@chargedstudio.co.uk
+              </a>
+              <span className="mt-1 block">Exeter, Devon — South West UK</span>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

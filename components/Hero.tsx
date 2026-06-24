@@ -1,93 +1,42 @@
-"use client";
-
-import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Button from "@/components/Button";
 import HeroMockup from "@/components/HeroMockup";
 
-/**
- * Homepage hero — contained mockup reel.
- *
- * The browser frame holds a looping showreel video. The real file is a
- * placeholder for now: drop an optimised loop at
- *   /public/videos/hero-reel.mp4  (H.264) and optionally hero-reel.webm
- *   /public/images/hero-poster.jpg (first frame, used as the LCP poster)
- * and it renders with no layout change. Until then the frame shows a
- * styled placeholder so dev never looks broken.
- */
+/** Homepage hero — copy on the left, a looping coded browser mockup on the right.
+ *  Rendered statically (no scroll-reveal) so the above-fold content paints
+ *  immediately — best for LCP and perceived mobile load. */
 export default function Hero() {
-  const reduceMotion = useReducedMotion();
-
-  const container: Variants = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: 0.12, delayChildren: 0.05 },
-    },
-  };
-  const item: Variants = {
-    hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   return (
     <section className="relative overflow-hidden">
       {/* Decorative glow — electric energy without an image dependency */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-accent/10 blur-[140px]" />
       </div>
 
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 px-6 pb-20 pt-32 md:pt-40 lg:grid-cols-2 lg:gap-16 lg:pb-28">
         {/* Copy */}
-        <motion.div variants={container} initial="hidden" animate="show">
-          <motion.p
-            variants={item}
-            className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-accent"
-          >
-            Web Design Studio · Exeter & the South West
-          </motion.p>
-
-          <motion.h1
-            variants={item}
-            className="mt-5 font-anton text-5xl uppercase leading-[0.95] text-text sm:text-6xl lg:text-7xl"
-          >
+        <div>
+          <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            Web Design Studio · Exeter &amp; the South West
+          </p>
+          <h1 className="mt-5 font-anton text-5xl uppercase leading-[0.95] text-text sm:text-6xl lg:text-7xl">
             We build the website
             <br />
-            your business{" "}
-            <span className="text-accent">deserves.</span>
-          </motion.h1>
-
-          <motion.p
-            variants={item}
-            className="mt-6 max-w-md font-inter text-lg leading-relaxed text-text/70"
-          >
-            Fast, modern websites that turn local searchers into customers —
-            for service businesses across Devon and the South West.
-          </motion.p>
-
-          <motion.div
-            variants={item}
-            className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
-          >
+            your business <span className="text-accent">deserves.</span>
+          </h1>
+          <p className="mt-6 max-w-md font-inter text-lg leading-relaxed text-text/70">
+            Fast, modern websites that turn local searchers into customers — for
+            service businesses across Devon and the South West.
+          </p>
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Button href="/start-a-project">Start a Project</Button>
             <Button href="/audit" variant="secondary">
               Free Website Audit
             </Button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Mockup reel */}
-        <motion.div
-          initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="relative"
-        >
+        <div className="relative">
           {/* Glow behind the frame */}
           <div
             aria-hidden
@@ -106,12 +55,12 @@ export default function Hero() {
             </div>
 
             {/* Media — fixed 16:10 so the layout never shifts.
-                Loops from "Coming soon" to a Charged-style site building in. */}
+                Loops from "Coming soon" through what we do. */}
             <div className="relative aspect-[16/10] bg-gradient-to-br from-surface via-surface to-bg">
               <HeroMockup />
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

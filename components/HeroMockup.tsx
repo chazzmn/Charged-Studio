@@ -1,10 +1,7 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
-  gContainer,
-  gBlock,
   WebsiteGraphic,
   SearchGraphic,
   SoftwareGraphic,
@@ -13,78 +10,65 @@ import {
 
 /**
  * HeroMockup — the looping content inside the hero's browser frame.
- * Tells the Charged story in five coded scenes:
- *   0 "Coming soon" → 1 Website builds in → 2 SEO / ranking →
- *   3 Software / dashboard → 4 Branding → (loop). Elements stagger in per scene.
- * Pure code, no asset. Reduced-motion holds the Website scene statically.
+ * Five coded scenes: Coming soon → Website → SEO/ranking → Software → Branding.
+ * Scene crossfade + per-element build-in are pure CSS (opacity + .reveal-stagger);
+ * only a small phase timer is JS. Reduced-motion holds the Website scene.
  */
 
 const SCENE_MS = 2800;
 const SCENES = 5;
 
 export default function HeroMockup() {
-  const reduceMotion = useReducedMotion();
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
-    if (reduceMotion) {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
       setPhase(1);
       return;
     }
     const id = setInterval(() => setPhase((p) => (p + 1) % SCENES), SCENE_MS);
     return () => clearInterval(id);
-  }, [reduceMotion]);
+  }, []);
 
-  function Scene({ active, children }: { active: boolean; children: ReactNode }) {
-    return (
-      <motion.div
-        aria-hidden
-        variants={gContainer}
-        initial="hidden"
-        animate={active ? "show" : "hidden"}
-        className="absolute inset-0"
-      >
-        {children}
-      </motion.div>
-    );
-  }
+  const scene = (i: number) =>
+    `absolute inset-0 transition-opacity duration-500 ease-out motion-reduce:transition-none ${
+      phase === i ? "opacity-100" : "opacity-0 pointer-events-none"
+    }`;
 
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0" aria-hidden>
       {/* 0 — Coming soon */}
-      <Scene active={phase === 0}>
-        <div className="flex h-full w-full flex-col items-center justify-center gap-3">
-          <motion.span variants={gBlock} className="font-caramel text-7xl text-text/10 sm:text-8xl">
-            charged
-          </motion.span>
-          <motion.span
-            variants={gBlock}
-            className="font-inter text-[10px] font-semibold uppercase tracking-[0.25em] text-text/30"
-          >
+      <div className={scene(0)}>
+        <div
+          className={`reveal-stagger${phase === 0 ? " in" : ""} flex h-full w-full flex-col items-center justify-center gap-3`}
+        >
+          <span className="font-caramel text-7xl text-text/10 sm:text-8xl">charged</span>
+          <span className="font-inter text-[10px] font-semibold uppercase tracking-[0.25em] text-text/30">
             Coming soon
-          </motion.span>
+          </span>
         </div>
-      </Scene>
+      </div>
 
       {/* 1 — Website */}
-      <Scene active={phase === 1}>
-        <WebsiteGraphic />
-      </Scene>
+      <div className={scene(1)}>
+        <WebsiteGraphic show={phase === 1} />
+      </div>
 
       {/* 2 — SEO / ranking */}
-      <Scene active={phase === 2}>
-        <SearchGraphic />
-      </Scene>
+      <div className={scene(2)}>
+        <SearchGraphic show={phase === 2} />
+      </div>
 
       {/* 3 — Software / dashboard */}
-      <Scene active={phase === 3}>
-        <SoftwareGraphic />
-      </Scene>
+      <div className={scene(3)}>
+        <SoftwareGraphic show={phase === 3} />
+      </div>
 
       {/* 4 — Branding */}
-      <Scene active={phase === 4}>
-        <BrandingGraphic />
-      </Scene>
+      <div className={scene(4)}>
+        <BrandingGraphic show={phase === 4} />
+      </div>
     </div>
   );
 }

@@ -1,24 +1,14 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
 import Badge from "@/components/Badge";
+import Reveal from "@/components/Reveal";
 
 const RESULTS = ["5 sites unified", "More enquiries", "Stronger brand"];
 
 export default function FeaturedWork() {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section id="work" className="mx-auto w-full max-w-7xl px-6 py-24 md:py-32">
-      <motion.div
-        initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
-      >
+      <Reveal className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Real project shot — Devon Nurseries homepage mockup */}
         <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-surface">
           <Image
@@ -61,7 +51,7 @@ export default function FeaturedWork() {
             View the case study →
           </Link>
         </div>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

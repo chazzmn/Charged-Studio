@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Badge from "@/components/Badge";
 import { HOME_FAQS as FAQS } from "@/app/faq-data";
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
-  const reduceMotion = useReducedMotion();
 
   return (
     <section id="faq" className="mx-auto w-full max-w-3xl px-6 py-24 md:py-32">
@@ -18,7 +16,7 @@ export default function FAQ() {
         </h2>
       </div>
 
-      <div className="mt-12 divide-y divide-charged-black/10 border-y border-border">
+      <div className="mt-12 divide-y divide-border border-y border-border">
         {FAQS.map((item, i) => {
           const isOpen = open === i;
           return (
@@ -42,21 +40,18 @@ export default function FAQ() {
                 </span>
               </button>
 
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    initial={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                    animate={reduceMotion ? { opacity: 1 } : { height: "auto", opacity: 1 }}
-                    exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <p className="pb-5 font-inter text-base leading-relaxed text-text/70">
-                      {item.a}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {/* CSS height animation via grid-template-rows (no JS animation lib) */}
+              <div
+                className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+                  isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="pb-5 font-inter text-base leading-relaxed text-text/70">
+                    {item.a}
+                  </p>
+                </div>
+              </div>
             </div>
           );
         })}

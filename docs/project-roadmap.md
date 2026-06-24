@@ -139,7 +139,7 @@ Distilled from Charlie's design notes. Gated by the direction lock (light theme 
 | Task | Status |
 |---|---|
 | Mobile responsiveness — every page, every breakpoint | ⬜ |
-| Animations — all sections have entrance animations | 🟡 Framer Motion entrances on built sections (reduced-motion safe). Revisit during design pass |
+| Animations — all sections have entrance animations | ✅ **2026-06-24 — framer-motion REMOVED for mobile perf.** All entrances now pure CSS via `components/Reveal.tsx` (tiny IntersectionObserver + `.reveal`/`.reveal-stagger` classes in globals.css), FAQ accordion = CSS grid-rows, Nav menu = CSS opacity, hero loop = CSS crossfade + `.reveal-stagger`. Removed the framer dependency from the client bundle entirely (was the heaviest JS); **Hero, Services and FeaturedWork are now server components** (no hydration). Hero renders statically (no reveal) so above-fold paints immediately (LCP). framer-motion still in package.json but unused — safe to `npm uninstall framer-motion` later. Reduced-motion safe throughout. |
 | Contact form — connected to Resend / email delivery tested | ✅ **DONE 2026-06-24** — Resend domain verified, forms send + deliver correctly (contact, audit, and the new project wizard all post to /api/contact → Resend). |
 | `sitemap.xml` | ✅ **DONE 2026-06-24** — native `app/sitemap.ts` (generated from services + blog data, never drifts). **Switched away from `next-sitemap`** (no postbuild needed; dep now unused, safe to remove later). |
 | `robots.txt` | ✅ **DONE 2026-06-24** — native `app/robots.ts`: allow all **including AI/answer-engine crawlers** (GPTBot/ClaudeBot/PerplexityBot/Google-Extended) for AEO; references sitemap + host. |
