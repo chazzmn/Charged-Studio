@@ -4,11 +4,13 @@
 
 ---
 
-## Current State (last updated 2026-06-23)
+## Current State (last updated 2026-06-24) — ⚡ BUILD COMPLETE, LAUNCH-READY
 
-**Build:** Next.js 16 + React 19 + Tailwind v4. All core pages + homepage skeleton built and type-checking clean. Deployed to Vercel; pushing to `main` auto-deploys.
+**TL;DR for a fresh session:** The website build is **done**. It scores a **perfect 100/100/100/100 on PageSpeed Insights (mobile + desktop)**. Everything in the "NEXT SESSION" list below is complete. The ONLY remaining work is the **go-live sequence** (domain/DNS → Search Console → confirm GA4 → cancel Framer) — see Phase 5. Live test URL: `https://charged-studio.vercel.app/`.
 
-**Done:** Scaffold, brand tokens, all 3 fonts (Caramel self-hosted), Nav/Footer/Container, full homepage (Hero, WorkMarquee, Services, ValueProp, FeaturedWork, Testimonials, FAQ, CTA), pages (`/about`, `/contact`, `/start-a-project`, `/audit`, `/devon-nurseries`, `/blog` + 5 posts, `/privacy`, `/terms-of-service`), and a working lead-capture form (`/api/contact` → Resend/Formspree).
+**Build:** Next.js 16 + React 19 + Tailwind v4. All pages built, type-checking clean, deployed to Vercel (auto-deploys on push to `main`). **No framer-motion** (removed for perf — animations are pure CSS via `components/Reveal.tsx`); Hero/Services/FeaturedWork are server components. Fonts: Anton + Inter Tight (Caramel dropped).
+
+**Done (everything):** Scaffold, brand tokens, fonts, Nav/Footer/Container, full homepage (Hero with looping 5-scene coded mockup, WorkMarquee, **WhyCharged** trust section, Services pinned-scroll + coded graphics, ValueProp, FeaturedWork, Testimonials, FAQ, CTA), pages (`/about` studio+founder, `/contact`, `/start-a-project` **multi-step wizard**, `/audit` full request form, `/services` hub + 4 `/services/[slug]`, `/devon-nurseries` w/ real image, `/blog` + 5 posts, `/privacy` + `/terms-of-service` restyled, branded `not-found`), lead capture (`/api/contact` → Resend, **verified + tested**), favicon (yellow-c, transparent), OG image, SEO/AEO (sitemap, robots, Organization/WebSite/FAQPage JSON-LD, llms.txt), GA4 behind cookie consent. See the per-item detail in the sections below.
 
 **Confirmed decisions:** Reposition to websites-led (software/SEO added, branding demoted). Site's job = lead gen. ICP = local Devon/SW service businesses. Primary CTA = project form; Free Audit secondary; Book-a-call tertiary. Blog = footer-only (SEO), not nav. Case studies: Devon Nurseries = flagship; CHAZZMN deferred; The Unaffiliated dropped.
 
@@ -16,9 +18,17 @@
 
 **AI chat bot (2026-06-23 — NEW):** Simple floating chat button, bottom-right, answers general visitor questions. Charlie has existing working code (currently live on chargedstudio.co.uk) to reuse. Scoped as a port/reuse, not a new build.
 
-**Next up:** Direction lock (light theme + hero) → **Phase 3.5 design pass & IA v2** (apply light theme, remove emojis, hero video, scrolling reviews, per-service pages, contact redesign, about-process, AI bot) → SEO/technical wiring (sitemap + robots, Organization JSON-LD, GA4, OG image) → go-live (domain/DNS, verify Resend, cancel Framer).
+**Next up — GO LIVE only (Phase 5).** The build is finished. Remaining steps (all need Charlie / DNS access):
+1. Add `chargedstudio.co.uk` to the Vercel project → get the DNS records (A record / nameservers).
+2. Update DNS at the registrar → point to Vercel → wait for propagation → confirm SSL.
+3. Test all pages on the live domain.
+4. Verify Google Search Console on the live domain → submit `sitemap.xml` → request indexing on key pages.
+5. Confirm GA4 (`G-9P8NYQN0KQ`) is receiving data (after accepting the cookie banner).
+6. Cancel the Framer subscription.
 
-**Pending on Charlie:** visual design (post-course); supply real images (pull from Framer). ~~verify domain in Resend~~ ✅ done. ~~legally review Privacy/Terms~~ ✅ done.
+**Optional / nice-to-have (not blockers):** AI-backed chatbot upgrade (`/api/chat` + LLM key) — current bot is scripted & good; `app/error.tsx` runtime error boundary; tidy leftover files in `public/content` + `public/Imagary`; Charlie's About-page notes; real photos in the Services rows (currently coded graphics, which are the intended look).
+
+**Pending on Charlie (non-blocking):** any final visual design tweaks; optional real imagery.
 
 **Confirmed by Charlie 2026-06-24:** Resend domain verified + forms tested working; Privacy/Terms legally reviewed; Google Search Console set up (will be **connected at go-live**, not before).
 
