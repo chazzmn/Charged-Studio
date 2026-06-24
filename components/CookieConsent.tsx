@@ -75,7 +75,7 @@ export default function CookieConsent() {
           <p className="font-inter text-sm leading-relaxed text-text/80">
             We use a few cookies to understand how the site is used and make it
             better. Nothing creepy. See our{" "}
-            <Link href="/privacy" className="text-accent underline-offset-2 hover:underline">
+            <Link href="/privacy" className="text-accent underline underline-offset-2">
               privacy policy
             </Link>
             .

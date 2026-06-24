@@ -49,7 +49,7 @@ export default function Hero() {
               <span className="h-3 w-3 rounded-full bg-text/20" />
               <span className="h-3 w-3 rounded-full bg-text/20" />
               <span className="h-3 w-3 rounded-full bg-text/20" />
-              <div className="ml-3 flex-1 rounded bg-text/5 px-3 py-1 font-inter text-xs text-text/40">
+              <div className="ml-3 flex-1 rounded bg-text/5 px-3 py-1 font-inter text-xs text-text/70">
                 chargedstudio.co.uk
               </div>
             </div>
