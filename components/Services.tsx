@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
-import { Chevron, BoltMark } from "@/components/icons";
+import { Chevron } from "@/components/icons";
 import { SERVICES } from "@/app/services/services-data";
 
 /**
@@ -14,46 +13,6 @@ import { SERVICES } from "@/app/services/services-data";
  * single-column, touch-friendly stack on mobile (sticky disabled, native
  * <details> accordions). Content comes from app/services/services-data.ts.
  */
-
-// Real work shots where they land; brand panels for the abstract services.
-const VISUALS: Record<string, { src: string; alt: string } | null> = {
-  websites: {
-    src: "/images/work/dn-home.jpg",
-    alt: "The Devon Nurseries website homepage we designed and built",
-  },
-  branding: {
-    src: "/images/work/chazzmn.jpg",
-    alt: "Branding work for the CHAZZMN clothing label",
-  },
-  software: null,
-  seo: null,
-};
-
-function Visual({ slug, index }: { slug: string; index: number }) {
-  const v = VISUALS[slug];
-  if (v) {
-    return (
-      <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-surface">
-        <Image
-          src={v.src}
-          alt={v.alt}
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover object-top"
-        />
-      </div>
-    );
-  }
-  // Brand panel for abstract services.
-  return (
-    <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
-      <span className="pointer-events-none absolute -right-4 -top-10 font-anton text-[12rem] leading-none text-accent/10">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-      <BoltMark className="absolute bottom-6 left-6 h-12 w-12 text-accent/80" />
-    </div>
-  );
-}
 
 function AccordionItem({ title, body }: { title: string; body: string }) {
   return (
@@ -130,14 +89,11 @@ export default function Services() {
               </Button>
             </div>
 
-            {/* Right — visual + accordion */}
-            <div>
-              <Visual slug={service.slug} index={i} />
-              <div className="mt-6">
-                {service.features.map((f) => (
-                  <AccordionItem key={f.title} title={f.title} body={f.body} />
-                ))}
-              </div>
+            {/* Right — accordion of detail points */}
+            <div className="lg:pt-2">
+              {service.features.map((f) => (
+                <AccordionItem key={f.title} title={f.title} body={f.body} />
+              ))}
             </div>
           </motion.div>
         ))}
