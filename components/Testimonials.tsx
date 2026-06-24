@@ -36,6 +36,7 @@ const TESTIMONIALS: Testimonial[] = [
     quote:
       "Highly recommend this professional outfit — skilled, reliable, responsive, and such lovely people.",
     name: "Denise Russell",
+    image: "/images/testimonials/denise-russell.jpg",
   },
 ];
 

@@ -1,58 +1,62 @@
 import type { Metadata } from "next";
-import ProjectForm from "@/components/ProjectForm";
-import { BoltMark } from "@/components/icons";
+import AuditForm from "@/components/AuditForm";
+import { CheckCircle } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Free Website Audit — Charged Studio",
   description:
-    "Get a free, no-obligation audit of your current website. We'll show you what's holding your digital presence back — and how to fix it.",
+    "Request a free, no-obligation audit of your website. We'll review speed, SEO, mobile, broken links, social presence, branding and AEO — and show you how to fix what's holding you back.",
   alternates: { canonical: "https://chargedstudio.co.uk/audit" },
   openGraph: {
     title: "Free Website Audit — Charged Studio",
     description:
-      "Get a free, no-obligation audit of your current website. We'll show you what's holding your digital presence back.",
+      "Request a free, no-obligation audit of your website. We'll show you what's holding your digital presence back.",
     url: "https://chargedstudio.co.uk/audit",
     siteName: "Charged Studio",
     type: "website",
   },
 };
 
-const CHECKS = [
-  "Speed & Core Web Vitals — what's slowing you down",
-  "How you show up on Google for local searches",
-  "First impressions, design & mobile experience",
-  "Where you're losing enquiries — and quick wins to fix it",
+const PILLS = [
+  "Page Speed",
+  "SEO Basics",
+  "Mobile",
+  "Broken Links",
+  "Social Presence",
+  "Branding",
+  "AEO",
 ];
 
 export default function AuditPage() {
   return (
-    <section className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 pb-24 pt-32 md:pt-40 lg:grid-cols-2 lg:gap-16">
-      <div>
-        <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-          Free Website Audit
-        </p>
-        <h1 className="mt-4 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl">
-          See what&apos;s holding your website back.
+    <section className="mx-auto w-full max-w-3xl px-6 pb-24 pt-32 md:pt-36">
+      {/* What we check — pills */}
+      <ul className="flex flex-wrap justify-center gap-2.5">
+        {PILLS.map((pill) => (
+          <li
+            key={pill}
+            className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 px-3 py-1.5 font-inter text-xs font-semibold uppercase tracking-wider text-accent"
+          >
+            <CheckCircle className="h-3.5 w-3.5 text-accent" />
+            {pill}
+          </li>
+        ))}
+      </ul>
+
+      {/* Form card */}
+      <div className="mt-9 rounded-2xl border border-border bg-surface/40 shadow-e1 p-6 sm:p-9">
+        <h1 className="font-anton text-3xl uppercase leading-none text-text sm:text-4xl">
+          Request your audit
         </h1>
-        <p className="mt-5 max-w-xl font-inter text-lg leading-relaxed text-text/70">
-          Send us your site and we&apos;ll send back a free, no-obligation
-          review — plain English, no jargon, no hard sell. Here&apos;s what we
-          look at:
-        </p>
-
-        <ul className="mt-8 space-y-4">
-          {CHECKS.map((check) => (
-            <li key={check} className="flex gap-3 font-inter text-text/80">
-              <BoltMark className="mt-1 h-4 w-4 shrink-0 text-accent" />
-              <span>{check}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-7">
+          <AuditForm />
+        </div>
       </div>
 
-      <div className="rounded-xl bg-surface/40 shadow-e1 p-6 sm:p-8 lg:self-start">
-        <ProjectForm kind="audit" />
-      </div>
+      <p className="mt-6 flex items-center justify-center gap-2 text-center font-inter text-xs text-text/50">
+        <CheckCircle className="h-3.5 w-3.5 text-accent" />
+        100% free. No obligation. We&apos;ll never share your details.
+      </p>
     </section>
   );
 }

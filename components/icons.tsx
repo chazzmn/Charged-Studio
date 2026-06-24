@@ -23,6 +23,25 @@ export function BoltMark({
   );
 }
 
+/** Circle with a check — used on the audit topic pills. */
+export function CheckCircle({
+  className = "h-3.5 w-3.5 text-accent",
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className} {...props}>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="m8.5 12 2.5 2.5 4.5-5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 /** A single filled star. */
 function Star({ className = "h-4 w-4", ...props }: SVGProps<SVGSVGElement>) {
   return (
