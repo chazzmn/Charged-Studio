@@ -1,29 +1,32 @@
 /**
- * Infinite scrolling band of work shots — sits just under the hero as instant
- * proof. Currently placeholder tiles; to use real images, replace the tile
- * inner content with a <next/image> (each WORK_ITEM can carry a `src`).
- * The track renders the list twice so the CSS marquee can loop seamlessly.
+ * Infinite scrolling band of real work shots — sits just under the hero as
+ * instant proof. The track renders the list twice so the CSS marquee loops
+ * seamlessly. Images are real homepage screenshots from public/images/work.
  */
-const WORK_ITEMS = [
-  "Devon Nurseries",
-  "CHAZZMN",
-  "Local Service Co.",
-  "Trades & Build",
-  "Salon & Spa",
-  "Hospitality",
+import Image from "next/image";
+
+type Work = { src: string; alt: string };
+
+const WORK_ITEMS: Work[] = [
+  { src: "/images/work/dn-home.jpg", alt: "Devon Nurseries website homepage" },
+  { src: "/images/work/cowick-street.jpg", alt: "Cowick Street artisan food website" },
+  { src: "/images/work/proper-fish.jpg", alt: "Fish & chips shop website" },
+  { src: "/images/work/picked-flavour.jpg", alt: "Local grocery website" },
+  { src: "/images/work/weekly-veg.jpg", alt: "Veg box delivery website" },
+  { src: "/images/work/inner-edge.jpg", alt: "Coaching brand website" },
+  { src: "/images/work/chazzmn.jpg", alt: "CHAZZMN clothing brand" },
 ];
 
-function Tile({ label }: { label: string }) {
+function Tile({ src, alt }: Work) {
   return (
-    <div className="relative aspect-[4/3] w-[260px] shrink-0 overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg sm:w-[340px]">
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="font-anton text-5xl uppercase text-text/5">
-          charged
-        </span>
-      </div>
-      <span className="absolute bottom-3 left-3 font-inter text-[10px] font-semibold uppercase tracking-[0.2em] text-text/40">
-        {label}
-      </span>
+    <div className="relative aspect-[16/10] w-[300px] shrink-0 overflow-hidden rounded-xl border border-border bg-surface sm:w-[400px]">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 640px) 300px, 400px"
+        className="object-cover object-top"
+      />
     </div>
   );
 }
@@ -44,8 +47,8 @@ export default function WorkMarquee() {
       }}
     >
       <div className="flex w-max gap-6 animate-marquee">
-        {track.map((label, i) => (
-          <Tile key={`${label}-${i}`} label={label} />
+        {track.map((item, i) => (
+          <Tile key={`${item.src}-${i}`} {...item} />
         ))}
       </div>
     </section>

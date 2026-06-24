@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import Badge from "@/components/Badge";
 
@@ -18,13 +19,15 @@ export default function FeaturedWork() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
       >
-        {/* Placeholder image — swap for a next/image of the real project shot */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-anton text-6xl uppercase text-text/5">
-              Devon Nurseries
-            </span>
-          </div>
+        {/* Real project shot — Devon Nurseries homepage mockup */}
+        <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-surface">
+          <Image
+            src="/images/work/devon-nurseries-feature.jpg"
+            alt="The Devon Nurseries website we designed and built, shown on a desktop monitor"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
         </div>
 
         {/* Copy */}
