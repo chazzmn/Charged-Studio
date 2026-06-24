@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Button from "@/components/Button";
+import HeroMockup from "@/components/HeroMockup";
 
 /**
  * Homepage hero — contained mockup reel.
@@ -104,32 +105,10 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Media — fixed 16:10 so swapping in the real video never shifts layout */}
+            {/* Media — fixed 16:10 so the layout never shifts.
+                Loops from "Coming soon" to a Charged-style site building in. */}
             <div className="relative aspect-[16/10] bg-gradient-to-br from-surface via-surface to-bg">
-              {/* Placeholder shown until the real reel is added */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                <span className="font-caramel text-7xl text-text/10 sm:text-8xl">
-                  charged
-                </span>
-                <span className="font-inter text-[10px] font-semibold uppercase tracking-[0.25em] text-text/30">
-                  Coming soon
-                </span>
-              </div>
-
-              {/* Real video slot (renders over the placeholder once files exist).
-                  preload="none" + poster keeps it off the LCP critical path. */}
-              <video
-                className="absolute inset-0 h-full w-full object-cover"
-                autoPlay={!reduceMotion}
-                muted
-                loop
-                playsInline
-                preload="none"
-                poster="/images/hero-poster.jpg"
-              >
-                <source src="/videos/hero-reel.webm" type="video/webm" />
-                <source src="/videos/hero-reel.mp4" type="video/mp4" />
-              </video>
+              <HeroMockup />
             </div>
           </div>
         </motion.div>
