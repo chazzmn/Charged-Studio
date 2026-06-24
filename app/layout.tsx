@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
+import JsonLd from "@/components/JsonLd";
+import { siteGraphLd } from "@/lib/structured-data";
 import "./globals.css";
 
 const anton = Anton({
@@ -49,10 +51,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`${anton.variable} ${interTight.variable} ${caramel.variable}`}
     >
       <body className="flex min-h-screen flex-col bg-bg font-inter text-text antialiased">
+        <JsonLd data={siteGraphLd} />
         {/* Nav is fixed + transparent over the top of each page's hero.
             Pages without a full-bleed hero should add their own top spacing. */}
         <Nav />

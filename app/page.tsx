@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { faqPageLd } from "@/lib/structured-data";
+import { HOME_FAQS } from "@/app/faq-data";
 import Hero from "@/components/Hero";
 import WorkMarquee from "@/components/WorkMarquee";
 import WhyCharged from "@/components/WhyCharged";
@@ -27,6 +30,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <JsonLd data={faqPageLd(HOME_FAQS)} />
       <Hero />
       <WorkMarquee />
       <WhyCharged />

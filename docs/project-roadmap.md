@@ -141,9 +141,9 @@ Distilled from Charlie's design notes. Gated by the direction lock (light theme 
 | Mobile responsiveness — every page, every breakpoint | ⬜ |
 | Animations — all sections have entrance animations | 🟡 Framer Motion entrances on built sections (reduced-motion safe). Revisit during design pass |
 | Contact form — connected to Resend / email delivery tested | ✅ **DONE 2026-06-24** — Resend domain verified, forms send + deliver correctly (contact, audit, and the new project wizard all post to /api/contact → Resend). |
-| `next-sitemap` generating `sitemap.xml` correctly | ⬜ Installed, not configured |
-| `robots.txt` confirmed correct | ⬜ (comes with next-sitemap) |
-| JSON-LD structured data on homepage | ⬜ Homepage Organization schema still TODO (blog posts already have BlogPosting JSON-LD) |
+| `sitemap.xml` | ✅ **DONE 2026-06-24** — native `app/sitemap.ts` (generated from services + blog data, never drifts). **Switched away from `next-sitemap`** (no postbuild needed; dep now unused, safe to remove later). |
+| `robots.txt` | ✅ **DONE 2026-06-24** — native `app/robots.ts`: allow all **including AI/answer-engine crawlers** (GPTBot/ClaudeBot/PerplexityBot/Google-Extended) for AEO; references sitemap + host. |
+| JSON-LD structured data | ✅ **DONE 2026-06-24** — site-wide Organization+ProfessionalService+WebSite graph (`lib/structured-data.ts` via `components/JsonLd.tsx` in layout): address (Exeter/Devon), areaServed, socials (sameAs), founder Charlie Norona w/ **APM PMQ credential**, 5.0/16 aggregateRating, knowsAbout. Homepage **FAQPage** schema (shared `app/faq-data.ts`). Service pages already have FAQPage; blog posts have BlogPosting. **AEO:** added `public/llms.txt`; set `<html lang="en-GB">`. |
 | All pages have unique metadata (title + description) | ✅ Every built page has metadata + canonical |
 | All images have `alt` text | 🟡 Placeholders are divs; applies once real images go in |
 | All images using `next/image` | 🟡 Logo uses next/image; section images are placeholder divs until real assets |
