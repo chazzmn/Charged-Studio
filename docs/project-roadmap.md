@@ -147,7 +147,7 @@ Distilled from Charlie's design notes. Gated by the direction lock (light theme 
 | All pages have unique metadata (title + description) | ✅ Every built page has metadata + canonical |
 | All images have `alt` text | 🟡 Placeholders are divs; applies once real images go in |
 | All images using `next/image` | 🟡 Logo uses next/image; section images are placeholder divs until real assets |
-| Lighthouse score 95+ on all pages | ⬜ (run + add the real score as a homepage proof point) |
+| Lighthouse score 95+ on all pages | ✅ **100 / 100 / 100 / 100** (Performance · Accessibility · Best Practices · SEO) on **mobile AND desktop** via PageSpeed Insights (2026-06-24). Got there by: removing framer-motion, server-component-first (Hero/Services/FeaturedWork), `experimental.inlineCss` (killed render-blocking CSS), modern `browserslist` (dropped legacy-JS polyfills), a11y contrast + link-underline fixes, deferred/mobile-off chatbot, dropped Caramel font. **Worth using as a homepage proof point.** |
 | Cross-browser test: Chrome, Safari, Firefox, Edge | ⬜ |
 | `npm run build` passes with zero errors | ✅ Verified green (Turbopack); tsc clean |
 
