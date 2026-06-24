@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Badge from "@/components/Badge";
 import CTASection from "@/components/CTASection";
 
@@ -64,14 +65,17 @@ export default function DevonNurseriesPage() {
         </dl>
       </section>
 
-      {/* Main image placeholder — swap for a next/image of the real project */}
+      {/* Main project image */}
       <section className="mx-auto w-full max-w-5xl px-6 py-14 md:py-20">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-anton text-6xl uppercase text-text/5 sm:text-7xl">
-              Project Image
-            </span>
-          </div>
+        <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border bg-surface">
+          <Image
+            src="/images/work/devon-nurseries-feature.jpg"
+            alt="The unified Devon Nurseries website we designed and built, shown on a desktop monitor"
+            fill
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="object-cover"
+            preload
+          />
         </div>
       </section>
 
@@ -89,21 +93,7 @@ export default function DevonNurseriesPage() {
         ))}
       </section>
 
-      {/* Gallery placeholder */}
-      <section className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-6 px-6 py-14 sm:grid-cols-2">
-        {[0, 1].map((i) => (
-          <div
-            key={i}
-            className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg"
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-anton text-4xl uppercase text-text/5">
-                charged
-              </span>
-            </div>
-          </div>
-        ))}
-      </section>
+      <div className="pb-6" />
 
       <CTASection />
     </article>
