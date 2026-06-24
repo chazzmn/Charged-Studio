@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Anton, Inter_Tight } from "next/font/google";
-import localFont from "next/font/local";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ChatbotLoader from "@/components/ChatbotLoader";
@@ -19,14 +18,6 @@ const anton = Anton({
 const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-inter-tight",
-  display: "swap",
-});
-
-const caramel = localFont({
-  src: "../public/fonts/Caramel-Regular.woff2",
-  weight: "400",
-  style: "normal",
-  variable: "--font-caramel",
   display: "swap",
 });
 
@@ -53,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${anton.variable} ${interTight.variable} ${caramel.variable}`}
+      className={`${anton.variable} ${interTight.variable}`}
     >
       <body
         suppressHydrationWarning

@@ -43,7 +43,7 @@ export default function HeroMockup() {
         <div
           className={`reveal-stagger${phase === 0 ? " in" : ""} flex h-full w-full flex-col items-center justify-center gap-3`}
         >
-          <span className="font-caramel text-7xl text-text/10 sm:text-8xl">charged</span>
+          <span className="font-anton text-6xl uppercase text-text/10 sm:text-7xl">charged</span>
           <span className="font-inter text-[10px] font-semibold uppercase tracking-[0.25em] text-text/30">
             Coming soon
           </span>
