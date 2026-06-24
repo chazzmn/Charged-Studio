@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Badge from "@/components/Badge";
+import Button from "@/components/Button";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
@@ -66,33 +66,56 @@ const PROCESS = [
 export default function AboutPage() {
   return (
     <>
-      {/* Founder hero */}
-      <section className="mx-auto w-full max-w-7xl px-6 pt-32 md:pt-40">
+      {/* Studio intro — the page leads with Charged Studio */}
+      <section className="mx-auto w-full max-w-5xl px-6 pt-32 md:pt-40">
+        <Badge>About the studio</Badge>
+        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl lg:text-6xl">
+          Built to perform.
+          <br />
+          Charged to last.
+        </h1>
+        <div className="mt-8 grid grid-cols-1 gap-6 font-inter text-lg leading-relaxed text-text/70 lg:grid-cols-2 lg:gap-12">
+          <p>
+            Charged Studio is a creative partner for growing businesses —
+            websites first, plus the software, visibility and brand to back them
+            up. We believe the businesses that deserve to win are too often let
+            down by their digital presence. We&apos;re here to change that.
+          </p>
+          <p>
+            Based in Exeter and working across Devon and the South West, we build
+            sharp, fast, modern sites — then stick around to keep them working.
+            Small and deliberate, so you always deal with the people actually
+            doing the work.
+          </p>
+        </div>
+      </section>
+
+      {/* Founder section — the person behind the studio */}
+      <section className="mx-auto mt-8 w-full max-w-7xl border-t border-border px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          {/* Founder cut-out on yellow circle */}
+          {/* Founder cut-out, base blended into the background */}
           <div className="order-1 lg:order-none">
             <div className="relative mx-auto aspect-square w-full max-w-sm">
-              <div className="absolute inset-x-0 bottom-0 top-10 rounded-full bg-accent" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 top-10 rounded-full shadow-glow" />
               <Image
                 src="/images/charlie-norona.png"
                 alt="Charlie Norona, Founder & Creative Director of Charged Studio"
                 fill
                 sizes="(max-width: 1024px) 80vw, 36vw"
-                className="relative object-contain object-bottom drop-shadow-2xl"
-                preload
+                className="object-contain object-bottom"
               />
+              {/* gradient fade so the photo blends into the background */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-bg to-transparent" />
             </div>
           </div>
 
           {/* Intro */}
           <div className="order-2 lg:order-none">
             <Badge>Founder</Badge>
-            <h1 className="mt-5 font-anton text-5xl uppercase leading-[0.9] text-text sm:text-6xl lg:text-7xl">
+            <h2 className="mt-5 font-anton text-5xl uppercase leading-[0.9] text-text sm:text-6xl lg:text-7xl">
               Charlie
               <br />
               Norona
-            </h1>
+            </h2>
             <p className="mt-4 font-inter text-lg font-semibold uppercase tracking-[0.18em] text-accent">
               Founder &amp; Creative Director
             </p>
@@ -130,21 +153,9 @@ export default function AboutPage() {
               ))}
             </dl>
 
-            {/* Circular contact button */}
-            <div className="mt-9">
-              <Link
-                href="/contact"
-                aria-label="Contact Charlie"
-                className="group inline-flex h-28 w-28 flex-col items-center justify-center rounded-full bg-accent text-text-inverse transition duration-base ease-out hover:-translate-y-px hover:bg-accent-hover hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-              >
-                <span className="font-inter text-sm font-bold uppercase tracking-[0.1em]">
-                  Contact
-                </span>
-                <span className="mt-0.5 text-lg transition-transform duration-base ease-out group-hover:translate-x-1">
-                  →
-                </span>
-              </Link>
-            </div>
+            <Button href="/contact" className="mt-9">
+              Get in touch →
+            </Button>
           </div>
         </div>
       </section>
