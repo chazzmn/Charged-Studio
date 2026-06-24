@@ -17,8 +17,13 @@ type Payload = {
   email?: string;
   business?: string;
   website?: string;
+  phone?: string;
   industry?: string;
   challenge?: string;
+  services?: string;
+  projectType?: string;
+  budget?: string;
+  timeline?: string;
   message?: string;
   // Honeypot — bots fill this, humans never see it.
   company_url?: string;
@@ -74,7 +79,12 @@ export async function POST(request: Request) {
     `Name: ${name}`,
     `Email: ${email}`,
     data.business ? `Business: ${data.business.trim()}` : null,
+    data.phone ? `Phone: ${data.phone.trim()}` : null,
     data.website ? `Website: ${data.website.trim()}` : null,
+    data.services ? `Services: ${data.services.trim()}` : null,
+    data.projectType ? `Project type: ${data.projectType.trim()}` : null,
+    data.budget ? `Budget: ${data.budget.trim()}` : null,
+    data.timeline ? `Timeline: ${data.timeline.trim()}` : null,
     data.industry ? `Industry: ${data.industry.trim()}` : null,
     data.challenge ? `Biggest challenge: ${data.challenge.trim()}` : null,
     data.message ? `\nMessage:\n${data.message.trim()}` : null,
