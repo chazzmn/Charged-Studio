@@ -6,6 +6,7 @@ import ChatbotLoader from "@/components/ChatbotLoader";
 import JsonLd from "@/components/JsonLd";
 import CookieConsent from "@/components/CookieConsent";
 import { siteGraphLd } from "@/lib/structured-data";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const anton = Anton({
@@ -58,6 +59,7 @@ export default function RootLayout({
         <Footer />
         <ChatbotLoader />
         <CookieConsent />
+        <SpeedInsights />
       </body>
     </html>
   );
