@@ -36,6 +36,7 @@ export default function Nav() {
   }, [open]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled || open
@@ -94,8 +95,11 @@ export default function Nav() {
           <span className={`h-0.5 w-6 bg-text transition-transform duration-300 ${open ? "-translate-y-2 -rotate-45" : ""}`} />
         </button>
       </nav>
+    </header>
 
-      {/* Mobile menu — full-screen opaque overlay, CSS fade (no animation lib) */}
+      {/* Mobile menu — full-screen opaque overlay. Kept OUTSIDE <header> so the
+          header's backdrop-blur doesn't trap this fixed element in a containing
+          block (which would collapse the full-screen background). */}
       <div
         aria-hidden={!open}
         className={`fixed inset-0 z-40 bg-bg transition-opacity duration-200 ease-out md:hidden motion-reduce:transition-none ${
@@ -134,6 +138,6 @@ export default function Nav() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
