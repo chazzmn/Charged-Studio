@@ -54,6 +54,22 @@ export default function WhyCharged() {
         </p>
       </div>
 
+      {/* PageSpeed proof bar */}
+      <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+        {["Performance", "Accessibility", "Best Practices", "SEO"].map((label) => (
+          <div
+            key={label}
+            className="flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2"
+          >
+            <span className="font-anton text-lg leading-none text-accent">100</span>
+            <span className="font-inter text-xs text-text/60">{label}</span>
+          </div>
+        ))}
+        <span className="font-inter text-xs text-text/40">
+          Google PageSpeed Insights · Mobile &amp; Desktop
+        </span>
+      </div>
+
       <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
         {PILLARS.map(({ Icon, title, body }) => (
           <div key={title} className="text-center sm:text-left">

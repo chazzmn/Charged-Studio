@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Inter_Tight } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ChatbotLoader from "@/components/ChatbotLoader";
@@ -58,6 +60,8 @@ export default function RootLayout({
         <Footer />
         <ChatbotLoader />
         <CookieConsent />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
