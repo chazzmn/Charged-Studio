@@ -1,104 +1,90 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { useEffect, useState, type ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  gContainer,
+  gBlock,
+  WebsiteGraphic,
+  SearchGraphic,
+  SoftwareGraphic,
+  BrandingGraphic,
+} from "@/components/graphics";
 
 /**
  * HeroMockup — the looping content inside the hero's browser frame.
- * Cycles: "Coming soon" → a Charged-style website assembles in (staggered) →
- * holds → fades back to "Coming soon". Pure code, no asset. Reduced-motion
- * shows the finished layout statically.
+ * Tells the Charged story in five coded scenes:
+ *   0 "Coming soon" → 1 Website builds in → 2 SEO / ranking →
+ *   3 Software / dashboard → 4 Branding → (loop). Elements stagger in per scene.
+ * Pure code, no asset. Reduced-motion holds the Website scene statically.
  */
 
-const container: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.08 } },
-};
-const block: Variants = {
-  hidden: { opacity: 0, y: 8 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+const SCENE_MS = 2800;
+const SCENES = 5;
 
 export default function HeroMockup() {
   const reduceMotion = useReducedMotion();
-  const [built, setBuilt] = useState(false);
+  const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     if (reduceMotion) {
-      setBuilt(true);
+      setPhase(1);
       return;
     }
-    const id = setInterval(() => setBuilt((b) => !b), 3200);
+    const id = setInterval(() => setPhase((p) => (p + 1) % SCENES), SCENE_MS);
     return () => clearInterval(id);
   }, [reduceMotion]);
 
+  function Scene({ active, children }: { active: boolean; children: ReactNode }) {
+    return (
+      <motion.div
+        aria-hidden
+        variants={gContainer}
+        initial="hidden"
+        animate={active ? "show" : "hidden"}
+        className="absolute inset-0"
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
   return (
     <div className="absolute inset-0">
-      {/* Coming soon */}
-      <motion.div
-        aria-hidden
-        animate={{ opacity: built ? 0 : 1 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-      >
-        <span className="font-caramel text-7xl text-text/10 sm:text-8xl">
-          charged
-        </span>
-        <span className="font-inter text-[10px] font-semibold uppercase tracking-[0.25em] text-text/30">
-          Coming soon
-        </span>
-      </motion.div>
-
-      {/* Website graphic that builds in */}
-      <motion.div
-        aria-hidden
-        variants={container}
-        initial={reduceMotion ? "show" : "hidden"}
-        animate={built ? "show" : "hidden"}
-        className="absolute inset-0 flex flex-col gap-3 p-4 sm:gap-3.5 sm:p-5"
-      >
-        {/* Nav */}
-        <motion.div variants={block} className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <span className="h-3 w-3 rounded-full bg-accent" />
-            <span className="h-2 w-12 rounded-full bg-text/15" />
-          </div>
-          <div className="flex gap-1.5">
-            <span className="h-2 w-7 rounded-full bg-text/10" />
-            <span className="h-2 w-7 rounded-full bg-text/10" />
-            <span className="h-2 w-7 rounded-full bg-text/10" />
-          </div>
-        </motion.div>
-
-        {/* Hero row */}
-        <div className="grid flex-1 grid-cols-5 gap-3">
-          <div className="col-span-3 flex flex-col justify-center gap-2.5">
-            <motion.div variants={block} className="h-3 w-[88%] rounded bg-text/25" />
-            <motion.div variants={block} className="h-3 w-[62%] rounded bg-text/25" />
-            <motion.div variants={block} className="mt-1 h-1.5 w-[72%] rounded-full bg-text/10" />
-            <motion.div variants={block} className="mt-2 h-5 w-20 rounded-md bg-accent" />
-          </div>
-          <motion.div
-            variants={block}
-            className="col-span-2 rounded-lg bg-surface-raised ring-1 ring-border"
-          />
+      {/* 0 — Coming soon */}
+      <Scene active={phase === 0}>
+        <div className="flex h-full w-full flex-col items-center justify-center gap-3">
+          <motion.span variants={gBlock} className="font-caramel text-7xl text-text/10 sm:text-8xl">
+            charged
+          </motion.span>
+          <motion.span
+            variants={gBlock}
+            className="font-inter text-[10px] font-semibold uppercase tracking-[0.25em] text-text/30"
+          >
+            Coming soon
+          </motion.span>
         </div>
+      </Scene>
 
-        {/* Card row */}
-        <div className="grid grid-cols-3 gap-3">
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              variants={block}
-              className="h-8 rounded-md bg-surface-raised ring-1 ring-border sm:h-9"
-            />
-          ))}
-        </div>
-      </motion.div>
+      {/* 1 — Website */}
+      <Scene active={phase === 1}>
+        <WebsiteGraphic />
+      </Scene>
+
+      {/* 2 — SEO / ranking */}
+      <Scene active={phase === 2}>
+        <SearchGraphic />
+      </Scene>
+
+      {/* 3 — Software / dashboard */}
+      <Scene active={phase === 3}>
+        <SoftwareGraphic />
+      </Scene>
+
+      {/* 4 — Branding */}
+      <Scene active={phase === 4}>
+        <BrandingGraphic />
+      </Scene>
     </div>
   );
 }

@@ -5,6 +5,20 @@ import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import { Chevron } from "@/components/icons";
 import { SERVICES } from "@/app/services/services-data";
+import {
+  gContainer,
+  WebsiteGraphic,
+  SearchGraphic,
+  SoftwareGraphic,
+  BrandingGraphic,
+} from "@/components/graphics";
+
+const GRAPHIC: Record<string, () => React.JSX.Element> = {
+  websites: WebsiteGraphic,
+  seo: SearchGraphic,
+  software: SoftwareGraphic,
+  branding: BrandingGraphic,
+};
 
 /**
  * Homepage Services — "pinned scroll" pattern.
@@ -89,8 +103,24 @@ export default function Services() {
               </Button>
             </div>
 
-            {/* Right — accordion of detail points */}
+            {/* Right — matching coded graphic + accordion of detail points */}
             <div className="lg:pt-2">
+              {(() => {
+                const Graphic = GRAPHIC[service.slug];
+                return Graphic ? (
+                  <div className="relative mb-7 aspect-[16/10] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
+                    <motion.div
+                      variants={gContainer}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, margin: "-80px" }}
+                      className="absolute inset-0"
+                    >
+                      <Graphic />
+                    </motion.div>
+                  </div>
+                ) : null;
+              })()}
               {service.features.map((f) => (
                 <AccordionItem key={f.title} title={f.title} body={f.body} />
               ))}
