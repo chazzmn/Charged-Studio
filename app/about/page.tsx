@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import Badge from "@/components/Badge";
 import CTASection from "@/components/CTASection";
 
@@ -32,6 +34,12 @@ const VALUES = [
   },
 ];
 
+const STATS = [
+  { value: "APM PMQ", label: "Qualified Project Manager" },
+  { value: "100%", label: "Client Satisfaction" },
+  { value: "Exeter", label: "Devon, UK" },
+];
+
 const PROCESS = [
   {
     step: "01",
@@ -58,47 +66,85 @@ const PROCESS = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="mx-auto w-full max-w-4xl px-6 pt-32 md:pt-40">
-        <Badge>About</Badge>
-        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl lg:text-6xl">
-          Built on belief.
-        </h1>
-        <p className="mt-5 max-w-2xl font-inter text-lg leading-relaxed text-text/70">
-          Charged Studio is a creative studio for growing businesses — websites
-          first, plus the software, visibility, and brand to back them up. We
-          believe the businesses that deserve to win are too often let down by
-          their digital presence. We&apos;re here to change that.
-        </p>
-      </section>
+      {/* Founder hero */}
+      <section className="mx-auto w-full max-w-7xl px-6 pt-32 md:pt-40">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          {/* Founder cut-out on yellow circle */}
+          <div className="order-1 lg:order-none">
+            <div className="relative mx-auto aspect-square w-full max-w-sm">
+              <div className="absolute inset-x-0 bottom-0 top-10 rounded-full bg-accent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 top-10 rounded-full shadow-glow" />
+              <Image
+                src="/images/charlie-norona.png"
+                alt="Charlie Norona, Founder & Creative Director of Charged Studio"
+                fill
+                sizes="(max-width: 1024px) 80vw, 36vw"
+                className="relative object-contain object-bottom drop-shadow-2xl"
+                preload
+              />
+            </div>
+          </div>
 
-      {/* Story */}
-      <section className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 px-6 py-16 md:py-24 lg:grid-cols-2 lg:gap-16">
-        <div className="space-y-5 font-inter text-lg leading-relaxed text-text/70">
-          <p>
-            Charlie Norona started Charged with a belief most agencies don&apos;t
-            act on: that a website isn&apos;t a one-off project you tick off — it&apos;s
-            the foundation a business grows on, and it deserves looking after.
-          </p>
-          <p>
-            Too many small businesses across Devon get handed a template, an
-            invoice, and a goodbye. We do the opposite. We build sharp, fast,
-            modern sites — then stick around to keep them working, so you can
-            focus on running your business while your digital presence pulls its
-            weight.
-          </p>
-          <p>
-            We&apos;re small, deliberately. That means you deal with the people
-            actually doing the work, every step of the way.
-          </p>
-        </div>
+          {/* Intro */}
+          <div className="order-2 lg:order-none">
+            <Badge>Founder</Badge>
+            <h1 className="mt-5 font-anton text-5xl uppercase leading-[0.9] text-text sm:text-6xl lg:text-7xl">
+              Charlie
+              <br />
+              Norona
+            </h1>
+            <p className="mt-4 font-inter text-lg font-semibold uppercase tracking-[0.18em] text-accent">
+              Founder &amp; Creative Director
+            </p>
 
-        {/* Photo placeholder — swap for /public/images/charlie-norona.png */}
-        <div className="relative aspect-[4/5] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-anton text-3xl uppercase text-text/10">
-              Charlie Norona
-            </span>
+            <div className="mt-7 max-w-xl space-y-4 font-inter text-lg leading-relaxed text-text/70">
+              <p>
+                I started Charged on a belief most agencies don&apos;t act on:
+                that a website isn&apos;t a one-off project you tick off — it&apos;s
+                the foundation a business grows on, and it deserves looking
+                after.
+              </p>
+              <p>
+                I&apos;m a{" "}
+                <span className="font-semibold text-text">
+                  qualified project manager (APM PMQ)
+                </span>{" "}
+                as well as a designer — so every project runs on a real process,
+                not guesswork. Structured planning and psychology-led design
+                thinking, brought to work most studios treat as purely creative.
+                That&apos;s the difference you feel.
+              </p>
+            </div>
+
+            {/* Stat row */}
+            <dl className="mt-9 grid max-w-xl grid-cols-3 gap-4 border-t border-border pt-7">
+              {STATS.map((s) => (
+                <div key={s.label}>
+                  <dt className="font-anton text-2xl uppercase leading-none text-text sm:text-3xl">
+                    {s.value}
+                  </dt>
+                  <dd className="mt-2 font-inter text-xs leading-snug text-text/60">
+                    {s.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            {/* Circular contact button */}
+            <div className="mt-9">
+              <Link
+                href="/contact"
+                aria-label="Contact Charlie"
+                className="group inline-flex h-28 w-28 flex-col items-center justify-center rounded-full bg-accent text-text-inverse transition duration-base ease-out hover:-translate-y-px hover:bg-accent-hover hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              >
+                <span className="font-inter text-sm font-bold uppercase tracking-[0.1em]">
+                  Contact
+                </span>
+                <span className="mt-0.5 text-lg transition-transform duration-base ease-out group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
