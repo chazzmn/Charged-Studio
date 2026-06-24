@@ -25,86 +25,100 @@ type Flow = { text: string; suggestions?: string[]; link?: CtaLink };
 type Message = { role: Role; text: string; suggestions?: string[]; link?: CtaLink };
 
 const WELCOME =
-  "Hi — welcome to Charged Studio. I can tell you what we do or point you in the right direction. What are you after?";
-const WELCOME_SUGGESTIONS = ["Websites", "SEO & getting found", "Pricing", "Free audit"];
+  "Hi — welcome to Charged Studio. I'm here to help you find what you need or point you to the right person. What can I help with?";
+const WELCOME_SUGGESTIONS = ["What you do", "Websites", "Pricing", "Free audit"];
 
 const RESPONSES: Record<string, Flow> = {
   greeting: {
-    text: "Hi — welcome to Charged Studio. I can tell you about what we do or point you in the right direction. What are you after?",
-    suggestions: ["Websites", "SEO & getting found", "Pricing", "Free audit"],
+    text: "Hi — welcome to Charged Studio. Ask me about what we do, pricing, timelines, or how to get started. What are you after?",
+    suggestions: ["What you do", "Websites", "Pricing", "Free audit"],
   },
   about: {
-    text: "We're a web studio in Exeter, building fast, modern websites for growing businesses across Devon and the South West — plus the software, SEO and brand to back them up. Websites are our bread and butter, and most clients stay on monthly so we look after the lot for them.",
-    suggestions: ["Websites", "Software & apps", "SEO", "Get a quote"],
+    text: "Charged Studio is a founder-led web studio in Exeter, building fast, modern websites for growing businesses across Devon and the South West — plus the software, SEO and branding to back them up. You work directly with Charlie, who's both a designer and a qualified project manager (APM PMQ), so the creative work runs on a real, structured process. Most clients stay on monthly, so we look after everything for them.",
+    suggestions: ["Why Charged?", "Websites", "Pricing", "Free audit"],
   },
   webDesign: {
-    text: "Your website should be your hardest-working salesperson. We build custom, fast, mobile-first sites that turn local searches into enquiries — fully managed, so you never touch hosting, updates or maintenance.",
-    suggestions: ["Pricing", "Free audit", "How long does it take?"],
+    text: "Your website should be your hardest-working salesperson. We build custom, fast, mobile-first sites designed to turn local searches into enquiries — not just look pretty. And we handle the lot: design, build, hosting, domain, updates and maintenance, with local SEO baked in from day one. You never have to touch the tech.",
+    suggestions: ["Pricing", "How long does it take?", "Free audit"],
   },
   software: {
-    text: "Beyond websites, we build bespoke tools — booking systems, customer portals, dashboards and automations — to take the busywork out of running your business.",
+    text: "Beyond websites, we build bespoke tools around how your business actually runs — booking and enquiry systems, customer portals, dashboards, and workflow automations that take the busywork off your plate. We build to fit your existing setup rather than forcing a rip-and-replace.",
     suggestions: ["Get a quote", "Book a call"],
   },
   seo: {
-    text: "We make sure the sites we build actually get found — local SEO for Exeter and Devon, Google Business Profile, Core Web Vitals, and content built to rank. We also do AEO so AI tools recommend you.",
-    suggestions: ["Free audit", "What's AEO?", "Get a quote"],
+    text: "We make sure the sites we build actually get found: local SEO for Exeter and Devon, a fully-optimised Google Business Profile, fast Core Web Vitals, and content built to rank. We also do AEO, so AI assistants recommend you — not your competitor.",
+    suggestions: ["What's AEO?", "Free audit", "Get a quote"],
   },
   aeo: {
-    text: "AEO is Answer Engine Optimisation — structuring your site so AI assistants and search can pull and recommend your business. Schema, clean structure, FAQs. Most agencies aren't doing it yet.",
-    suggestions: ["Free audit", "Get a quote"],
+    text: "AEO is Answer Engine Optimisation — structuring your site so AI assistants and AI search can understand and recommend your business. Think schema, clean structure and clear FAQs. It's the next frontier of getting found, and most agencies aren't doing it yet.",
+    suggestions: ["SEO", "Free audit", "Get a quote"],
   },
   branding: {
-    text: "We craft sharp, consistent brand identities — logo, guidelines and the assets to keep you looking professional everywhere. It supports the websites we build rather than the other way round.",
+    text: "We craft sharp, consistent brand identities — logo, visual identity, guidelines and the assets to keep you looking professional everywhere. Branding supports the websites we build, so everything feels joined-up and intentional.",
     suggestions: ["Websites", "Get a quote"],
   },
   audit: {
-    text: "Happy to take a look. Our free website audit covers speed, how you show up on Google, design and mobile, and where you're losing enquiries — plain English, no hard sell.",
-    suggestions: ["Get a quote"],
+    text: "Happy to take a look. Our free website audit reviews your speed, how you show up on Google, design and mobile experience, and where you might be losing enquiries — plain English, no jargon, no hard sell.",
+    suggestions: ["Get a quote", "What you do"],
   },
   quote: {
-    text: "Every project's priced to fit — it depends on what you need, so we don't do one-size-fits-all packages. Tell us a bit about your project and we'll come back with a tailored quote within a working day.",
+    text: "Every project's priced to fit what you need — we don't do one-size-fits-all packages. We work both ways: one-off projects and monthly retainers. Tell us a bit about your project and we'll come back with a tailored quote within one working day.",
     suggestions: ["Start a project", "Book a call"],
   },
   timeline: {
-    text: "Most websites take 2–4 weeks from kickoff, depending on scope. We'll give you a clear timeline up front so you always know what's happening and when.",
-    suggestions: ["Get a quote", "Book a call"],
+    text: "Most websites take 2–4 weeks from kickoff, depending on scope. We move quickly without cutting corners, and you'll get a clear timeline up front so you always know what's happening and when.",
+    suggestions: ["Pricing", "Start a project"],
   },
   location: {
-    text: "We're based in Exeter and work with businesses right across Devon and the South West — and remotely with clients further afield.",
-    suggestions: ["Get a quote", "Book a call"],
+    text: "We're based in Exeter and work with businesses right across Devon and the South West — and remotely with clients further afield. If your customers search for you locally, we can help you show up.",
+    suggestions: ["Industries", "Get a quote"],
   },
   process: {
-    text: "We keep it structured: immerse in your business, plan the scope and timeline, design and build with feedback points, then launch and look after it. The hard thinking happens before any design does.",
-    suggestions: ["Get a quote", "About Charged"],
+    text: "We keep it structured: immerse in your business, plan the scope and timeline, design and build with feedback points along the way, then launch and look after it. The hard thinking happens before any design does — that's the project-management background at work.",
+    suggestions: ["Why Charged?", "Get a quote"],
   },
   retainer: {
-    text: "Most clients stay on a monthly basis — we host, maintain, update and keep improving your site so it keeps pulling its weight. No worrying about the tech, ever.",
-    suggestions: ["Get a quote", "Book a call"],
+    text: "Most clients stay on a monthly basis — we host, maintain, update and keep improving your site so it keeps pulling its weight long after launch. No worrying about the tech, ever.",
+    suggestions: ["Pricing", "Book a call"],
+  },
+  different: {
+    text: "A few things set us apart: you work directly with the founder, not an account manager — and Charlie's both a designer and a qualified project manager (APM PMQ), so it's creative work run with real structure. We're local to Devon, we build to perform (fast, found, converting), and most clients stay on monthly because we genuinely look after things. We're rated 5.0 from 16 reviews on Google.",
+    suggestions: ["Reviews", "Pricing", "Start a project"],
+  },
+  reviews: {
+    text: "We're rated 5.0 from 16 reviews on Google, and clients tend to stick around — most move onto a monthly plan after launch. Happy to point you to work relevant to your sector.",
+    suggestions: ["Why Charged?", "Start a project"],
+  },
+  industries: {
+    text: "We work with growing local service businesses — trades and construction, hospitality and food, health and wellbeing, salons, retail, professional services and more. If you've got customers searching for you locally, we can help.",
+    suggestions: ["Websites", "Get a quote"],
   },
   booking: {
     text: "Let's get you booked in — grab a free 15-minute call and we'll talk through your project, no obligation.",
     suggestions: [],
   },
   contact: {
-    text: "You can reach a real person any time — email hello@chargedstudio.co.uk or call +44 7453 388798. Prefer we come to you? Leave your details and we'll reply within a working day.",
+    text: "You can reach a real person any time — email hello@chargedstudio.co.uk or call +44 7453 388798. Prefer we come to you? Leave your details and we'll reply within one working day.",
     suggestions: ["Book a call", "Start a project"],
   },
   help: {
-    text: "Here's what I can help with: websites, software & apps, SEO & getting found, branding, a free website audit, pricing, or booking a call. What's most useful?",
-    suggestions: ["Websites", "SEO", "Pricing", "Free audit"],
+    text: "Here's what I can help with: what we do, websites, software & apps, SEO & getting found, branding, a free website audit, pricing and timelines, or booking a call. What's most useful?",
+    suggestions: ["Websites", "Pricing", "Why Charged?", "Free audit"],
   },
   thanks: {
     text: "Anytime. If anything else comes up, I'm right here.",
     suggestions: ["Get a quote", "Book a call"],
   },
   unknown: {
-    text: "I'm best on websites, software, SEO, branding, pricing and bookings. Ask me about any of those — or I can get a human to help.",
-    suggestions: ["Our services", "Get a quote", "Talk to a human"],
+    text: "I'm best on what we do, websites, software, SEO, branding, pricing, timelines and bookings. Ask me about any of those — or I can put you in touch with a human.",
+    suggestions: ["What you do", "Get a quote", "Talk to a human"],
   },
 };
 
 /** Chip label → intent. */
 const SUGGESTION_MAP: Record<string, string> = {
+  "What you do": "about",
+  "About Charged": "about",
   Websites: "webDesign",
   "Web Design": "webDesign",
   "Software & apps": "software",
@@ -119,9 +133,11 @@ const SUGGESTION_MAP: Record<string, string> = {
   "Get a quote": "quote",
   "Start a project": "quote",
   "How long does it take?": "timeline",
+  "Why Charged?": "different",
+  Reviews: "reviews",
+  Industries: "industries",
   "Book a call": "booking",
   "Our services": "help",
-  "About Charged": "about",
   "Talk to a human": "contact",
 };
 
@@ -129,14 +145,17 @@ function detectIntent(msg: string): string {
   const m = msg.toLowerCase().trim();
   if (/^(hi|hello|hey|hiya|yo|sup|good (morning|afternoon|evening))\b/.test(m)) return "greeting";
   if (/\b(thanks|thank you|cheers|ta|appreciate|nice one)\b/.test(m)) return "thanks";
+  if (/\b(why charged|why you|why should|what makes|different|better than|stand out|usp|trust)\b/.test(m)) return "different";
+  if (/\b(review|reviews|rating|ratings|testimonial|testimonials|reputation|google review)\b/.test(m)) return "reviews";
   if (/\b(quote|price|pricing|cost|costs|how much|budget|package|rate|rates|afford|invest)\b/.test(m)) return "quote";
   if (/\b(how long|timeline|turnaround|how fast|how quick|when can|lead time|deadline)\b/.test(m)) return "timeline";
-  if (/\b(where|based|location|area|exeter|devon|south west|cover|local|near me|come to)\b/.test(m)) return "location";
+  if (/\b(where|based|location|area|exeter|devon|south west|cover|near me|come to)\b/.test(m)) return "location";
+  if (/\b(industr|sector|niche|type of business|what businesses|who do you work|who are your clients)\b/.test(m)) return "industries";
   if (/\b(process|how do you work|how does it work|steps|approach|what happens)\b/.test(m)) return "process";
   if (/\b(retainer|monthly|ongoing|maintenance|maintain|manage|look after|support plan|subscription)\b/.test(m)) return "retainer";
   if (/\b(software|app|apps|application|booking system|portal|dashboard|automation|automate|internal tool|crm)\b/.test(m)) return "software";
   if (/\b(aeo|answer engine|ai search|chatgpt|llm)\b/.test(m)) return "aeo";
-  if (/\b(seo|search engine|ranking|rank|google|found|visibility|core web vitals|pagespeed|speed)\b/.test(m)) return "seo";
+  if (/\b(seo|search engine|ranking|rank|google|found|visibility|core web vitals|pagespeed)\b/.test(m)) return "seo";
   if (/\b(brand|branding|logo|identity|guidelines|visual identity)\b/.test(m)) return "branding";
   if (/\b(web|website|websites|site|landing page|redesign|homepage|page|build me)\b/.test(m)) return "webDesign";
   if (/\b(audit|review my|check my|test my|analyse|analyze|score)\b/.test(m)) return "audit";
@@ -447,7 +466,9 @@ export default function Chatbot() {
         onClick={() => (isOpen ? setIsOpen(false) : open())}
         aria-label={isOpen ? "Close chat" : "Open chat"}
         aria-expanded={isOpen}
-        className="fixed bottom-6 right-6 z-[100000] flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-text-inverse shadow-glow transition-transform duration-300 ease-out hover:scale-105 motion-reduce:transition-none"
+        className={`fixed bottom-6 right-6 z-[100000] h-14 w-14 items-center justify-center rounded-2xl bg-accent text-text-inverse shadow-glow transition-transform duration-300 ease-out hover:scale-105 motion-reduce:transition-none ${
+          isOpen ? "hidden sm:flex" : "flex"
+        }`}
       >
         {isOpen ? <CloseIcon /> : <ChatIcon />}
       </button>

@@ -3,7 +3,7 @@ import { Anton, Inter_Tight } from "next/font/google";
 import localFont from "next/font/local";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import Chatbot from "@/components/Chatbot";
+import ChatbotLoader from "@/components/ChatbotLoader";
 import JsonLd from "@/components/JsonLd";
 import CookieConsent from "@/components/CookieConsent";
 import { siteGraphLd } from "@/lib/structured-data";
@@ -55,14 +55,17 @@ export default function RootLayout({
       lang="en-GB"
       className={`${anton.variable} ${interTight.variable} ${caramel.variable}`}
     >
-      <body className="flex min-h-screen flex-col bg-bg font-inter text-text antialiased">
+      <body
+        suppressHydrationWarning
+        className="flex min-h-screen flex-col bg-bg font-inter text-text antialiased"
+      >
         <JsonLd data={siteGraphLd} />
         {/* Nav is fixed + transparent over the top of each page's hero.
             Pages without a full-bleed hero should add their own top spacing. */}
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
-        <Chatbot />
+        <ChatbotLoader />
         <CookieConsent />
       </body>
     </html>

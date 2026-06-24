@@ -111,30 +111,33 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — full-screen opaque overlay (no background clash) */}
       <AnimatePresence>
         {open && (
           <motion.div
             key="mobile-menu"
-            initial={reduceMotion ? false : { opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="border-t border-border bg-bg md:hidden"
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed inset-0 z-40 bg-bg md:hidden"
           >
-            <ul className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-6 py-6">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-3 font-anton text-2xl uppercase text-text transition-colors hover:text-accent"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-4">
+            <div className="flex h-full flex-col px-6 pb-10 pt-24">
+              <ul className="flex flex-col gap-1">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-3 font-anton text-3xl uppercase text-text transition-colors hover:text-accent"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto">
                 <Button
                   href={CTA.href}
                   onClick={() => setOpen(false)}
@@ -142,8 +145,17 @@ export default function Nav() {
                 >
                   {CTA.label}
                 </Button>
-              </li>
-            </ul>
+                <div className="mt-6 font-inter text-sm text-text/60">
+                  <a
+                    href="mailto:hello@chargedstudio.co.uk"
+                    className="block transition-colors hover:text-accent"
+                  >
+                    hello@chargedstudio.co.uk
+                  </a>
+                  <span className="mt-1 block">Exeter, Devon — South West UK</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
