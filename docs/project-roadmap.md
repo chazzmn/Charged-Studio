@@ -20,6 +20,10 @@
 
 **Pending on Charlie:** verify domain in Resend; visual design (post-course); supply real images (pull from Framer); legally review Privacy/Terms templates.
 
+**Pre-launch cleanups (last-minute, before go-live):**
+- **Services section photos** — the homepage Services rows currently use real screenshots for Websites (dn-home) + Branding (chazzmn) and branded bolt/numeral panels for SEO + Software. Source proper photos/visuals for SEO + Software (and ideally upgrade all four) before launch.
+- Build/added 2026-06-24: new **`WhyCharged`** trust section sits between the work marquee and Services (founder-led · APM PMQ · local · ongoing). No imagery needed (icon-led), but copy is final-draft — review before go-live.
+
 ---
 
 ## NEXT SESSION — confirmed requirements (Charlie, 2026-06-23) — NOT yet built

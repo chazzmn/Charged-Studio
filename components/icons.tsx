@@ -42,6 +42,36 @@ export function CheckCircle({
   );
 }
 
+/** A single person — founder-led marker. */
+export function UserMark({ className = "h-6 w-6", ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className} {...props}>
+      <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M5 20a7 7 0 0 1 14 0"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+/** Map pin — local / location marker. */
+export function PinMark({ className = "h-6 w-6", ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className} {...props}>
+      <path
+        d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="10" r="2.5" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  );
+}
+
 /** Chevron — used as the accordion toggle. Rotate via `group-open:rotate-180`. */
 export function Chevron({
   className = "h-5 w-5",

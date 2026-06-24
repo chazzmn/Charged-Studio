@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import WorkMarquee from "@/components/WorkMarquee";
+import WhyCharged from "@/components/WhyCharged";
 import Services from "@/components/Services";
 import ValueProp from "@/components/ValueProp";
 import FeaturedWork from "@/components/FeaturedWork";
@@ -28,6 +29,7 @@ export default function Home() {
     <>
       <Hero />
       <WorkMarquee />
+      <WhyCharged />
       <Services />
       <ValueProp />
       <FeaturedWork />
