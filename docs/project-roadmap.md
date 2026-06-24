@@ -18,7 +18,9 @@
 
 **Next up:** Direction lock (light theme + hero) → **Phase 3.5 design pass & IA v2** (apply light theme, remove emojis, hero video, scrolling reviews, per-service pages, contact redesign, about-process, AI bot) → SEO/technical wiring (sitemap + robots, Organization JSON-LD, GA4, OG image) → go-live (domain/DNS, verify Resend, cancel Framer).
 
-**Pending on Charlie:** verify domain in Resend; visual design (post-course); supply real images (pull from Framer); legally review Privacy/Terms templates.
+**Pending on Charlie:** visual design (post-course); supply real images (pull from Framer). ~~verify domain in Resend~~ ✅ done. ~~legally review Privacy/Terms~~ ✅ done.
+
+**Confirmed by Charlie 2026-06-24:** Resend domain verified + forms tested working; Privacy/Terms legally reviewed; Google Search Console set up (will be **connected at go-live**, not before).
 
 **Pre-launch cleanups (last-minute, before go-live):**
 - **Services section photos** — the homepage Services rows currently use real screenshots for Websites (dn-home) + Branding (chazzmn) and branded bolt/numeral panels for SEO + Software. Source proper photos/visuals for SEO + Software (and ideally upgrade all four) before launch.
@@ -104,8 +106,8 @@ These are the agreed next jobs. Do these, then push (Charlie said "we're very cl
 | Case study: Devon Nurseries (`/devon-nurseries`) | 🟡 Skeleton built — page + homepage FeaturedWork section. Needs real images + design pass |
 | Case study: CHAZZMN (`/chazzmn`) | ⏸️ Deferred — Charlie's own brand, mid-redevelopment. Add once its rebuild is live |
 | Case study: The Unaffiliated (`/the-unaffiliated`) | ❌ Dropped — lost client, can't stand behind it |
-| Privacy Policy (`/privacy`) | 🟡 Template built (UK/GDPR) — Charlie to review before relying on it |
-| Terms of Service (`/terms-of-service`) | 🟡 Template built (England & Wales) — Charlie to review |
+| Privacy Policy (`/privacy`) | ✅ Content legally reviewed by Charlie (2026-06-24). Still ⬜ to restyle into a designed page (Phase 3.5). |
+| Terms of Service (`/terms-of-service`) | ✅ Content legally reviewed by Charlie (2026-06-24). Still ⬜ to restyle into a designed page (Phase 3.5). |
 
 ---
 
@@ -138,7 +140,7 @@ Distilled from Charlie's design notes. Gated by the direction lock (light theme 
 |---|---|
 | Mobile responsiveness — every page, every breakpoint | ⬜ |
 | Animations — all sections have entrance animations | 🟡 Framer Motion entrances on built sections (reduced-motion safe). Revisit during design pass |
-| Contact form — connected to Resend / email delivery tested | 🟡 Built — /api/contact (Resend if RESEND_API_KEY, else Formspree via FORMSPREE_ENDPOINT). Key added; needs Resend domain verify + a real delivery test |
+| Contact form — connected to Resend / email delivery tested | ✅ **DONE 2026-06-24** — Resend domain verified, forms send + deliver correctly (contact, audit, and the new project wizard all post to /api/contact → Resend). |
 | `next-sitemap` generating `sitemap.xml` correctly | ⬜ Installed, not configured |
 | `robots.txt` confirmed correct | ⬜ (comes with next-sitemap) |
 | JSON-LD structured data on homepage | ⬜ Homepage Organization schema still TODO (blog posts already have BlogPosting JSON-LD) |
