@@ -80,7 +80,7 @@ These are the agreed next jobs. Do these, then push (Charlie said "we're very cl
 | Install dependencies | Claude | ✅ `framer-motion` + `next-sitemap` installed. NOTE: `resend` NOT installed (we call the Resend REST API via fetch — no SDK); `next-seo` not used (App Router metadata API instead) |
 | Configure `tailwind.config.ts` with brand colours + fonts | Claude | ✅ Done — REQUIRES `@config` line in globals.css (Tailwind v4) |
 | Configure `next.config.ts` — image domains, redirects | Claude | ✅ Done (framerusercontent.com allowed; redirects empty) |
-| Set up root layout: fonts, GA4 script, nav, footer | Claude | ✅ **DONE** — Fonts + Nav + Footer + **GA4** (`components/Analytics.tsx`, ID `G-9P8NYQN0KQ`, production-gated, env-overridable via `NEXT_PUBLIC_GA_ID`). ⚠️ UK PECR: analytics cookies technically need consent — no cookie banner yet (see note). |
+| Set up root layout: fonts, GA4 script, nav, footer | Claude | ✅ **DONE** — Fonts + Nav + Footer + **GA4** (ID `G-9P8NYQN0KQ`, production-gated, env-overridable via `NEXT_PUBLIC_GA_ID`). **GA now gated behind cookie consent** — `components/CookieConsent.tsx` (Accept/Decline banner, choice saved to localStorage; GA only loads after Accept). UK PECR compliant. (Old `Analytics.tsx` folded into CookieConsent + removed.) |
 | Create `.env.local` template for secrets | Claude | ✅ `.env.example` (committed) + `.env.local` (gitignored, has Charlie's Resend key) |
 | Build `<Nav />` component | Claude | ✅ Done — fixed, transparent→solid on scroll, mobile menu |
 | Build `<Footer />` component | Claude | ✅ Done — 4-col; dead links cleaned |

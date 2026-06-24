@@ -5,7 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 import JsonLd from "@/components/JsonLd";
-import Analytics from "@/components/Analytics";
+import CookieConsent from "@/components/CookieConsent";
 import { siteGraphLd } from "@/lib/structured-data";
 import "./globals.css";
 
@@ -63,7 +63,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <Chatbot />
-        <Analytics />
+        <CookieConsent />
       </body>
     </html>
   );
