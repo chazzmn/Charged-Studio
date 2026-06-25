@@ -11,6 +11,7 @@ import FeaturedWork from "@/components/FeaturedWork";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTASection from "@/components/CTASection";
+import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
   title: "Charged Studio — Web Design & Branding Agency, Exeter",
@@ -33,12 +34,19 @@ export default function Home() {
       <JsonLd data={faqPageLd(HOME_FAQS)} />
       <Hero />
       <WorkMarquee />
+      <SectionDivider />
       <WhyCharged />
+      <SectionDivider />
       <Services />
+      <SectionDivider />
       <ValueProp />
+      <SectionDivider />
       <FeaturedWork />
+      <SectionDivider />
       <Testimonials />
+      <SectionDivider />
       <FAQ />
+      <SectionDivider />
       <CTASection />
     </>
   );

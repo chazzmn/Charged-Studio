@@ -2,7 +2,6 @@ import type { ComponentType } from "react";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import Reveal from "@/components/Reveal";
-import { Chevron } from "@/components/icons";
 import { SERVICES } from "@/app/services/services-data";
 import {
   WebsiteGraphic,
@@ -12,10 +11,9 @@ import {
 } from "@/components/graphics";
 
 /**
- * Homepage Services — "pinned scroll" pattern. Each service row: title + CTA
- * stick on the left (lg+) while a coded graphic + an accordion of detail points
- * scroll past on the right. Native <details> accordions (no JS) + CSS reveals,
- * so this is a server component. Content from app/services/services-data.ts.
+ * Homepage Services — a compact overview. Each row is a coded graphic + a short
+ * one-liner and a CTA into the dedicated service page, where the full detail
+ * lives. Graphic side alternates for scroll rhythm. Content from services-data.ts.
  */
 const GRAPHIC: Record<string, ComponentType<{ show?: boolean }>> = {
   websites: WebsiteGraphic,
@@ -24,21 +22,9 @@ const GRAPHIC: Record<string, ComponentType<{ show?: boolean }>> = {
   branding: BrandingGraphic,
 };
 
-function AccordionItem({ title, body }: { title: string; body: string }) {
-  return (
-    <details className="group border-b border-border last:border-b-0">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
-        <span className="font-inter text-base font-semibold text-text">{title}</span>
-        <Chevron className="h-5 w-5 shrink-0 text-accent transition-transform duration-base ease-out group-open:rotate-180" />
-      </summary>
-      <p className="pb-5 font-inter text-sm leading-relaxed text-text/70">{body}</p>
-    </details>
-  );
-}
-
 export default function Services() {
   return (
-    <section id="services" className="mx-auto w-full max-w-7xl px-6 py-24 md:py-32">
+    <section id="services" className="mx-auto w-full max-w-7xl px-6 py-20 md:py-28">
       {/* Section intro */}
       <Reveal className="max-w-2xl">
         <Badge>What we do</Badge>
@@ -53,50 +39,48 @@ export default function Services() {
       </Reveal>
 
       {/* Service rows */}
-      <div className="mt-16 md:mt-20">
+      <div className="mt-14 md:mt-16">
         {SERVICES.map((service, i) => {
           const Graphic = GRAPHIC[service.slug];
+          const flip = i % 2 === 1;
           return (
             <Reveal
               key={service.slug}
-              className="grid grid-cols-1 gap-8 border-t border-border py-12 lg:grid-cols-2 lg:gap-16 lg:py-20"
+              className="grid grid-cols-1 items-center gap-8 border-t border-border py-10 lg:grid-cols-2 lg:gap-16 lg:py-14"
             >
-              {/* Left — sticks on lg+ */}
-              <div className="lg:sticky lg:top-28 lg:self-start">
+              {/* Text */}
+              <div className={flip ? "lg:order-2" : undefined}>
                 <div className="flex items-center gap-4">
                   <span className="font-anton text-2xl text-accent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <Badge>{service.eyebrow}</Badge>
                 </div>
-                <h3 className="mt-5 font-anton text-3xl uppercase leading-[0.95] text-text sm:text-4xl">
+                <h3 className="mt-5 font-anton text-2xl uppercase leading-[0.95] text-text sm:text-3xl lg:text-4xl">
                   {service.h1}
                 </h3>
-                <p className="mt-5 font-inter text-base leading-relaxed text-text/70">
-                  {service.intro}
+                <p className="mt-4 font-inter text-base leading-relaxed text-text/70">
+                  {service.outcome}
                 </p>
                 <Button
                   href={`/services/${service.slug}`}
                   variant="secondary"
                   size="sm"
-                  className="mt-7"
+                  className="mt-6"
                 >
                   Explore {service.name} →
                 </Button>
               </div>
 
-              {/* Right — coded graphic + accordion of detail points */}
-              <div className="lg:pt-2">
+              {/* Coded graphic */}
+              <div className={flip ? "lg:order-1" : undefined}>
                 {Graphic && (
-                  <div className="relative mb-7 aspect-[16/10] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-gradient-to-br from-surface to-bg">
                     <div className="absolute inset-0">
                       <Graphic />
                     </div>
                   </div>
                 )}
-                {service.features.map((f) => (
-                  <AccordionItem key={f.title} title={f.title} body={f.body} />
-                ))}
               </div>
             </Reveal>
           );
