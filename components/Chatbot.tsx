@@ -444,7 +444,7 @@ export default function Chatbot() {
             <SendIcon />
           </button>
         </div>
-        <p className="pb-4 text-center text-[10px] text-text/40 sm:pb-3">
+        <p className="pb-4 text-center text-[10px] text-text/60 sm:pb-3">
           Powered by Charged Studio
         </p>
       </div>

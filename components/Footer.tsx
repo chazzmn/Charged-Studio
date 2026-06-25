@@ -58,8 +58,13 @@ export default function Footer() {
               We build the brand your business deserves. Websites, software, and
               digital presence for businesses ready to grow.
             </p>
-            <p className="mt-4 font-inter text-sm text-text/50">
+            <p className="mt-4 font-inter text-sm text-text/60">
               Exeter, Devon — working across the UK
+            </p>
+            <p className="mt-3 font-inter text-sm text-text/70">
+              <Link href="/web-design-exeter" className="transition-colors hover:text-text">
+                Web design in Exeter
+              </Link>
             </p>
           </div>
 

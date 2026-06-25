@@ -87,7 +87,7 @@ export default function ProjectForm({ kind = "project" }: { kind?: Kind }) {
             name="business"
             label={
               <>
-                Business name <span className="text-text/30">(optional)</span>
+                Business name <span className="text-text/60">(optional)</span>
               </>
             }
           />

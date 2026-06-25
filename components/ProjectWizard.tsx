@@ -284,7 +284,7 @@ export default function ProjectWizard() {
           <div>
             <label htmlFor="website" className={labelClass}>
               Current website{" "}
-              <span className="font-normal text-text/40">(optional)</span>
+              <span className="font-normal text-text/60">(optional)</span>
             </label>
             <input
               id="website"
@@ -398,7 +398,7 @@ export default function ProjectWizard() {
           </div>
           <div>
             <label htmlFor="phone" className={labelClass}>
-              Phone <span className="font-normal text-text/40">(optional)</span>
+              Phone <span className="font-normal text-text/60">(optional)</span>
             </label>
             <input
               id="phone"

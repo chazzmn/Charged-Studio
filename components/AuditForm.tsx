@@ -315,7 +315,7 @@ export default function AuditForm() {
       <div>
         <label htmlFor="message" className={labelClass}>
           Anything else we should know?{" "}
-          <span className="font-normal text-text/40">(optional)</span>
+          <span className="font-normal text-text/60">(optional)</span>
         </label>
         <textarea
           id="message"

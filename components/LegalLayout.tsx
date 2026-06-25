@@ -60,7 +60,7 @@ export default function LegalLayout({
         <aside className="hidden lg:block">
           {toc.length > 0 && (
             <nav aria-label="On this page" className="sticky top-28">
-              <p className="font-inter text-xs font-semibold uppercase tracking-wider text-text/40">
+              <p className="font-inter text-xs font-semibold uppercase tracking-wider text-text/60">
                 On this page
               </p>
               <ul className="mt-4 space-y-2.5 border-l border-border">

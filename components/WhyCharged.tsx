@@ -64,7 +64,7 @@ export default function WhyCharged() {
             <span className="font-inter text-xs text-text/60">{label}</span>
           </div>
         ))}
-        <span className="font-inter text-xs text-text/40">
+        <span className="font-inter text-xs text-text/60">
           Google PageSpeed Insights · Mobile &amp; Desktop
         </span>
       </div>
