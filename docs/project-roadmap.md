@@ -56,13 +56,18 @@ Each `/services/[slug]` page is currently thin. Before launching more local SEO 
 
 Per `docs/local-seo-plan.md`, the keyword→page map calls for town-level pages. Don't build these until the service pages they link to are bulked out — thin pages pointing to thin pages compound each other's weakness.
 
+**Now data-driven (2026-06-26):** location pages refactored to a single shared `components/LocationPage.tsx` + per-place data in `lib/locations.ts`. Each town = one data entry + a ~6-line `app/web-design-<slug>/page.tsx` + sitemap/footer line. `/web-design-exeter` migrated onto it (content identical); future towns are cheap and stay non-duplicate via unique per-place copy/FAQs.
+
 Priority order once service pages are ready:
-- [ ] `/web-design-devon` (clone `/web-design-exeter`, update copy + local signals)
-- [ ] `/web-design-bristol`
-- [ ] `/web-design-barnstaple`
-- [ ] `/web-design-plymouth`
+- [x] `/web-design-devon` — DONE. Devon-specific hero, built-for, local proof, 5 unique FAQs (incl. real pricing), LocalBusiness/Breadcrumb/FAQPage JSON-LD. In sitemap + footer.
+- [x] `/web-design-plymouth` — DONE (Britain's Ocean City angle, Plympton/Plymstock areas).
+- [x] `/web-design-barnstaple` — DONE (North Devon hub: Bideford/Ilfracombe/Braunton).
+- [x] `/web-design-torquay` — DONE (Torbay / English Riviera; Paignton/Brixham; tourism angle).
+- [x] `/web-design-bristol` — DONE. Note: Bristol is NOT Devon — framed as South West (county field = "South West"); copy/schema avoid Devon claims.
+- [x] `/web-design-st-thomas` — DONE. Hyper-local Exeter neighbourhood (Cowick Street); county field = "Exeter" for the SEO scope line.
 - [ ] `/web-design-taunton`
 - [ ] `/web-design-tiverton`
+- **Sitemap + footer are now generated from `LOCATIONS`** — adding a town auto-wires both. tsc clean.
 
 Pattern for each: local hero, proof bar, services included, local case study/client ref if available, local FAQ, ProfessionalService + Breadcrumb + FAQPage JSON-LD, internal links to service pages. Wire each into `app/sitemap.ts` and footer nav (location pages section).
 

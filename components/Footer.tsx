@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { LOCATIONS } from "@/lib/locations";
 
 const STUDIO_LINKS = [
   { label: "Home", href: "/" },
@@ -12,6 +13,8 @@ const STUDIO_LINKS = [
 
 const WORK_LINKS = [
   { label: "Devon Nurseries", href: "/devon-nurseries" },
+  { label: "Tend", href: "/tend" },
+  { label: "Chair", href: "/chair" },
   // CHAZZMN — deferred until its rebuild is live.
   // The Unaffiliated — removed (past client).
 ];
@@ -61,10 +64,16 @@ export default function Footer() {
             <p className="mt-4 font-inter text-sm text-text/60">
               Exeter, Devon — working across the UK
             </p>
-            <p className="mt-3 font-inter text-sm text-text/70">
-              <Link href="/web-design-exeter" className="transition-colors hover:text-text">
-                Web design in Exeter
-              </Link>
+            <p className={`mt-5 ${headingClass}`}>Web design across the South West</p>
+            <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
+              {LOCATIONS.map((l, i) => (
+                <span key={l.slug}>
+                  {i > 0 && <span className="text-text/30"> · </span>}
+                  <Link href={`/${l.slug}`} className="transition-colors hover:text-text">
+                    {l.place}
+                  </Link>
+                </span>
+              ))}
             </p>
           </div>
 
