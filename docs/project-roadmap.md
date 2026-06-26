@@ -4,9 +4,85 @@
 
 ---
 
-## Current State (last updated 2026-06-24) — ⚡ BUILD COMPLETE, LAUNCH-READY
+## SESSION LOG (2026-06-26) — quick wins, About story, service pages
 
-**TL;DR for a fresh session:** The website build is **done**. It scores a **perfect 100/100/100/100 on PageSpeed Insights (mobile + desktop)**. Everything in the "NEXT SESSION" list below is complete. The ONLY remaining work is the **go-live sequence** (domain/DNS → Search Console → confirm GA4 → cancel Framer) — see Phase 5. Live test URL: `https://charged-studio.vercel.app/`.
+Done this session (tsc clean throughout; pushed to `main`):
+- **Hero** — kept the "Web Design Studio · Exeter & the South West" eyebrow; removed the "Fast, modern websites…" sub-paragraph (Charlie's call — opposite of the original quick-win wording).
+- **Availability signal** — new `components/AvailabilityPill.tsx` near the hero CTAs and atop `CTASection`. Client component: shows the current month, then flips to the next month exactly 5 days before that month begins (e.g. 26 June → "July"). Amber pulsing dot, reduced-motion safe.
+- **Tend** — Charlie confirmed it's a concept, NOT a client project. Reframed to read as a real project without claiming a client/delivery: `Type` → "Studio project"; stripped "self-initiated"/"concept" from meta description, Overview, Outcome, and the `FeaturedWork` blurb.
+- **About** — added the "Why we exist" story `<section>` between the studio intro and Founder.
+- **Service pages** — bulked out all four `/services/[slug]`: added outcome statements, "who it's for", a 4-step "how it works", and a **pricing** block. Real anchors from Charlie: Websites — Landing £695 / Business £1,495 / E-commerce £2,495; Software — £1,250; SEO — £295/month. Branding left as "Quoted per project" (no number given). Hub cards show "from" prices. ⚠️ SEO £295/mo is now public — a small exception to the "no public retainer pricing" line; confirmed with Charlie. Branding still needs a "from" figure if wanted.
+
+### Quick wins (30 mins each, do first)
+
+- [x] **Remove hero sub-header** — DONE (removed the sub-paragraph, kept the eyebrow per Charlie).
+- [x] **Update Tend case study type** — DONE. Confirmed concept (not a client); reframed as "Studio project", removed "self-initiated"/"concept" across page + FeaturedWork.
+- [x] **Availability signal** — DONE via `AvailabilityPill` (auto-rolls month, 5 days before).
+
+### Content: About page (this is the highest-conversion change)
+
+Rewrite `app/about/page.tsx` intro section to include a **Why we exist** story block between the current tagline and the Founder section. The story:
+
+> Small businesses are stuck between two bad options: do it all yourself and figure it out from scratch, or go to a big agency and pay for a generic product that doesn't fit how you actually work.  
+> Charged was built to close that gap. We build websites, software, and brand systems tailored to each client's exact goals and budget. There are very few clients we turn down — we know what it feels like when these products feel out of reach.  
+> We believe anyone with the drive to run their own business deserves access to affordable, tailored digital products that help them compete.
+
+Keep the voice sharp and direct — not angry/anti-corporate, but with conviction. Fits between the `<Badge>About the studio</Badge>` block and the Founder section. Add as a standalone `<section>` or subsection called "Why we exist" or keep it copy-level within the existing intro block.
+
+### Content: Service pages — bulk out + price anchors
+
+Each `/services/[slug]` page is currently thin. Before launching more local SEO pages (which will link to services), these need substance.
+
+- [x] **Bulk out each service page** — DONE. Added outcomes, "who it's for", 4-step "how it works", and pricing to all four `/services/[slug]`.
+- [x] **Add price anchors** — DONE with Charlie's real numbers (Websites £695/£1,495/£2,495 tiers, Software £1,250, SEO £295/mo, Branding "Quoted per project"). Hub cards show "from" prices. ⚠️ Branding has no numeric anchor yet; SEO monthly price is now public (confirmed).
+- Services updated: `websites`, `software`, `seo`, `branding` (slugs in `app/services/services-data.ts`).
+
+### Content: Contact page — simplify primary form
+
+- [ ] Keep the detailed Start-a-Project wizard (`/start-a-project`) as-is.
+- [ ] Simplify the primary contact form on `/contact` to just: name, email, message, send. The current form is too heavy for low-intent visitors. The wizard is the path for serious leads — the contact page should be frictionless.
+
+### Case studies — add a third
+
+- [ ] Add another real case study page. Follow the `/devon-nurseries` or `/tend` pattern. Even a short one (problem → what we built → result) is better than two. Add it to `components/FeaturedWork.tsx`.
+- [ ] If Tend was a client project, make sure Devon Nurseries + Tend + new case study are all consistent in how they're labelled across FeaturedWork and their individual pages.
+
+### Lighthouse proof
+
+- [ ] Add visible screenshot evidence for the 100/100/100/100 PageSpeed claims on the homepage. Charlie has screenshots — drop them in `public/images/proof/` and add a small "proof panel" near the claim. Note: the live scores are verifiable at PageSpeed Insights so this is about trust, not verification.
+
+### Local SEO — location pages (do AFTER service pages have substance)
+
+Per `docs/local-seo-plan.md`, the keyword→page map calls for town-level pages. Don't build these until the service pages they link to are bulked out — thin pages pointing to thin pages compound each other's weakness.
+
+Priority order once service pages are ready:
+- [ ] `/web-design-devon` (clone `/web-design-exeter`, update copy + local signals)
+- [ ] `/web-design-bristol`
+- [ ] `/web-design-barnstaple`
+- [ ] `/web-design-plymouth`
+- [ ] `/web-design-taunton`
+- [ ] `/web-design-tiverton`
+
+Pattern for each: local hero, proof bar, services included, local case study/client ref if available, local FAQ, ProfessionalService + Breadcrumb + FAQPage JSON-LD, internal links to service pages. Wire each into `app/sitemap.ts` and footer nav (location pages section).
+
+### Homepage polish (do last — content first)
+
+- [ ] **Replace the website screenshot carousel** — only worth doing if the replacement is higher quality and more persuasive. Weak motion is worse than none.
+- [ ] **Subtle entrance animations** — scroll-triggered fade-ups on section headings, counter animations on stats, hover lifts on cards. Keep it restrained; the current build removed framer-motion for perf. Either use existing `components/Reveal.tsx` (CSS) or re-add framer-motion selectively if needed.
+
+---
+
+## Current State (last updated 2026-06-25) — ⚡ LAUNCH-READY + LOCAL SEO PUSH UNDERWAY
+
+**TL;DR for a fresh session:** The core build is **done** (100/100/100/100 PageSpeed). Two tracks of work are now active on top of it: (1) **Local SEO** — the new priority: ranking #1 for "web design / web designer Exeter & Devon" via dedicated location pages + Google Business Profile. Lead page `/web-design-exeter` is built; plan + keyword→page map in `docs/local-seo-plan.md`. (2) **Go-live** (domain/DNS → Search Console → cancel Framer) — see Phase 5. Live test URL: `https://charged-studio.vercel.app/`.
+
+### Session 2026-06-25 — added on top of the finished build
+- **New case study `/tend`** (`app/tend/page.tsx`) — self-initiated product-design concept (hospitality shift-scheduling tool). `FeaturedWork.tsx` reworked to show Devon Nurseries **and** Tend. ⏳ Charlie to drop 2 images: `public/images/work/tend-dashboard-dark.jpg` + `tend-dashboard-light.jpg`.
+- **Homepage compacted** (mobile scroll): `Services.tsx` dropped the duplicated feature accordion (detail lives on `/services/[slug]`), compact rows + alternating graphic; `WhyCharged.tsx` shortened + 2-up mobile grid; new `components/SectionDivider.tsx` (hairline + yellow glow) between every homepage section.
+- **Contrast pass:** readable `text-text/40` & `/30` → `/60` (AA on dark) across WhyCharged, AuditForm, ProjectWizard, ProjectForm, Chatbot, LegalLayout, Footer.
+- **LOCAL SEO (priority):** `docs/local-seo-plan.md` = keyword→page map + strategy. Built `/web-design-exeter` (local hero, proof bar, what's-included reusing websites features, Devon Nurseries proof, local FAQ, ProfessionalService+Breadcrumb+FAQPage JSON-LD, internal links, footer-linked). **NEXT:** `/web-design-devon` (clone), town pages, then off-site (GBP, reviews, citations, local backlinks).
+- **`next.config.ts`** got `turbopack.root` (stray `~/package-lock.json` removed). Dev cold-boot is slow (2–4 min, iCloud-synced `Documents`); HMR fast once Ready — leave the server running.
+- tsc clean throughout.
 
 **Build:** Next.js 16 + React 19 + Tailwind v4. All pages built, type-checking clean, deployed to Vercel (auto-deploys on push to `main`). **No framer-motion** (removed for perf — animations are pure CSS via `components/Reveal.tsx`); Hero/Services/FeaturedWork are server components. Fonts: Anton + Inter Tight (Caramel dropped).
 
@@ -114,6 +190,8 @@ These are the agreed next jobs. Do these, then push (Charlie said "we're very cl
 | Blog post: What is AEO (`/blog/what-is-aeo`) | ✅ Built — with BlogPosting JSON-LD |
 | Blog post: Website Speed (`/blog/website-speed`) | ✅ Built — with BlogPosting JSON-LD |
 | Case study: Devon Nurseries (`/devon-nurseries`) | 🟡 Skeleton built — page + homepage FeaturedWork section. Needs real images + design pass |
+| Case study: Tend (`/tend`) | ✅ **Built 2026-06-25** — product-design concept (hospitality shift-scheduling). Featured on homepage alongside Devon Nurseries. ⏳ Charlie to add `public/images/work/tend-dashboard-dark.jpg` + `tend-dashboard-light.jpg` |
+| Local SEO landing: Web Design Exeter (`/web-design-exeter`) | ✅ **Built 2026-06-25** — lead location page (full local content + JSON-LD). Template for `/web-design-devon` + town pages. See `docs/local-seo-plan.md` |
 | Case study: CHAZZMN (`/chazzmn`) | ⏸️ Deferred — Charlie's own brand, mid-redevelopment. Add once its rebuild is live |
 | Case study: The Unaffiliated (`/the-unaffiliated`) | ❌ Dropped — lost client, can't stand behind it |
 | Privacy Policy (`/privacy`) | ✅ Content legally reviewed by Charlie (2026-06-24). Still ⬜ to restyle into a designed page (Phase 3.5). |

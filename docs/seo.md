@@ -129,10 +129,13 @@ export const metadata: Metadata = {
 
 ---
 
-## Local SEO
+## Local SEO — PRIORITY (see `docs/local-seo-plan.md`)
 
-Charged Studio is based in Exeter — local search matters.
+Ranking #1 for "web design / web designer Exeter & Devon" is the current focus.
+The full strategy + keyword→page map lives in **`docs/local-seo-plan.md`**. Summary:
 
-- Mention "Exeter" and "Devon" naturally in homepage and about copy
-- Consider Google Business Profile (separate from this site, but link to it)
-- Target keywords: "web design agency Exeter", "branding studio Devon", "website design Exeter"
+- **One dedicated location page per intent.** Built: `/web-design-exeter` (lead page, full local content + ProfessionalService/Breadcrumb/FAQPage JSON-LD). Next: `/web-design-devon`, then town pages (Exmouth, Topsham, Torquay, Newton Abbot, Tiverton).
+- Each location page: local H1, local proof (5.0/16 reviews, 100 PageSpeed, APM), Devon Nurseries case study, local FAQ, internal links, self-canonical. Footer-linked for crawlability.
+- **Off-site (usually decides #1):** Google Business Profile (category "Website designer", Devon service areas), keep reviews growing, consistent NAP citations, local backlinks.
+- Mention "Exeter"/"Devon" naturally in homepage + about copy (already done in the Organization JSON-LD).
+- ⏭ `next-sitemap` still unconfigured — new location pages currently rely on the native `app/sitemap.ts`; confirm new routes are picked up there.

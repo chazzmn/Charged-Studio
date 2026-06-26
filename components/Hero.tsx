@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import HeroMockup from "@/components/HeroMockup";
+import AvailabilityPill from "@/components/AvailabilityPill";
 
 /** Homepage hero — copy on the left, a looping coded browser mockup on the right.
  *  Rendered statically (no scroll-reveal) so the above-fold content paints
@@ -23,16 +24,13 @@ export default function Hero() {
             <br />
             your business <span className="text-accent">deserves.</span>
           </h1>
-          <p className="mt-6 max-w-md font-inter text-lg leading-relaxed text-text/70">
-            Fast, modern websites that turn local searchers into customers — for
-            service businesses across Devon and the South West.
-          </p>
           <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Button href="/start-a-project">Start a Project</Button>
             <Button href="/audit" variant="secondary">
               Free Website Audit
             </Button>
           </div>
+          <AvailabilityPill className="mt-6" />
         </div>
 
         {/* Mockup reel */}

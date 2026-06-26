@@ -73,6 +73,23 @@ export default async function ServicePage({ params }: Params) {
         </div>
       </section>
 
+      {/* Outcomes */}
+      <section className="mx-auto w-full max-w-7xl px-6 pt-14 md:pt-20">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {service.outcomes.map((o) => (
+            <div
+              key={o}
+              className="flex items-start gap-3 rounded-xl bg-surface/40 p-6 shadow-e1"
+            >
+              <BoltMark className="mt-1 h-5 w-5 shrink-0 text-accent" />
+              <p className="font-inter text-lg font-semibold leading-snug text-text">
+                {o}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* What's included */}
       <section className="mx-auto w-full max-w-7xl px-6 py-20 md:py-28">
         <h2 className="font-anton text-3xl uppercase leading-tight text-text sm:text-4xl">
@@ -94,6 +111,83 @@ export default async function ServicePage({ params }: Params) {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Who it's for */}
+      <section className="mx-auto w-full max-w-4xl px-6 py-16 md:py-24">
+        <Badge>Who it&apos;s for</Badge>
+        <p className="mt-6 max-w-2xl font-inter text-lg leading-relaxed text-text/70">
+          {service.whoForLead}
+        </p>
+        <ul className="mt-7 space-y-4">
+          {service.whoFor.map((w) => (
+            <li
+              key={w}
+              className="flex items-start gap-3 font-inter text-lg leading-relaxed text-text/80"
+            >
+              <span
+                aria-hidden
+                className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+              />
+              {w}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* How it works */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+        <h2 className="font-anton text-3xl uppercase leading-tight text-text sm:text-4xl">
+          How it works
+        </h2>
+        <ol className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {service.process.map((p) => (
+            <li key={p.step} className="rounded-xl bg-surface/40 shadow-e1 p-7">
+              <span className="font-anton text-3xl text-accent">{p.step}</span>
+              <h3 className="mt-4 font-inter text-lg font-bold text-text">
+                {p.title}
+              </h3>
+              <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
+                {p.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* Pricing */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+        <Badge>Pricing</Badge>
+        <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl">
+          Clear starting prices
+        </h2>
+        <div
+          className={`mt-10 grid grid-cols-1 gap-6 ${
+            service.pricing.tiers.length > 1
+              ? "sm:grid-cols-2 lg:grid-cols-3"
+              : "max-w-md"
+          }`}
+        >
+          {service.pricing.tiers.map((t) => (
+            <div
+              key={t.label}
+              className="flex flex-col rounded-xl border border-border bg-surface/40 p-7"
+            >
+              <p className="font-inter text-xs font-semibold uppercase tracking-wider text-text/60">
+                {t.label}
+              </p>
+              <p className="mt-2 font-anton text-3xl uppercase text-text">
+                {t.price}
+              </p>
+              <p className="mt-3 font-inter text-sm leading-relaxed text-text/70">
+                {t.body}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 max-w-2xl font-inter text-sm leading-relaxed text-text/60">
+          {service.pricing.note}
+        </p>
       </section>
 
       {/* Why it matters */}

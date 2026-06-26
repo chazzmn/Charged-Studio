@@ -6,7 +6,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Tend — Case Study | Charged Studio",
   description:
-    "A shift-scheduling concept for independent hospitality where labour cost is a live number you see while you plan — a self-initiated product design case study by Charged Studio.",
+    "A shift-scheduling tool for independent hospitality where labour cost is a live number you see while you plan — a product design case study by Charged Studio.",
   alternates: { canonical: "https://chargedstudio.co.uk/tend" },
   openGraph: {
     title: "Tend — Case Study | Charged Studio",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const META = [
   { label: "Services", value: "Product Design · UI Design" },
-  { label: "Type", value: "Self-initiated concept" },
+  { label: "Type", value: "Studio project" },
   { label: "Year", value: "2026" },
 ];
 
@@ -99,10 +99,10 @@ export default function TendPage() {
             Overview
           </h2>
           <p className="mt-4 font-inter text-lg leading-relaxed text-text/70">
-            Tend is an original concept developed as a self-initiated product
-            design exercise — a scheduling platform built for the owner-operators
-            and general managers of independent cafés, bars, and small restaurant
-            groups. Most scheduling tools treat the rota and the money as two
+            Tend is an original product Charged Studio designed end to end — a
+            scheduling platform built for the owner-operators and general
+            managers of independent cafés, bars, and small restaurant groups.
+            Most scheduling tools treat the rota and the money as two
             separate problems: you build the week in one place, then find out what
             it cost you somewhere else, usually too late to do anything about it.
             Tend collapses that gap. Every shift you drag onto the grid updates a
@@ -235,11 +235,11 @@ export default function TendPage() {
             Outcome
           </h2>
           <p className="mt-4 font-inter text-lg leading-relaxed text-text/70">
-            As a portfolio concept, Tend demonstrates Charged Studio&apos;s
-            approach end to end: framing a real operational problem, defining the
-            people it affects, and resolving it into a product with a clear point
-            of view and a finished, production-grade interface — not a wireframe,
-            but something that looks and behaves like a product you could ship.
+            Tend demonstrates Charged Studio&apos;s approach end to end: framing a
+            real operational problem, defining the people it affects, and
+            resolving it into a product with a clear point of view and a
+            finished, production-grade interface — not a wireframe, but something
+            that looks and behaves like a product you could ship.
           </p>
         </div>
       </section>

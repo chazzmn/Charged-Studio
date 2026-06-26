@@ -6,6 +6,8 @@
 
 export type ServiceFeature = { title: string; body: string };
 export type ServiceFaq = { q: string; a: string };
+export type ServiceTier = { label: string; price: string; body: string };
+export type ServiceStep = { step: string; title: string; body: string };
 
 export type Service = {
   slug: string;
@@ -16,8 +18,14 @@ export type Service = {
   metaDescription: string;
   intro: string;
   outcome: string; // one-liner for the hub card
+  priceFrom?: string; // short anchor for the hub card, e.g. "From £695"
   lead?: boolean;
+  outcomes: string[]; // 1–2 punchy outcome statements
   features: ServiceFeature[];
+  whoForLead: string;
+  whoFor: string[];
+  process: ServiceStep[];
+  pricing: { tiers: ServiceTier[]; note: string };
   whyTitle: string;
   whyBody: string[];
   faqs: ServiceFaq[];
@@ -31,11 +39,16 @@ export const SERVICES: Service[] = [
     h1: "Websites that turn local searches into customers.",
     metaTitle: "Website Design in Exeter & Devon | Charged Studio",
     metaDescription:
-      "Custom, fast, fully-managed website design for businesses across Exeter, Devon and the South West. Built to rank locally and turn visitors into enquiries.",
+      "Custom, fast, fully-managed website design for businesses across Exeter, Devon and the South West. Built to rank locally and turn visitors into enquiries. Landing pages from £695.",
     intro:
       "Your website is your hardest-working salesperson — open 24/7, in front of every customer who searches for what you do. We design and build fast, modern, mobile-first sites that look sharp and turn local searches into booked jobs and enquiries. And because we manage everything — hosting, domain, updates, maintenance — you never have to touch a thing.",
     outcome: "Custom, fast, fully-managed sites built to convert.",
+    priceFrom: "From £695",
     lead: true,
+    outcomes: [
+      "More enquiries from the traffic you already have.",
+      "A fast, modern site that ranks for the searches that win work.",
+    ],
     features: [
       {
         title: "Custom design",
@@ -62,6 +75,56 @@ export const SERVICES: Service[] = [
         body: "Most clients stay on monthly, so your site keeps improving long after launch.",
       },
     ],
+    whoForLead:
+      "Websites are where most of our clients start. A new site is a fit if:",
+    whoFor: [
+      "Your current site is dated, slow, or doing nothing to bring in work.",
+      "You're getting traffic but not enquiries — the site isn't converting.",
+      "You're launching and need to look credible from day one.",
+      "You want it handled — hosting, updates and support off your plate.",
+    ],
+    process: [
+      {
+        step: "01",
+        title: "Discovery",
+        body: "We learn your business, customers and goals, then agree the scope, pages and timeline up front.",
+      },
+      {
+        step: "02",
+        title: "Design",
+        body: "We design the key pages first and get your sign-off before building — so there are no surprises.",
+      },
+      {
+        step: "03",
+        title: "Build & optimise",
+        body: "We build it fast and mobile-first, with SEO foundations and Core Web Vitals baked in.",
+      },
+      {
+        step: "04",
+        title: "Launch & look after",
+        body: "We go live, then host, maintain and keep improving it on an ongoing basis.",
+      },
+    ],
+    pricing: {
+      tiers: [
+        {
+          label: "Landing pages",
+          price: "From £695",
+          body: "Ideal for new businesses, launches, and focused lead-generation campaigns.",
+        },
+        {
+          label: "Business websites",
+          price: "From £1,495",
+          body: "For growing companies that need a stronger digital presence, clearer service pages, and a better enquiry flow.",
+        },
+        {
+          label: "E-commerce & specialised",
+          price: "From £2,495",
+          body: "For businesses that need more complex user journeys, integrations, or custom functionality.",
+        },
+      ],
+      note: "Every project is scoped to what you need — we'll give you a clear, fixed quote after a 15-minute call. No surprise costs.",
+    },
     whyTitle: "Why it matters",
     whyBody: [
       "A slow, dated or hard-to-use website quietly costs you customers every day — they bounce, they lose trust, and they call the competitor whose site loaded first.",
@@ -70,7 +133,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: "How much does a website cost?",
-        a: "Every project is priced to fit what you need — we don't do one-size-fits-all packages. Tell us about your project and we'll send a tailored quote within a working day.",
+        a: "Landing pages start from £695, business websites from £1,495, and e-commerce or specialised builds from £2,495. Every project is scoped to what you need — tell us about yours and we'll send a tailored quote within a working day.",
       },
       {
         q: "How long does it take?",
@@ -89,10 +152,15 @@ export const SERVICES: Service[] = [
     h1: "Tools that take the busywork out of your business.",
     metaTitle: "Custom Software & App Development, Exeter | Charged Studio",
     metaDescription:
-      "Bespoke booking systems, customer portals, dashboards and automations for growing businesses in Devon and the South West. Built to help you operate smarter.",
+      "Bespoke booking systems, customer portals, dashboards and automations for growing businesses in Devon and the South West. Custom software from £1,250.",
     intro:
       "Some problems a website alone can't solve. When you're drowning in admin, juggling spreadsheets, or doing the same task fifty times a week, you need software built around how your business actually runs. We design and build bespoke tools — booking systems, customer portals, dashboards, automations — that quietly remove the busywork so you can focus on growing.",
     outcome: "Bespoke booking systems, portals, dashboards and automations.",
+    priceFrom: "From £1,250",
+    outcomes: [
+      "Hours of manual admin removed from every week.",
+      "Fewer mistakes, faster turnaround, and your time back.",
+    ],
     features: [
       {
         title: "Booking & enquiry systems",
@@ -111,6 +179,46 @@ export const SERVICES: Service[] = [
         body: "We start from your actual workflow, not an off-the-shelf product you have to bend your business around.",
       },
     ],
+    whoForLead:
+      "Custom software earns its place when off-the-shelf tools don't fit. It's a fit if:",
+    whoFor: [
+      "You're juggling spreadsheets, inboxes and manual steps that should be automated.",
+      "You do the same task dozens of times a week.",
+      "Existing tools almost work, but force you to bend your business around them.",
+      "You need a booking system, customer portal or dashboard built around your workflow.",
+    ],
+    process: [
+      {
+        step: "01",
+        title: "Map the problem",
+        body: "We sit with how you actually work and pin down exactly what's costing you time.",
+      },
+      {
+        step: "02",
+        title: "Scope & prototype",
+        body: "We agree the smallest build that solves it, and show you how it'll work before we build it.",
+      },
+      {
+        step: "03",
+        title: "Build & integrate",
+        body: "We build it to fit around the tools you already use — not a rip-and-replace.",
+      },
+      {
+        step: "04",
+        title: "Launch & support",
+        body: "We roll it out, help your team get going, and support it on an ongoing basis.",
+      },
+    ],
+    pricing: {
+      tiers: [
+        {
+          label: "Custom software",
+          price: "From £1,250",
+          body: "For internal tools, lightweight apps, and operational systems tailored to how your business works.",
+        },
+      ],
+      note: "Software is scoped to the problem — we'll only suggest building it if it clearly saves you more than it costs. You'll get a clear quote after a call.",
+    },
     whyTitle: "Why it matters",
     whyBody: [
       "Every hour you spend on manual admin is an hour you're not spending on the work that grows the business. Multiply that across a team and the cost is huge.",
@@ -123,7 +231,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Is custom software expensive?",
-        a: "It's scoped to the problem. We'll only suggest building something if it'll clearly save you more than it costs. Get in touch and we'll talk it through honestly.",
+        a: "Custom software starts from £1,250 and is scoped to the problem. We'll only suggest building something if it'll clearly save you more than it costs. Get in touch and we'll talk it through honestly.",
       },
       {
         q: "Do you maintain it afterwards?",
@@ -138,10 +246,15 @@ export const SERVICES: Service[] = [
     h1: "Get found by the customers already searching for you.",
     metaTitle: "Local SEO Services in Exeter & Devon | Charged Studio",
     metaDescription:
-      "Local SEO, Google Business Profile, Core Web Vitals and AEO for businesses across Exeter, Devon and the South West. Get found for the searches that win work.",
+      "Local SEO, Google Business Profile, Core Web Vitals and AEO for businesses across Exeter, Devon and the South West. SEO retainers from £295/month.",
     intro:
       "Being the best in town means nothing if nobody can find you. We get your business ranking for the searches that actually bring in work — locally, where it counts. That means technical SEO, a fully-optimised Google Business Profile, fast Core Web Vitals, and content built to rank. We also do AEO (Answer Engine Optimisation), so AI tools and search recommend you, not your competitor.",
     outcome: "Local SEO, Google Business Profile, speed and AEO.",
+    priceFrom: "From £295/mo",
+    outcomes: [
+      "Found by the people already searching for what you do.",
+      "Steady, compounding growth in local visibility and enquiries.",
+    ],
     features: [
       {
         title: "Local SEO",
@@ -164,6 +277,46 @@ export const SERVICES: Service[] = [
         body: "Pages and posts built around what your customers actually type into Google.",
       },
     ],
+    whoForLead:
+      "SEO is for businesses that want to be found where it counts. It's a fit if:",
+    whoFor: [
+      "You're invisible for the searches your customers actually type.",
+      "Competitors outrank you despite you being better at the job.",
+      "Your Google Business Profile is unclaimed, thin, or under-optimised.",
+      "You want visibility to grow month on month, not a one-off push.",
+    ],
+    process: [
+      {
+        step: "01",
+        title: "Audit",
+        body: "We benchmark where you rank now and find the fastest meaningful wins.",
+      },
+      {
+        step: "02",
+        title: "Foundations",
+        body: "Technical fixes, site speed, and a fully-optimised Google Business Profile.",
+      },
+      {
+        step: "03",
+        title: "Content & local",
+        body: "Pages and content built around real local search intent.",
+      },
+      {
+        step: "04",
+        title: "Track & refine",
+        body: "Monthly reporting and ongoing optimisation as your rankings climb.",
+      },
+    ],
+    pricing: {
+      tiers: [
+        {
+          label: "SEO retainers",
+          price: "From £295/month",
+          body: "For businesses that want steady visibility growth, local search improvements, and ongoing optimisation.",
+        },
+      ],
+      note: "SEO works best as an ongoing partnership. We'll recommend the right level after reviewing your site and your local market.",
+    },
     whyTitle: "Why it matters",
     whyBody: [
       "When someone searches for what you do, you're either on the first page or you're invisible. There's no prize for second place.",
@@ -173,6 +326,10 @@ export const SERVICES: Service[] = [
       {
         q: "What is AEO?",
         a: "Answer Engine Optimisation — structuring your site so AI assistants and AI search can understand and recommend your business. Schema, clean structure and FAQs. It's the next frontier of getting found.",
+      },
+      {
+        q: "How much does SEO cost?",
+        a: "Retainers start from £295/month and scale with how competitive your market is and how fast you want to grow. We'll recommend the right level after reviewing your site.",
       },
       {
         q: "How long does SEO take?",
@@ -195,6 +352,10 @@ export const SERVICES: Service[] = [
     intro:
       "Branding isn't just a logo — it's the feeling people get the moment they come across you. A sharp, consistent brand earns trust at a glance and makes you look like the obvious choice. We craft complete identities — logo, type, colour, guidelines and the assets to use them — that support the websites we build and keep you looking professional across every channel.",
     outcome: "Logo, identity systems and brand guidelines.",
+    outcomes: [
+      "A brand that earns trust at a glance.",
+      "A consistent look across every place your business shows up.",
+    ],
     features: [
       {
         title: "Logo & identity",
@@ -213,6 +374,46 @@ export const SERVICES: Service[] = [
         body: "Your brand and your website built as one, so everything feels intentional and joined-up.",
       },
     ],
+    whoForLead:
+      "Branding usually comes alongside a website build. It's a fit if:",
+    whoFor: [
+      "Your brand looks scrappy or inconsistent next to competitors.",
+      "You've outgrown a DIY or clipart logo.",
+      "You're launching and need to look credible from day one.",
+      "Your website and brand don't feel like they belong together.",
+    ],
+    process: [
+      {
+        step: "01",
+        title: "Discover",
+        body: "We get clear on who you are, who you serve, and how you want to be seen.",
+      },
+      {
+        step: "02",
+        title: "Design",
+        body: "Logo, type, colour and the visual system, designed in step with your site.",
+      },
+      {
+        step: "03",
+        title: "Systemise",
+        body: "Guidelines and asset kits so everything you put out stays consistent.",
+      },
+      {
+        step: "04",
+        title: "Roll out",
+        body: "Applied across your website and the assets you use day to day.",
+      },
+    ],
+    pricing: {
+      tiers: [
+        {
+          label: "Brand identity",
+          price: "Quoted per project",
+          body: "Logo, identity system, guidelines and assets — usually added to a website build and scoped to what you need.",
+        },
+      ],
+      note: "Branding is priced to the project and often bundled with a website. We'll give you a clear quote after a quick call.",
+    },
     whyTitle: "Why it matters",
     whyBody: [
       "People judge in seconds. A scrappy, inconsistent brand makes even a great business look risky — and costs you work before you've said a word.",

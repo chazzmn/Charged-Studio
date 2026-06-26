@@ -56,6 +56,11 @@ export default function ServicesPage() {
               <p className="mt-3 flex-1 font-inter text-base leading-relaxed text-text/70">
                 {s.outcome}
               </p>
+              {s.priceFrom && (
+                <p className="mt-5 font-anton text-xl uppercase text-text">
+                  {s.priceFrom}
+                </p>
+              )}
               <span className="mt-6 inline-block font-inter text-sm font-semibold text-text transition-colors group-hover:text-accent">
                 Learn more →
               </span>

@@ -90,6 +90,30 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Why we exist — the belief the studio was built on */}
+      <section className="mx-auto mt-8 w-full max-w-5xl border-t border-border px-6 py-16 md:py-24">
+        <Badge>Why we exist</Badge>
+        <div className="mt-8 max-w-3xl space-y-6 font-inter text-xl leading-relaxed text-text/80">
+          <p>
+            Small businesses are stuck between two bad options: do it all
+            yourself and figure it out from scratch, or go to a big agency and
+            pay for a generic product that doesn&apos;t fit how you actually
+            work.
+          </p>
+          <p>
+            Charged was built to close that gap. We build websites, software,
+            and brand systems tailored to each client&apos;s exact goals and
+            budget. There are very few clients we turn down — we know what it
+            feels like when these products feel out of reach.
+          </p>
+          <p className="font-semibold text-text">
+            We believe anyone with the drive to run their own business deserves
+            access to affordable, tailored digital products that help them
+            compete.
+          </p>
+        </div>
+      </section>
+
       {/* Founder section — the person behind the studio */}
       <section className="mx-auto mt-8 w-full max-w-7xl border-t border-border px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">

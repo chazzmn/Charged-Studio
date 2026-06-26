@@ -19,7 +19,7 @@ const CASES = [
     alt: "The Tend dashboard, a shift-scheduling tool showing live labour cost against forecast sales",
     title: "Tend",
     blurb:
-      "A shift-scheduling concept for independent hospitality where labour cost is a live number you see while you plan — a self-initiated product design exercise, resolved into a production-grade interface.",
+      "A shift-scheduling tool for independent hospitality where labour cost is a live number you see while you plan — a Charged Studio product design project, resolved into a production-grade interface.",
     results: ["Product design", "UI system", "Light & dark"],
   },
 ];
