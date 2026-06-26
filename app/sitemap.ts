@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/web-design-exeter", priority: 0.9, changeFrequency: "monthly" },
     { path: "/devon-nurseries", priority: 0.6, changeFrequency: "yearly" },
     { path: "/tend", priority: 0.6, changeFrequency: "yearly" },
+    { path: "/chair", priority: 0.6, changeFrequency: "yearly" },
     { path: "/blog", priority: 0.6, changeFrequency: "weekly" },
     { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
     { path: "/terms-of-service", priority: 0.2, changeFrequency: "yearly" },

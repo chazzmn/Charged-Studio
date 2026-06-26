@@ -22,6 +22,15 @@ const CASES = [
       "A shift-scheduling tool for independent hospitality where labour cost is a live number you see while you plan — a Charged Studio product design project, resolved into a production-grade interface.",
     results: ["Product design", "UI system", "Light & dark"],
   },
+  {
+    href: "/chair",
+    image: "/images/work/chair-booking-dark.jpg",
+    alt: "The Chair booking tool, showing a salon's day calendar with chair utilisation and recovered revenue",
+    title: "Chair",
+    blurb:
+      "A booking and retention tool for independent salons and clinics, where an empty chair is revenue you can't get back — a Charged Studio product design project, resolved into a production-grade interface.",
+    results: ["Product design", "Booking UX", "Light & dark"],
+  },
 ];
 
 export default function FeaturedWork() {
@@ -34,7 +43,7 @@ export default function FeaturedWork() {
         </h2>
       </Reveal>
 
-      <div className="mt-12 grid grid-cols-1 gap-12 md:gap-16 lg:grid-cols-2">
+      <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
         {CASES.map((c) => (
           <Reveal key={c.href}>
             <Link href={c.href} className="group block">
@@ -43,7 +52,7 @@ export default function FeaturedWork() {
                   src={c.image}
                   alt={c.alt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>

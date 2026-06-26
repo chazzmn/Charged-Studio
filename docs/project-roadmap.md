@@ -44,8 +44,9 @@ Each `/services/[slug]` page is currently thin. Before launching more local SEO 
 
 ### Case studies — add a third
 
-- [ ] Add another real case study page. Follow the `/devon-nurseries` or `/tend` pattern. Even a short one (problem → what we built → result) is better than two. Add it to `components/FeaturedWork.tsx`.
-- [ ] If Tend was a client project, make sure Devon Nurseries + Tend + new case study are all consistent in how they're labelled across FeaturedWork and their individual pages.
+- [x] **Add a third case study** — DONE. `/chair` (`app/chair/page.tsx`): a Tend-style studio-project concept — a booking + retention tool for independent salons & clinics ("an empty chair is revenue you can't get back"). Health & beauty vertical, chosen by Charlie to broaden ICP appeal. Wired into `FeaturedWork.tsx` (now 3-up) + sitemap. ⏳ Charlie to add `public/images/work/chair-booking-dark.jpg` + `chair-dashboard-light.jpg`.
+- [x] Labelling consistent across Devon Nurseries (real) + Tend + Chair (both "Studio project" concepts, no client claim).
+- Note: Lighthouse proof-panel item below = SKIP per Charlie (scores are verifiable at PageSpeed; panel is redundant).
 
 ### Lighthouse proof
 
