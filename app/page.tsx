@@ -6,7 +6,6 @@ import Hero from "@/components/Hero";
 import WorkMarquee from "@/components/WorkMarquee";
 import WhyCharged from "@/components/WhyCharged";
 import Services from "@/components/Services";
-import ValueProp from "@/components/ValueProp";
 import FeaturedWork from "@/components/FeaturedWork";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -38,8 +37,6 @@ export default function Home() {
       <WhyCharged />
       <SectionDivider />
       <Services />
-      <SectionDivider />
-      <ValueProp />
       <SectionDivider />
       <FeaturedWork />
       <SectionDivider />

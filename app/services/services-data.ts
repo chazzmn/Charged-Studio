@@ -216,6 +216,16 @@ export const SERVICES: Service[] = [
           price: "From £1,250",
           body: "For internal tools, lightweight apps, and operational systems tailored to how your business works.",
         },
+        {
+          label: "Bespoke platforms",
+          price: "From £6,000",
+          body: "Multi-user platforms, customer portals and complex integrations that become core to how you run.",
+        },
+        {
+          label: "Custom apps & systems",
+          price: "From £12,000",
+          body: "Full product builds — bespoke apps and operational systems designed, built and scaled from the ground up.",
+        },
       ],
       note: "Software is scoped to the problem — we'll only suggest building it if it clearly saves you more than it costs. You'll get a clear quote after a call.",
     },
@@ -310,9 +320,19 @@ export const SERVICES: Service[] = [
     pricing: {
       tiers: [
         {
-          label: "SEO retainers",
+          label: "Local SEO",
           price: "From £295/month",
           body: "For businesses that want steady visibility growth, local search improvements, and ongoing optimisation.",
+        },
+        {
+          label: "Growth SEO",
+          price: "From £750/month",
+          body: "Broader, faster campaigns for competitive markets — more content, more pages, and ongoing link building.",
+        },
+        {
+          label: "Market leadership",
+          price: "From £1,500/month",
+          body: "Aggressive multi-town, multi-service growth, built to own your local market and outrank everyone in it.",
         },
       ],
       note: "SEO works best as an ongoing partnership. We'll recommend the right level after reviewing your site and your local market.",
