@@ -85,18 +85,38 @@ export default function ContactPage() {
           </div>
         </dl>
 
-        {/* Bigger project → the full step-by-step brief */}
-        <div className="mt-10 rounded-xl bg-surface/40 shadow-e1 p-6">
-          <h2 className="font-inter text-lg font-bold text-text">
-            Got a bigger project in mind?
-          </h2>
-          <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
-            Walk us through it step by step and we&apos;ll come back with a
-            tailored plan and quote.
-          </p>
-          <Button href="/start-a-project" size="sm" className="mt-5">
-            Start a Project
-          </Button>
+        {/* Other paths → full brief or a free audit */}
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="flex flex-col rounded-xl bg-surface/40 shadow-e1 p-6">
+            <h2 className="font-inter text-lg font-bold text-text">
+              Got a bigger project in mind?
+            </h2>
+            <p className="mt-2 flex-1 font-inter text-sm leading-relaxed text-text/70">
+              Walk us through it step by step and we&apos;ll come back with a
+              tailored plan and quote.
+            </p>
+            <Button href="/start-a-project" size="sm" className="mt-5 self-start">
+              Start a Project
+            </Button>
+          </div>
+
+          <div className="flex flex-col rounded-xl bg-surface/40 shadow-e1 p-6">
+            <h2 className="font-inter text-lg font-bold text-text">
+              Want a free website audit?
+            </h2>
+            <p className="mt-2 flex-1 font-inter text-sm leading-relaxed text-text/70">
+              We&apos;ll review your current site and send back clear,
+              no-pressure pointers on what to fix.
+            </p>
+            <Button
+              href="/audit"
+              size="sm"
+              variant="secondary"
+              className="mt-5 self-start"
+            >
+              Free Website Audit
+            </Button>
+          </div>
         </div>
       </div>
 
