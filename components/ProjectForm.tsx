@@ -81,26 +81,15 @@ export default function ProjectForm({ kind = "project" }: { kind?: Kind }) {
           placeholder="yourbusiness.co.uk"
         />
       ) : (
-        <>
-          <Field
-            id="business"
-            name="business"
-            label={
-              <>
-                Business name <span className="text-text/60">(optional)</span>
-              </>
-            }
-          />
-          <Field
-            id="message"
-            name="message"
-            label="What do you need?"
-            as="textarea"
-            rows={4}
-            required
-            placeholder="A new website, a redesign, help getting found on Google…"
-          />
-        </>
+        <Field
+          id="message"
+          name="message"
+          label="Your message"
+          as="textarea"
+          rows={4}
+          required
+          placeholder="A new website, a redesign, help getting found on Google…"
+        />
       )}
 
       {/* Honeypot — hidden from humans, catches bots */}
@@ -120,7 +109,7 @@ export default function ProjectForm({ kind = "project" }: { kind?: Kind }) {
           ? "Sending…"
           : kind === "audit"
             ? "Get my free audit"
-            : "Send enquiry"}
+            : "Send message"}
       </Button>
     </form>
   );
