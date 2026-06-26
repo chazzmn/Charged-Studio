@@ -74,7 +74,7 @@ Pattern for each: local hero, proof bar, services included, local case study/cli
 ### Homepage polish (do last — content first)
 
 - [ ] **Replace the website screenshot carousel** — only worth doing if the replacement is higher quality and more persuasive. Weak motion is worse than none.
-- [ ] **Subtle entrance animations** — scroll-triggered fade-ups on section headings, counter animations on stats, hover lifts on cards. Keep it restrained; the current build removed framer-motion for perf. Either use existing `components/Reveal.tsx` (CSS) or re-add framer-motion selectively if needed.
+- [x] **Subtle entrance animations** — DONE (2026-06-26). New `components/CountUp.tsx` (IntersectionObserver + rAF, reduced-motion safe). Applied: `Reveal` fade-ups on WhyCharged heading/proof-bar/pillars + Testimonials header; CountUp on the four 100 PageSpeed scores and the 5.0/16 Google rating; subtle hover-lift on FeaturedWork case cards (motion-reduce safe). No framer-motion re-added — stays CSS/Reveal, perf intact. tsc clean.
 
 ---
 

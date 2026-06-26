@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Badge from "@/components/Badge";
+import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 import { Stars, GoogleG } from "@/components/icons";
 
 type Testimonial = { quote: string; name: string; image?: string };
@@ -81,7 +83,7 @@ export default function Testimonials() {
   return (
     <section className="w-full py-24 md:py-32">
       <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <Badge>What clients say</Badge>
             <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
@@ -93,11 +95,15 @@ export default function Testimonials() {
               Google Business Profile (5.0 from 16 reviews). */}
           <div className="inline-flex items-center gap-2.5 self-start rounded-full bg-surface/40 shadow-e1 px-4 py-2.5 shadow-e1">
             <GoogleG className="h-5 w-5" />
-            <span className="font-inter text-sm font-semibold text-text">5.0</span>
+            <span className="font-inter text-sm font-semibold text-text">
+              <CountUp end={5} decimals={1} />
+            </span>
             <Stars className="h-3.5 w-3.5" label="Rated 5.0 from 16 Google reviews" />
-            <span className="font-inter text-xs text-text/60">16 Google reviews</span>
+            <span className="font-inter text-xs text-text/60">
+              <CountUp end={16} /> Google reviews
+            </span>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       {/* Scrolling marquee. Pauses on hover; manual scroll for reduced-motion. */}

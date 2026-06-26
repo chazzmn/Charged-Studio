@@ -1,6 +1,8 @@
 import type { SVGProps } from "react";
 import Link from "next/link";
 import Badge from "@/components/Badge";
+import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 import { UserMark, PinMark, CheckCircle, BoltMark } from "@/components/icons";
 
 /**
@@ -41,7 +43,7 @@ const PILLARS: Pillar[] = [
 export default function WhyCharged() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-20 md:py-24">
-      <div className="mx-auto max-w-2xl text-center">
+      <Reveal className="mx-auto max-w-2xl text-center">
         <Badge>Why Charged</Badge>
         <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
           A studio you can trust to{" "}
@@ -51,25 +53,33 @@ export default function WhyCharged() {
           Founder-led, Exeter-based, and backed by a real process — you work
           directly with the person invested in your business doing well.
         </p>
-      </div>
+      </Reveal>
 
       {/* PageSpeed proof bar */}
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+      <Reveal
+        stagger
+        className="mt-10 flex flex-wrap items-center justify-center gap-3"
+      >
         {["Performance", "Accessibility", "Best Practices", "SEO"].map((label) => (
           <div
             key={label}
             className="flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2"
           >
-            <span className="font-anton text-lg leading-none text-accent">100</span>
+            <span className="font-anton text-lg leading-none text-accent">
+              <CountUp end={100} />
+            </span>
             <span className="font-inter text-xs text-text/60">{label}</span>
           </div>
         ))}
         <span className="font-inter text-xs text-text/60">
           Google PageSpeed Insights · Mobile &amp; Desktop
         </span>
-      </div>
+      </Reveal>
 
-      <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+      <Reveal
+        stagger
+        className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
+      >
         {PILLARS.map(({ Icon, title, body }) => (
           <div key={title} className="text-left">
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
@@ -83,7 +93,7 @@ export default function WhyCharged() {
             </p>
           </div>
         ))}
-      </div>
+      </Reveal>
 
       <div className="mt-12 text-center">
         <Link

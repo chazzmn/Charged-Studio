@@ -46,7 +46,10 @@ export default function FeaturedWork() {
       <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
         {CASES.map((c) => (
           <Reveal key={c.href}>
-            <Link href={c.href} className="group block">
+            <Link
+              href={c.href}
+              className="group block transition-transform duration-300 ease-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            >
               <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-surface">
                 <Image
                   src={c.image}
