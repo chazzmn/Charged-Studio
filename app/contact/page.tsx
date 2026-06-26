@@ -85,48 +85,49 @@ export default function ContactPage() {
           </div>
         </dl>
 
-        {/* Other paths → full brief or a free audit */}
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="flex flex-col rounded-xl bg-surface/40 shadow-e1 p-6">
-            <h2 className="font-inter text-lg font-bold text-text">
-              Got a bigger project in mind?
-            </h2>
-            <p className="mt-2 flex-1 font-inter text-sm leading-relaxed text-text/70">
-              Walk us through it step by step and we&apos;ll come back with a
-              tailored plan and quote.
-            </p>
-            <Button href="/start-a-project" size="sm" className="mt-5 self-start">
-              Start a Project
-            </Button>
-          </div>
-
-          <div className="flex flex-col rounded-xl bg-surface/40 shadow-e1 p-6">
-            <h2 className="font-inter text-lg font-bold text-text">
-              Want a free website audit?
-            </h2>
-            <p className="mt-2 flex-1 font-inter text-sm leading-relaxed text-text/70">
-              We&apos;ll review your current site and send back clear,
-              no-pressure pointers on what to fix.
-            </p>
-            <Button
-              href="/audit"
-              size="sm"
-              variant="secondary"
-              className="mt-5 self-start"
-            >
-              Free Website Audit
-            </Button>
-          </div>
+        {/* Free audit → sits under the intro/details */}
+        <div className="mt-10 rounded-xl bg-surface/40 shadow-e1 p-6">
+          <h2 className="font-inter text-lg font-bold text-text">
+            Want a free website audit?
+          </h2>
+          <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
+            We&apos;ll review your current site and send back clear, no-pressure
+            pointers on what to fix.
+          </p>
+          <Button
+            href="/audit"
+            size="sm"
+            variant="secondary"
+            className="mt-5"
+          >
+            Free Website Audit
+          </Button>
         </div>
       </div>
 
-      {/* Quick message form */}
-      <div className="rounded-xl bg-surface/40 shadow-e1 p-6 sm:p-8 lg:self-start">
-        <h2 className="font-inter text-sm font-semibold uppercase tracking-wider text-text/50">
-          Send a quick message
-        </h2>
-        <div className="mt-5">
-          <ProjectForm kind="project" />
+      {/* Right column → quick message form + bigger-project path */}
+      <div className="lg:self-start">
+        <div className="rounded-xl bg-surface/40 shadow-e1 p-6 sm:p-8">
+          <h2 className="font-inter text-sm font-semibold uppercase tracking-wider text-text/50">
+            Send a quick message
+          </h2>
+          <div className="mt-5">
+            <ProjectForm kind="project" />
+          </div>
+        </div>
+
+        {/* Bigger project → the full step-by-step brief */}
+        <div className="mt-6 rounded-xl bg-surface/40 shadow-e1 p-6">
+          <h2 className="font-inter text-lg font-bold text-text">
+            Got a bigger project in mind?
+          </h2>
+          <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
+            Walk us through it step by step and we&apos;ll come back with a
+            tailored plan and quote.
+          </p>
+          <Button href="/start-a-project" size="sm" className="mt-5">
+            Start a Project
+          </Button>
         </div>
       </div>
     </section>
