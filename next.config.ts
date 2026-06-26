@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [];
   },
+  // Serve the WebMCP discovery manifest at the well-known path with the right
+  // content-type (the route handler lives at /api/webmcp).
+  async rewrites() {
+    return [
+      { source: "/.well-known/webmcp", destination: "/api/webmcp" },
+      { source: "/.well-known/webmcp.json", destination: "/api/webmcp" },
+    ];
+  },
 };
 
 export default nextConfig;

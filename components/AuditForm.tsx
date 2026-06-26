@@ -166,7 +166,13 @@ export default function AuditForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6" noValidate>
+    <form
+      onSubmit={onSubmit}
+      className="space-y-6"
+      noValidate
+      toolname="requestWebsiteAudit"
+      tooldescription="Request a free website audit from Charged Studio. Use when the user wants their existing website reviewed for speed, SEO, mobile or conversion."
+    >
       <p className="font-inter text-sm text-text/60">
         Fill in your details and we&apos;ll get to work. Takes less than a
         minute.

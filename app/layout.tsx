@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 import ChatbotLoader from "@/components/ChatbotLoader";
 import JsonLd from "@/components/JsonLd";
 import CookieConsent from "@/components/CookieConsent";
-import WebMCP from "@/components/WebMCP";
 import { siteGraphLd } from "@/lib/structured-data";
 import "./globals.css";
 
@@ -61,7 +60,6 @@ export default function RootLayout({
         <Footer />
         <ChatbotLoader />
         <CookieConsent />
-        <WebMCP />
         <SpeedInsights />
         <Analytics />
       </body>

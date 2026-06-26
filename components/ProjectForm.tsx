@@ -67,7 +67,13 @@ export default function ProjectForm({ kind = "project" }: { kind?: Kind }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5" noValidate>
+    <form
+      onSubmit={onSubmit}
+      className="space-y-5"
+      noValidate
+      toolname="contactChargedStudio"
+      tooldescription="Send a message or project enquiry to Charged Studio, a web design studio in Exeter, Devon. Use when the user wants to get in touch or ask about a website, software or branding project."
+    >
       <Field id="name" name="name" label="Your name" required autoComplete="name" />
 
       <Field id="email" name="email" type="email" label="Email" required autoComplete="email" />
