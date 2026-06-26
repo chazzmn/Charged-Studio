@@ -27,7 +27,10 @@
     "typescript": "^5"
   },
   "browserslist": [
-    "last 2 years",
-    "not dead"
+    "chrome >= 93",
+    "edge >= 93",
+    "firefox >= 92",
+    "safari >= 15.4",
+    "ios_saf >= 15.4"
   ]
 }
