@@ -13,14 +13,14 @@ import CTASection from "@/components/CTASection";
 import SectionDivider from "@/components/SectionDivider";
 
 export const metadata: Metadata = {
-  title: "Charged Studio — Web Design & Branding Agency, Exeter",
+  title: "Web Design Exeter & Devon | 5.0-Rated — Charged Studio",
   description:
-    "Charged Studio builds premium websites, brand identities, and digital assets for growing businesses. Based in Exeter, working with clients across the UK.",
+    "Founder-led web design studio in Exeter building fast, modern websites that turn local searches into enquiries. 5.0-rated, APM-qualified. Get a free audit.",
   alternates: { canonical: "https://chargedstudio.co.uk" },
   openGraph: {
-    title: "Charged Studio — Web Design & Branding Agency, Exeter",
+    title: "Web Design Exeter & Devon | 5.0-Rated — Charged Studio",
     description:
-      "Charged Studio builds premium websites, brand identities, and digital assets for growing businesses. Based in Exeter, working with clients across the UK.",
+      "Founder-led web design studio in Exeter building fast, modern websites that turn local searches into enquiries. 5.0-rated, APM-qualified. Get a free audit.",
     url: "https://chargedstudio.co.uk",
     siteName: "Charged Studio",
     type: "website",
