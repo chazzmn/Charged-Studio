@@ -9,12 +9,16 @@ type Work = { src: string; alt: string };
 
 const WORK_ITEMS: Work[] = [
   { src: "/images/work/dn-home.jpg", alt: "Devon Nurseries website homepage" },
-  { src: "/images/work/cowick-street.jpg", alt: "Cowick Street artisan food website" },
-  { src: "/images/work/proper-fish.jpg", alt: "Fish & chips shop website" },
-  { src: "/images/work/picked-flavour.jpg", alt: "Local grocery website" },
-  { src: "/images/work/weekly-veg.jpg", alt: "Veg box delivery website" },
-  { src: "/images/work/inner-edge.jpg", alt: "Coaching brand website" },
-  { src: "/images/work/chazzmn.jpg", alt: "CHAZZMN clothing brand" },
+  { src: "/images/work/ashworth-vale-law.png", alt: "Ashworth & Vale solicitors website" },
+  { src: "/images/work/chazzmn.jpg", alt: "CHAZZMN clothing brand website" },
+  { src: "/images/work/brightwater-dental.png", alt: "Brightwater Dental practice website" },
+  { src: "/images/work/picked-flavour.jpg", alt: "Yardley's Fruit & Veg greengrocer website" },
+  { src: "/images/work/harbour-field-trades.png", alt: "Harbour & Field design & build website" },
+  { src: "/images/work/meridian-accountancy.png", alt: "Meridian accountancy website" },
+  { src: "/images/work/inner-edge.jpg", alt: "Inner Edge coaching brand website" },
+  { src: "/images/work/align-chiropractor.png", alt: "Align Spine & Wellness chiropractor website" },
+  { src: "/images/work/ember-oak-coffee.png", alt: "Ember & Oak coffee roasters website" },
+  { src: "/images/work/coast-county-estate.png", alt: "Coast & County estate agents website" },
 ];
 
 function Tile({ src, alt }: Work) {
