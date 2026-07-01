@@ -1,0 +1,95 @@
+<svg width="1680" height="1200" viewBox="0 0 1680 1200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ECE9E2"/><stop offset="1" stop-color="#E2DED5"/></linearGradient>
+  <linearGradient id="pagegrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF3FB"/><stop offset="1" stop-color="#E4EBF7"/></linearGradient>
+  <filter id="winShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="34" flood-color="#3a2f23" flood-opacity="0.28"/></filter>
+  <filter id="dash" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="36" flood-color="#14213D" flood-opacity="0.20"/></filter>
+  <clipPath id="win"><rect x="40" y="44" width="1600" height="1112" rx="18"/></clipPath>
+  <clipPath id="sidebar"><rect x="300" y="566" width="210" height="560" rx="22"/></clipPath>
+</defs>
+<rect width="1680" height="1200" fill="url(#bg)"/>
+<rect x="40" y="44" width="1600" height="1112" rx="18" fill="url(#pagegrad)" filter="url(#winShadow)"/>
+<g clip-path="url(#win)">
+  <rect x="40" y="44" width="1600" height="54" fill="#E3EAF5"/>
+  <circle cx="74" cy="71" r="7" fill="#E2685C"/><circle cx="98" cy="71" r="7" fill="#E9B14C"/><circle cx="122" cy="71" r="7" fill="#5FB85C"/>
+  <rect x="300" y="56" width="600" height="30" rx="15" fill="#F3F6FC" stroke="#c9d6ea"/>
+  <text x="605" y="76" font-family="Manrope400" font-size="14" fill="#7385a3">meridianaccounting.co.uk</text>
+
+  <!-- NAV -->
+  <rect x="70" y="120" width="34" height="34" rx="9" fill="#2D5BFF"/><path d="M79 145 L88 130 L97 145 M88 130 V145" stroke="#FFFFFF" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  <text x="116" y="146" font-family="SpaceGrotesk700" font-size="24" fill="#14213D">Meridian</text>
+  <text x="724" y="146" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3c4a63">Services</text>
+  <text x="824" y="146" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3c4a63">Pricing</text>
+  <text x="912" y="146" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3c4a63">About</text>
+  <text x="1012" y="146" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3c4a63">Resources</text>
+  <text x="1430" y="146" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3c4a63">Log in</text>
+  <rect x="1488" y="120" width="112" height="46" rx="12" fill="#2D5BFF"/><text x="1544" y="148" text-anchor="middle" font-family="Manrope700" font-size="14" fill="#FFFFFF">Sign up</text>
+
+  <!-- CENTERED HERO -->
+  <rect x="700" y="222" width="280" height="34" rx="17" fill="#FFFFFF" stroke="#cdd9ee"/>
+  <circle cx="730" cy="239" r="5" fill="#1FAE6A"/><text x="748" y="244" font-family="Manrope600" font-size="13" fill="#3c4a63">FOR DEVON SMALL BUSINESSES</text>
+  <text x="840" y="330" text-anchor="middle" font-family="SpaceGrotesk700" font-size="58" fill="#14213D">Accounting that moves</text>
+  <text x="840" y="396" text-anchor="middle" font-family="SpaceGrotesk700" font-size="58" fill="#14213D">your business <tspan fill="#2D5BFF">forward</tspan>.</text>
+  <text x="840" y="446" text-anchor="middle" font-family="Manrope400" font-size="18" fill="#56688a">Bookkeeping, tax and advice from real humans — so you can</text>
+  <text x="840" y="472" text-anchor="middle" font-family="Manrope400" font-size="18" fill="#56688a">stop worrying about numbers and get back to running things.</text>
+  <rect x="660" y="506" width="190" height="54" rx="13" fill="#2D5BFF"/><text x="755" y="540" text-anchor="middle" font-family="Manrope700" font-size="16" fill="#FFFFFF">Book a free call</text>
+  <rect x="866" y="506" width="154" height="54" rx="13" fill="none" stroke="#9fb1d0" stroke-width="1.6"/><text x="943" y="540" text-anchor="middle" font-family="Manrope700" font-size="16" fill="#14213D">See pricing &#8594;</text>
+
+  <!-- DASHBOARD MOCKUP (centered hero visual) -->
+  <rect x="300" y="566" width="1080" height="560" rx="22" fill="#FFFFFF" filter="url(#dash)"/>
+  <!-- sidebar -->
+  <g clip-path="url(#sidebar)"><rect x="300" y="566" width="210" height="560" fill="#14213D"/>
+    <rect x="324" y="592" width="22" height="22" rx="7" fill="#2D5BFF"/><text x="356" y="609" font-family="SpaceGrotesk700" font-size="15" fill="#FFFFFF">Meridian</text>
+    <rect x="324" y="660" width="162" height="38" rx="10" fill="#2D5BFF" fill-opacity="0.18"/><circle cx="344" cy="679" r="5" fill="#2D5BFF"/><text x="362" y="684" font-family="Manrope600" font-size="13" fill="#cdd9ee">Overview</text>
+    <circle cx="344" cy="724" r="5" fill="#3c4a63"/><text x="362" y="729" font-family="Manrope500" font-size="13" fill="#8ea0c0">Invoices</text>
+    <circle cx="344" cy="764" r="5" fill="#3c4a63"/><text x="362" y="769" font-family="Manrope500" font-size="13" fill="#8ea0c0">Expenses</text>
+    <circle cx="344" cy="804" r="5" fill="#3c4a63"/><text x="362" y="809" font-family="Manrope500" font-size="13" fill="#8ea0c0">Tax &amp; VAT</text>
+    <circle cx="344" cy="844" r="5" fill="#3c4a63"/><text x="362" y="849" font-family="Manrope500" font-size="13" fill="#8ea0c0">Payroll</text>
+    <circle cx="344" cy="884" r="5" fill="#3c4a63"/><text x="362" y="889" font-family="Manrope500" font-size="13" fill="#8ea0c0">Reports</text>
+  </g>
+  <!-- main header -->
+  <text x="540" y="612" font-family="SpaceGrotesk600" font-size="22" fill="#14213D">Financial overview</text>
+  <rect x="1150" y="592" width="120" height="34" rx="10" fill="#EEF3FB"/><text x="1210" y="614" text-anchor="middle" font-family="Manrope600" font-size="12.5" fill="#3c4a63">This year &#9662;</text>
+  <circle cx="1320" cy="609" r="18" fill="#1FAE6A"/><text x="1320" y="615" text-anchor="middle" font-family="Manrope700" font-size="13" fill="#FFFFFF">CN</text>
+
+  <!-- KPI tiles -->
+  <g>
+    <rect x="540" y="650" width="246" height="118" rx="14" fill="#F4F7FC"/>
+    <text x="562" y="686" font-family="Manrope600" font-size="13" fill="#7385a3">Revenue (YTD)</text>
+    <text x="562" y="724" font-family="SpaceGrotesk700" font-size="30" fill="#14213D">£248,500</text>
+    <rect x="562" y="736" width="66" height="22" rx="11" fill="#E1F5EC"/><text x="595" y="751" text-anchor="middle" font-family="Manrope700" font-size="12" fill="#1FAE6A">+12.4%</text>
+  </g>
+  <g>
+    <rect x="802" y="650" width="246" height="118" rx="14" fill="#F4F7FC"/>
+    <text x="824" y="686" font-family="Manrope600" font-size="13" fill="#7385a3">Tax saved</text>
+    <text x="824" y="724" font-family="SpaceGrotesk700" font-size="30" fill="#14213D">£18,420</text>
+    <text x="824" y="752" font-family="Manrope500" font-size="12.5" fill="#7385a3">vs last year</text>
+  </g>
+  <g>
+    <rect x="1064" y="650" width="246" height="118" rx="14" fill="#14213D"/>
+    <text x="1086" y="686" font-family="Manrope600" font-size="13" fill="#9fb1d0">Cash in bank</text>
+    <text x="1086" y="724" font-family="SpaceGrotesk700" font-size="30" fill="#FFFFFF">£62,180</text>
+    <rect x="1086" y="736" width="60" height="22" rx="11" fill="#1FAE6A"/><text x="1116" y="751" text-anchor="middle" font-family="Manrope700" font-size="12" fill="#FFFFFF">+4.1%</text>
+  </g>
+
+  <!-- bar chart card -->
+  <rect x="540" y="788" width="498" height="296" rx="14" fill="#F4F7FC"/>
+  <text x="562" y="824" font-family="SpaceGrotesk600" font-size="16" fill="#14213D">Revenue by month</text>
+  <g fill="#2D5BFF">
+    <rect x="566" y="990" width="40" height="50" rx="5"/><rect x="624" y="966" width="40" height="74" rx="5"/><rect x="682" y="1000" width="40" height="40" rx="5"/>
+    <rect x="740" y="942" width="40" height="98" rx="5"/><rect x="798" y="918" width="40" height="122" rx="5"/><rect x="856" y="956" width="40" height="84" rx="5"/>
+    <rect x="914" y="900" width="40" height="140" rx="5" fill="#1FAE6A"/><rect x="972" y="930" width="40" height="110" rx="5"/>
+  </g>
+  <g font-family="Manrope500" font-size="11" fill="#9aa9c2"><text x="586" y="1062" text-anchor="middle">Jan</text><text x="644" y="1062" text-anchor="middle">Feb</text><text x="702" y="1062" text-anchor="middle">Mar</text><text x="760" y="1062" text-anchor="middle">Apr</text><text x="818" y="1062" text-anchor="middle">May</text><text x="876" y="1062" text-anchor="middle">Jun</text><text x="934" y="1062" text-anchor="middle">Jul</text><text x="992" y="1062" text-anchor="middle">Aug</text></g>
+
+  <!-- donut card -->
+  <rect x="1064" y="788" width="246" height="296" rx="14" fill="#F4F7FC"/>
+  <text x="1086" y="824" font-family="SpaceGrotesk600" font-size="16" fill="#14213D">Where it goes</text>
+  <circle cx="1187" cy="912" r="58" fill="none" stroke="#2D5BFF" stroke-width="22"/>
+  <circle cx="1187" cy="912" r="58" fill="none" stroke="#1FAE6A" stroke-width="22" stroke-dasharray="120 364" stroke-dashoffset="-30" transform="rotate(-90 1187 912)"/>
+  <circle cx="1187" cy="912" r="58" fill="none" stroke="#F2B705" stroke-width="22" stroke-dasharray="60 364" stroke-dashoffset="-150" transform="rotate(-90 1187 912)"/>
+  <g font-family="Manrope500" font-size="12" fill="#56688a"><circle cx="1090" cy="1014" r="5" fill="#2D5BFF"/><text x="1104" y="1019">Staff</text><circle cx="1090" cy="1042" r="5" fill="#1FAE6A"/><text x="1104" y="1047">Stock</text><circle cx="1196" cy="1014" r="5" fill="#F2B705"/><text x="1210" y="1019">Tax</text></g>
+
+  <!-- trust line under hero handled above; bottom caption -->
+</g>
+</svg>

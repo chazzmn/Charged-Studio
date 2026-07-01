@@ -58,8 +58,8 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-5 max-w-xs font-inter text-sm leading-relaxed text-text/70">
-              We build the brand your business deserves. Websites, software, and
-              digital presence for businesses ready to grow.
+              Built to perform. Charged to last. Websites, software, and digital
+              presence for businesses ready to grow.
             </p>
             <p className="mt-4 font-inter text-sm text-text/60">
               Exeter, Devon — working across the UK

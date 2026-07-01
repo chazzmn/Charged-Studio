@@ -41,8 +41,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.fuse_hidden*
-**/.fuse_hidden*
-
+# macOS iCloud FUSE artifacts (files deleted while open)
 .fuse_hidden*
 **/.fuse_hidden*

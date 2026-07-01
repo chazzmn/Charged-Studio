@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
-const CTA = { label: "Start a Project", href: "/contact" } as const;
+const CTA = { label: "Start a Project", href: "/start-a-project" } as const;
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);

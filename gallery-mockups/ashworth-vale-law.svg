@@ -1,0 +1,137 @@
+<svg width="1680" height="1200" viewBox="0 0 1680 1200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ECE9E2"/><stop offset="1" stop-color="#E2DED5"/>
+  </linearGradient>
+  <linearGradient id="burg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#6E1423"/><stop offset="1" stop-color="#4C0D1A"/>
+  </linearGradient>
+  <filter id="winShadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="24" stdDeviation="34" flood-color="#3a2f23" flood-opacity="0.28"/>
+  </filter>
+  <filter id="cardShadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#2a0a12" flood-opacity="0.30"/>
+  </filter>
+  <clipPath id="win"><rect x="40" y="44" width="1600" height="1112" rx="18"/></clipPath>
+  <symbol id="star" viewBox="0 0 20 20"><path d="M10 1 L12.6 7.0 L19 7.3 L13.9 11.3 L15.8 17.6 L10 14 L4.2 17.6 L6.1 11.3 L1 7.3 L7.4 7.0 Z"/></symbol>
+</defs>
+
+<rect width="1680" height="1200" fill="url(#bg)"/>
+
+<!-- browser window -->
+<rect x="40" y="44" width="1600" height="1112" rx="18" fill="#F6F1E9" filter="url(#winShadow)"/>
+<g clip-path="url(#win)">
+  <!-- chrome bar -->
+  <rect x="40" y="44" width="1600" height="54" fill="#EAE4DA"/>
+  <circle cx="74" cy="71" r="7" fill="#E2685C"/><circle cx="98" cy="71" r="7" fill="#E9B14C"/><circle cx="122" cy="71" r="7" fill="#5FB85C"/>
+  <rect x="300" y="56" width="600" height="30" rx="15" fill="#F6F1E9" stroke="#d8cfc1"/>
+  <path d="M590 66 h-3 v-3 a3 3 0 0 1 6 0 v3 h-3 z M586 66 h12 v9 h-12 z" fill="none" stroke="#9a8f7e" stroke-width="1.4"/>
+  <text x="605" y="76" font-family="Montserrat400" font-size="14" fill="#6f6557">ashworthandvale.co.uk</text>
+  <circle cx="1560" cy="71" r="3" fill="#b9af9e"/><circle cx="1574" cy="71" r="3" fill="#b9af9e"/><circle cx="1588" cy="71" r="3" fill="#b9af9e"/>
+
+  <!-- NAV -->
+  <rect x="40" y="98" width="1600" height="88" fill="#F6F1E9"/>
+  <circle cx="92" cy="142" r="23" fill="none" stroke="#B08D57" stroke-width="2"/>
+  <text x="92" y="150" text-anchor="middle" font-family="Playfair600" font-size="20" fill="#B08D57">AV</text>
+  <text x="130" y="138" font-family="Playfair600" font-size="21" fill="#241B16" letter-spacing="1.5">ASHWORTH &amp; VALE</text>
+  <text x="131" y="156" font-family="Montserrat500" font-size="9.5" fill="#B08D57" letter-spacing="5">SOLICITORS</text>
+  <text x="1018" y="148" text-anchor="middle" font-family="Montserrat500" font-size="15" fill="#3a302b">Expertise</text>
+  <text x="1128" y="148" text-anchor="middle" font-family="Montserrat500" font-size="15" fill="#3a302b">Our People</text>
+  <text x="1232" y="148" text-anchor="middle" font-family="Montserrat500" font-size="15" fill="#3a302b">Insights</text>
+  <text x="1328" y="148" text-anchor="middle" font-family="Montserrat500" font-size="15" fill="#3a302b">Contact</text>
+  <rect x="1400" y="120" width="188" height="44" rx="22" fill="#6E1423"/>
+  <text x="1494" y="147" text-anchor="middle" font-family="Montserrat600" font-size="14" fill="#F6F1E9">Book a consultation</text>
+
+  <!-- HERO right panel -->
+  <rect x="980" y="186" width="660" height="556" fill="url(#burg)"/>
+  <g stroke="#B08D57" stroke-width="1.2" opacity="0.30" fill="none">
+    <path d="M1070 742 V360 a40 40 0 0 1 80 0 V742"/>
+    <path d="M1210 742 V330 a46 46 0 0 1 92 0 V742"/>
+    <path d="M1360 742 V360 a40 40 0 0 1 80 0 V742"/>
+    <path d="M1500 742 V340 a44 44 0 0 1 88 0 V742"/>
+  </g>
+  <text x="1310" y="540" text-anchor="middle" font-family="Playfair900" font-size="300" fill="#B08D57" opacity="0.10">AV</text>
+  <g fill="#E7C998"><use href="#star" x="1028" y="232" width="17" height="17"/></g>
+  <text x="1056" y="246" font-family="Montserrat600" font-size="13" fill="#E7C998" letter-spacing="1">CHAMBERS-RANKED · DEVON</text>
+
+  <!-- floating testimonial card straddling panel edge -->
+  <rect x="892" y="600" width="356" height="120" rx="14" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <g fill="#C79A4F">
+    <use href="#star" x="916" y="624" width="15" height="15"/><use href="#star" x="935" y="624" width="15" height="15"/>
+    <use href="#star" x="954" y="624" width="15" height="15"/><use href="#star" x="973" y="624" width="15" height="15"/>
+    <use href="#star" x="992" y="624" width="15" height="15"/>
+  </g>
+  <text x="916" y="668" font-family="Playfair500It" font-size="15.5" fill="#2c2520">&#8220;They made a stressful house</text>
+  <text x="916" y="690" font-family="Playfair500It" font-size="15.5" fill="#2c2520">sale completely effortless.&#8221;</text>
+  <text x="916" y="710" font-family="Montserrat600" font-size="11.5" fill="#B08D57">HELEN M. · EXMOUTH</text>
+
+  <!-- HERO left text -->
+  <text x="92" y="276" font-family="Montserrat600" font-size="13" fill="#B08D57" letter-spacing="3">DEVON SOLICITORS · ESTABLISHED 1987</text>
+  <text x="90" y="360" font-family="Playfair700" font-size="62" fill="#241B16">Clear-headed legal</text>
+  <text x="90" y="430" font-family="Playfair700" font-size="62" fill="#241B16">advice for life&#8217;s</text>
+  <text x="90" y="500" font-family="Playfair700" font-size="62" fill="#241B16">most <tspan font-family="Playfair700It" fill="#6E1423">pivotal</tspan> moments.</text>
+  <text x="92" y="556" font-family="Montserrat400" font-size="18" fill="#5b524c">Property, family, probate and commercial law — handled with</text>
+  <text x="92" y="584" font-family="Montserrat400" font-size="18" fill="#5b524c">care, precision and refreshingly plain-English guidance.</text>
+
+  <rect x="92" y="624" width="236" height="56" rx="28" fill="#6E1423"/>
+  <text x="210" y="659" text-anchor="middle" font-family="Montserrat600" font-size="16" fill="#F6F1E9">Book a consultation</text>
+  <rect x="344" y="624" width="186" height="56" rx="28" fill="none" stroke="#B08D57" stroke-width="1.5"/>
+  <text x="437" y="659" text-anchor="middle" font-family="Montserrat600" font-size="16" fill="#241B16">Our expertise &#8594;</text>
+
+  <g fill="#C79A4F">
+    <use href="#star" x="92" y="712" width="16" height="16"/><use href="#star" x="112" y="712" width="16" height="16"/>
+    <use href="#star" x="132" y="712" width="16" height="16"/><use href="#star" x="152" y="712" width="16" height="16"/>
+    <use href="#star" x="172" y="712" width="16" height="16"/>
+  </g>
+  <text x="200" y="725" font-family="Montserrat500" font-size="14" fill="#5b524c">5.0 from 130+ Devon clients</text>
+
+  <!-- PRACTICE AREAS -->
+  <rect x="40" y="742" width="1600" height="414" fill="#F1EBE0"/>
+  <line x1="92" y1="742" x2="1588" y2="742" stroke="#241B16" stroke-opacity="0.08"/>
+  <text x="92" y="822" font-family="Playfair600" font-size="34" fill="#241B16">Areas of expertise</text>
+  <text x="1588" y="822" text-anchor="end" font-family="Montserrat500" font-size="15" fill="#B08D57">View all services &#8594;</text>
+
+  <!-- cards -->
+  <g font-family="Playfair600">
+    <!-- card 1 -->
+    <rect x="92" y="858" width="362" height="250" rx="14" fill="#FBF7EF" stroke="#241B16" stroke-opacity="0.08"/>
+    <rect x="120" y="888" width="44" height="44" rx="10" fill="#F0E4D0"/>
+    <path d="M132 916 l10 -9 l10 9 v6 h-20 z M135 922 h6 v-7 h-2 z" fill="none" stroke="#B08D57" stroke-width="1.6"/>
+    <text x="120" y="972" font-size="21" fill="#241B16">Property &amp;</text>
+    <text x="120" y="998" font-size="21" fill="#241B16">Conveyancing</text>
+    <text x="120" y="1030" font-family="Montserrat400" font-size="13" fill="#6b6258">Buying, selling and remortgaging</text>
+    <text x="120" y="1048" font-family="Montserrat400" font-size="13" fill="#6b6258">across Devon.</text>
+    <text x="120" y="1082" font-family="Montserrat600" font-size="13" fill="#B08D57">Learn more &#8594;</text>
+  </g>
+  <g font-family="Playfair600">
+    <rect x="478" y="858" width="362" height="250" rx="14" fill="#FBF7EF" stroke="#241B16" stroke-opacity="0.08"/>
+    <rect x="506" y="888" width="44" height="44" rx="10" fill="#F0E4D0"/>
+    <path d="M520 902 h12 l4 4 v18 h-16 z M523 912 h10 M523 918 h10" fill="none" stroke="#B08D57" stroke-width="1.6"/>
+    <text x="506" y="972" font-size="21" fill="#241B16">Wills, Trusts</text>
+    <text x="506" y="998" font-size="21" fill="#241B16">&amp; Probate</text>
+    <text x="506" y="1030" font-family="Montserrat400" font-size="13" fill="#6b6258">Protecting your family and</text>
+    <text x="506" y="1048" font-family="Montserrat400" font-size="13" fill="#6b6258">your legacy.</text>
+    <text x="506" y="1082" font-family="Montserrat600" font-size="13" fill="#B08D57">Learn more &#8594;</text>
+  </g>
+  <g font-family="Playfair600">
+    <rect x="864" y="858" width="362" height="250" rx="14" fill="#FBF7EF" stroke="#241B16" stroke-opacity="0.08"/>
+    <rect x="892" y="888" width="44" height="44" rx="10" fill="#F0E4D0"/>
+    <g fill="none" stroke="#B08D57" stroke-width="1.6"><circle cx="908" cy="906" r="4"/><circle cx="920" cy="906" r="4"/><path d="M901 924 a7 7 0 0 1 14 0 M913 924 a7 7 0 0 1 14 0"/></g>
+    <text x="892" y="972" font-size="21" fill="#241B16">Family &amp;</text>
+    <text x="892" y="998" font-size="21" fill="#241B16">Divorce</text>
+    <text x="892" y="1030" font-family="Montserrat400" font-size="13" fill="#6b6258">Compassionate support when</text>
+    <text x="892" y="1048" font-family="Montserrat400" font-size="13" fill="#6b6258">it matters most.</text>
+    <text x="892" y="1082" font-family="Montserrat600" font-size="13" fill="#B08D57">Learn more &#8594;</text>
+  </g>
+  <g font-family="Playfair600">
+    <rect x="1250" y="858" width="362" height="250" rx="14" fill="#FBF7EF" stroke="#241B16" stroke-opacity="0.08"/>
+    <rect x="1278" y="888" width="44" height="44" rx="10" fill="#F0E4D0"/>
+    <path d="M1290 906 h20 v14 h-20 z M1296 906 v-4 h8 v4" fill="none" stroke="#B08D57" stroke-width="1.6"/>
+    <text x="1278" y="972" font-size="21" fill="#241B16">Business &amp;</text>
+    <text x="1278" y="998" font-size="21" fill="#241B16">Commercial</text>
+    <text x="1278" y="1030" font-family="Montserrat400" font-size="13" fill="#6b6258">Contracts, disputes and</text>
+    <text x="1278" y="1048" font-family="Montserrat400" font-size="13" fill="#6b6258">company law.</text>
+    <text x="1278" y="1082" font-family="Montserrat600" font-size="13" fill="#B08D57">Learn more &#8594;</text>
+  </g>
+</g>
+</svg>

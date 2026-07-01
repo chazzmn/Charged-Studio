@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Badge from "@/components/Badge";
 import Reveal from "@/components/Reveal";
-import CountUp from "@/components/CountUp";
 import { Stars, GoogleG } from "@/components/icons";
 
 type Testimonial = { quote: string; name: string; image?: string };
@@ -96,11 +95,11 @@ export default function Testimonials() {
           <div className="inline-flex items-center gap-2.5 self-start rounded-full bg-surface/40 shadow-e1 px-4 py-2.5 shadow-e1">
             <GoogleG className="h-5 w-5" />
             <span className="font-inter text-sm font-semibold text-text">
-              <CountUp end={5} decimals={1} />
+              5.0
             </span>
             <Stars className="h-3.5 w-3.5" label="Rated 5.0 from 16 Google reviews" />
             <span className="font-inter text-xs text-text/60">
-              <CountUp end={16} /> Google reviews
+              16 Google reviews
             </span>
           </div>
         </Reveal>

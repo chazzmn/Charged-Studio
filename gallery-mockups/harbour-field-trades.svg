@@ -1,0 +1,132 @@
+<svg width="1680" height="1200" viewBox="0 0 1680 1200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ECE9E2"/><stop offset="1" stop-color="#E2DED5"/></linearGradient>
+  <linearGradient id="skyDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#161A22"/><stop offset="0.45" stop-color="#2A2733"/><stop offset="0.72" stop-color="#7E4A2C"/><stop offset="0.86" stop-color="#C9803B"/><stop offset="1" stop-color="#E4A85A"/></linearGradient>
+  <linearGradient id="warmGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD89A"/><stop offset="1" stop-color="#E8932F"/></linearGradient>
+  <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d2531"/><stop offset="1" stop-color="#0d1014"/></linearGradient>
+  <linearGradient id="lvig" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0E0F12"/><stop offset="0.5" stop-color="#0E0F12" stop-opacity="0.4"/><stop offset="1" stop-color="#0E0F12" stop-opacity="0"/></linearGradient>
+  <radialGradient id="uplight" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F5A623" stop-opacity="0.55"/><stop offset="1" stop-color="#F5A623" stop-opacity="0"/></radialGradient>
+  <linearGradient id="pj1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C98A4B"/><stop offset="1" stop-color="#7A4F28"/></linearGradient>
+  <linearGradient id="pj2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A5560"/><stop offset="1" stop-color="#262C33"/></linearGradient>
+  <linearGradient id="pj3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9905E"/><stop offset="1" stop-color="#6E5230"/></linearGradient>
+  <filter id="winShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="34" flood-color="#3a2f23" flood-opacity="0.28"/></filter>
+  <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#000000" flood-opacity="0.30"/></filter>
+  <clipPath id="win"><rect x="40" y="44" width="1600" height="1112" rx="18"/></clipPath>
+  <clipPath id="heroClip"><rect x="40" y="98" width="1600" height="662"/></clipPath>
+  <clipPath id="pc1"><rect x="80" y="856" width="486" height="170" rx="14"/></clipPath>
+  <clipPath id="pc2"><rect x="592" y="856" width="486" height="170" rx="14"/></clipPath>
+  <clipPath id="pc3"><rect x="1104" y="856" width="486" height="170" rx="14"/></clipPath>
+  <symbol id="star" viewBox="0 0 20 20"><path d="M10 1 L12.6 7.0 L19 7.3 L13.9 11.3 L15.8 17.6 L10 14 L4.2 17.6 L6.1 11.3 L1 7.3 L7.4 7.0 Z"/></symbol>
+</defs>
+<rect width="1680" height="1200" fill="url(#bg)"/>
+<rect x="40" y="44" width="1600" height="1112" rx="18" fill="#EBE8E2" filter="url(#winShadow)"/>
+<g clip-path="url(#win)">
+  <rect x="40" y="44" width="1600" height="54" fill="#15171B"/>
+  <circle cx="74" cy="71" r="7" fill="#E2685C"/><circle cx="98" cy="71" r="7" fill="#E9B14C"/><circle cx="122" cy="71" r="7" fill="#5FB85C"/>
+  <rect x="300" y="56" width="600" height="30" rx="15" fill="#23262C"/>
+  <text x="605" y="76" font-family="Manrope400" font-size="14" fill="#9aa0a8">harbourandfield.co.uk</text>
+
+  <!-- HERO -->
+  <g clip-path="url(#heroClip)">
+    <rect x="40" y="98" width="1600" height="662" fill="#0E0F12"/>
+    <!-- architectural dusk scene, right -->
+    <g clip-path="url(#heroClip)">
+      <rect x="700" y="98" width="940" height="662" fill="url(#skyDusk)"/>
+      <circle cx="1230" cy="210" r="46" fill="#F6D9A0" opacity="0.5"/>
+      <ellipse cx="1300" cy="560" rx="520" ry="120" fill="url(#uplight)"/>
+      <!-- distant tree line -->
+      <path d="M700 540 q120 -40 260 -20 q160 24 320 -8 q200 -40 360 -6 V760 H700 Z" fill="#15110f" opacity="0.55"/>
+      <!-- water / deck plane -->
+      <rect x="700" y="560" width="940" height="200" fill="url(#water)"/>
+      <!-- house: lower volume -->
+      <rect x="1010" y="368" width="300" height="192" fill="#16191F"/>
+      <!-- glazing double height warm -->
+      <rect x="1034" y="392" width="150" height="168" fill="url(#warmGlass)"/>
+      <g stroke="#16191F" stroke-width="4"><line x1="1084" y1="392" x2="1084" y2="560"/><line x1="1134" y1="392" x2="1134" y2="560"/><line x1="1034" y1="452" x2="1184" y2="452"/><line x1="1034" y1="506" x2="1184" y2="506"/></g>
+      <!-- solid clad portion -->
+      <rect x="1184" y="368" width="126" height="192" fill="#1C2026"/>
+      <g stroke="#2a2f37" stroke-width="2"><line x1="1184" y1="404" x2="1310" y2="404"/><line x1="1184" y1="448" x2="1310" y2="448"/><line x1="1184" y1="492" x2="1310" y2="492"/><line x1="1184" y1="536" x2="1310" y2="536"/></g>
+      <!-- upper cantilever box -->
+      <rect x="1150" y="286" width="320" height="92" fill="#23272F"/>
+      <rect x="1150" y="372" width="320" height="6" fill="#000" opacity="0.4"/>
+      <rect x="1186" y="306" width="250" height="54" fill="url(#warmGlass)" opacity="0.92"/>
+      <g stroke="#23272F" stroke-width="4"><line x1="1248" y1="306" x2="1248" y2="360"/><line x1="1310" y1="306" x2="1310" y2="360"/><line x1="1372" y1="306" x2="1372" y2="360"/></g>
+      <!-- roof slab -->
+      <rect x="1132" y="278" width="356" height="10" fill="#10131A"/>
+      <!-- slender columns -->
+      <rect x="1306" y="378" width="6" height="182" fill="#0c0e12"/>
+      <!-- foreground tree -->
+      <g><rect x="930" y="470" width="10" height="92" fill="#0c0a08"/><path d="M935 380 c-58 6 -78 70 -34 96 c-30 20 4 70 40 56 c30 24 78 -8 64 -44 c34 -16 18 -78 -22 -82 c-8 -36 -54 -34 -48 -26 z" fill="#0e0c0a"/></g>
+      <!-- reflections in water -->
+      <g opacity="0.30"><rect x="1034" y="560" width="150" height="120" fill="url(#warmGlass)"/><rect x="1186" y="560" width="250" height="60" fill="url(#warmGlass)"/></g>
+      <rect x="700" y="560" width="940" height="200" fill="#0d1014" opacity="0.45"/>
+      <!-- left vignette to blend with text -->
+      <rect x="700" y="98" width="520" height="662" fill="url(#lvig)"/>
+    </g>
+
+    <!-- project location chip -->
+    <rect x="1366" y="690" width="246" height="44" rx="10" fill="#000000" fill-opacity="0.45" stroke="#F5A623" stroke-opacity="0.35"/>
+    <circle cx="1392" cy="712" r="5" fill="#F5A623"/><text x="1408" y="717" font-family="Manrope600" font-size="13" fill="#e7e4df">Cliffside House · Exmouth · 2024</text>
+
+    <!-- NAV overlaid -->
+    <rect x="80" y="124" width="34" height="34" fill="#F5A623"/><path d="M86 150 V134 h10 v8 h10 v8 z" fill="#15171B"/>
+    <text x="128" y="142" font-family="Oswald600" font-size="22" fill="#FFFFFF" letter-spacing="1">HARBOUR &amp; FIELD</text>
+    <text x="129" y="160" font-family="Manrope600" font-size="9.5" fill="#F5A623" letter-spacing="4">DESIGN &amp; BUILD · DEVON</text>
+    <text x="1006" y="146" text-anchor="middle" font-family="Manrope600" font-size="14" fill="#e7e4df">Projects</text>
+    <text x="1098" y="146" text-anchor="middle" font-family="Manrope600" font-size="14" fill="#e7e4df">Services</text>
+    <text x="1186" y="146" text-anchor="middle" font-family="Manrope600" font-size="14" fill="#e7e4df">Process</text>
+    <text x="1272" y="146" text-anchor="middle" font-family="Manrope600" font-size="14" fill="#e7e4df">About</text>
+    <rect x="1330" y="120" width="158" height="44" rx="4" fill="none" stroke="#F5A623"/><text x="1409" y="147" text-anchor="middle" font-family="Oswald500" font-size="14" fill="#F5A623" letter-spacing="1">01392 000 000</text>
+
+    <!-- headline left -->
+    <text x="82" y="252" font-family="Manrope700" font-size="14" fill="#F5A623" letter-spacing="5">EXTENSIONS · RENOVATIONS · NEW BUILDS</text>
+    <text x="80" y="334" font-family="Oswald700" font-size="78" fill="#FFFFFF" letter-spacing="1">WE BUILD</text>
+    <text x="80" y="410" font-family="Oswald700" font-size="78" fill="#FFFFFF" letter-spacing="1">EXCEPTIONAL</text>
+    <text x="80" y="486" font-family="Oswald700" font-size="78" fill="#F5A623" letter-spacing="1">SPACES.</text>
+    <text x="82" y="528" font-family="Manrope400" font-size="17" fill="#bfc3c9">Award-quality design &amp; build for Devon homes — managed end to</text>
+    <text x="82" y="552" font-family="Manrope400" font-size="17" fill="#bfc3c9">end, delivered on time and on a fixed price.</text>
+
+    <!-- functional quote bar -->
+    <rect x="80" y="582" width="624" height="132" rx="14" fill="#16181D" stroke="#2c2f36"/>
+    <text x="104" y="616" font-family="Oswald500" font-size="16" fill="#FFFFFF" letter-spacing="1">GET A FREE QUOTE</text>
+    <g fill="none" stroke="#3a3e46"><rect x="104" y="632" width="150" height="46" rx="9"/><rect x="266" y="632" width="160" height="46" rx="9"/><rect x="438" y="632" width="110" height="46" rx="9"/></g>
+    <text x="120" y="660" font-family="Manrope400" font-size="13.5" fill="#8a8f98">Your name</text>
+    <text x="282" y="660" font-family="Manrope400" font-size="13.5" fill="#8a8f98">Project type &#9662;</text>
+    <text x="454" y="660" font-family="Manrope400" font-size="13.5" fill="#8a8f98">Postcode</text>
+    <rect x="560" y="632" width="120" height="46" rx="9" fill="#F5A623"/><text x="620" y="660" text-anchor="middle" font-family="Oswald500" font-size="14" fill="#15171B" letter-spacing="1">GET QUOTE</text>
+    <g fill="#F5A623"><use href="#star" x="104" y="690" width="14" height="14"/><use href="#star" x="122" y="690" width="14" height="14"/><use href="#star" x="140" y="690" width="14" height="14"/><use href="#star" x="158" y="690" width="14" height="14"/><use href="#star" x="176" y="690" width="14" height="14"/></g>
+    <text x="200" y="702" font-family="Manrope500" font-size="13" fill="#9aa0a8">5.0 Checkatrade · 18 yrs · Fully insured &amp; guaranteed</text>
+  </g>
+
+  <!-- SELECTED WORK -->
+  <rect x="40" y="760" width="1600" height="396" fill="#ECE9E3"/>
+  <text x="80" y="822" font-family="Oswald600" font-size="26" fill="#15171B" letter-spacing="1">SELECTED WORK</text>
+  <text x="1600" y="822" text-anchor="end" font-family="Manrope700" font-size="14" fill="#B5731A">All projects &#8594;</text>
+
+  <!-- project cards -->
+  <g>
+    <rect x="80" y="856" width="486" height="278" rx="14" fill="#FFFFFF" filter="url(#soft)"/>
+    <g clip-path="url(#pc1)"><rect x="80" y="856" width="486" height="170" fill="url(#pj1)"/><rect x="240" y="930" width="170" height="96" fill="#3a2614" opacity="0.5"/><rect x="262" y="952" width="50" height="74" fill="#FFD89A" opacity="0.85"/><rect x="330" y="952" width="50" height="74" fill="#FFD89A" opacity="0.6"/></g>
+    <rect x="100" y="876" width="116" height="28" rx="14" fill="#15171B"/><text x="158" y="895" text-anchor="middle" font-family="Manrope700" font-size="12" fill="#F5A623">EXTENSION</text>
+    <text x="104" y="1062" font-family="Oswald500" font-size="22" fill="#15171B">Cliffside House</text>
+    <text x="104" y="1090" font-family="Manrope400" font-size="13.5" fill="#6b6f75">Two-storey rear extension · Exmouth</text>
+    <text x="104" y="1118" font-family="Manrope700" font-size="13" fill="#B5731A">View project &#8594;</text>
+  </g>
+  <g>
+    <rect x="592" y="856" width="486" height="278" rx="14" fill="#FFFFFF" filter="url(#soft)"/>
+    <g clip-path="url(#pc2)"><rect x="592" y="856" width="486" height="170" fill="url(#pj2)"/><path d="M740 1026 V930 l90 -44 l90 44 V1026 Z" fill="#1a1f25"/><path d="M740 930 l90 -44 l90 44" stroke="#5a6470" stroke-width="3" fill="none"/><rect x="800" y="956" width="60" height="70" fill="#FFD89A" opacity="0.7"/></g>
+    <rect x="612" y="876" width="150" height="28" rx="14" fill="#15171B"/><text x="687" y="895" text-anchor="middle" font-family="Manrope700" font-size="12" fill="#F5A623">BARN CONVERSION</text>
+    <text x="616" y="1062" font-family="Oswald500" font-size="22" fill="#15171B">The Long Barn</text>
+    <text x="616" y="1090" font-family="Manrope400" font-size="13.5" fill="#6b6f75">Full conversion &amp; new build · Topsham</text>
+    <text x="616" y="1118" font-family="Manrope700" font-size="13" fill="#B5731A">View project &#8594;</text>
+  </g>
+  <g>
+    <rect x="1104" y="856" width="486" height="278" rx="14" fill="#FFFFFF" filter="url(#soft)"/>
+    <g clip-path="url(#pc3)"><rect x="1104" y="856" width="486" height="170" fill="url(#pj3)"/><rect x="1230" y="912" width="230" height="114" fill="#43301a" opacity="0.55"/><rect x="1256" y="936" width="80" height="90" fill="#FFD89A" opacity="0.8"/><rect x="1356" y="936" width="80" height="90" fill="#FFE8C2" opacity="0.6"/></g>
+    <rect x="1124" y="876" width="92" height="28" rx="14" fill="#15171B"/><text x="1170" y="895" text-anchor="middle" font-family="Manrope700" font-size="12" fill="#F5A623">KITCHEN</text>
+    <text x="1128" y="1062" font-family="Oswald500" font-size="22" fill="#15171B">Harbour Kitchen</text>
+    <text x="1128" y="1090" font-family="Manrope400" font-size="13.5" fill="#6b6f75">Open-plan kitchen &amp; diner · Exeter</text>
+    <text x="1128" y="1118" font-family="Manrope700" font-size="13" fill="#B5731A">View project &#8594;</text>
+  </g>
+</g>
+</svg>

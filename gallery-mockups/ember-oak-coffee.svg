@@ -1,0 +1,100 @@
+<svg width="1680" height="1200" viewBox="0 0 1680 1200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ECE9E2"/><stop offset="1" stop-color="#E2DED5"/></linearGradient>
+  <linearGradient id="kraft" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8A5A33"/><stop offset="1" stop-color="#5C3A21"/></linearGradient>
+  <filter id="winShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="34" flood-color="#3a2f23" flood-opacity="0.28"/></filter>
+  <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#2b1b12" flood-opacity="0.22"/></filter>
+  <clipPath id="win"><rect x="40" y="44" width="1600" height="1112" rx="18"/></clipPath>
+  <symbol id="star" viewBox="0 0 20 20"><path d="M10 1 L12.6 7.0 L19 7.3 L13.9 11.3 L15.8 17.6 L10 14 L4.2 17.6 L6.1 11.3 L1 7.3 L7.4 7.0 Z"/></symbol>
+  <symbol id="bag" viewBox="0 0 100 130">
+    <path d="M18 30 h64 l-6 -12 h-52 z" fill="#3a2418"/>
+    <rect x="14" y="30" width="72" height="92" rx="6" fill="#caa06f"/>
+    <rect x="14" y="30" width="72" height="92" rx="6" fill="#000" opacity="0.06"/>
+    <rect x="26" y="54" width="48" height="44" rx="4" fill="#F3EAD8"/>
+  </symbol>
+</defs>
+<rect width="1680" height="1200" fill="url(#bg)"/>
+<rect x="40" y="44" width="1600" height="1112" rx="18" fill="#F3EAD8" filter="url(#winShadow)"/>
+<g clip-path="url(#win)">
+  <rect x="40" y="44" width="1600" height="54" fill="#E7DDC9"/>
+  <circle cx="74" cy="71" r="7" fill="#E2685C"/><circle cx="98" cy="71" r="7" fill="#E9B14C"/><circle cx="122" cy="71" r="7" fill="#5FB85C"/>
+  <rect x="300" y="56" width="600" height="30" rx="15" fill="#F3EAD8" stroke="#d3c2a3"/>
+  <text x="605" y="76" font-family="Manrope400" font-size="14" fill="#8a7355">emberandoak.co</text>
+
+  <!-- announcement bar -->
+  <rect x="40" y="98" width="1600" height="34" fill="#2B1B12"/>
+  <text x="840" y="120" text-anchor="middle" font-family="Manrope500" font-size="13" fill="#E7D6BC" letter-spacing="1">FREE UK DELIVERY OVER £30  ·  ROASTED FRESH EVERY TUESDAY</text>
+
+  <!-- NAV -->
+  <rect x="40" y="132" width="1600" height="84" fill="#F3EAD8"/>
+  <circle cx="96" cy="174" r="22" fill="none" stroke="#D2691E" stroke-width="2"/><circle cx="96" cy="174" r="8" fill="#D2691E"/>
+  <text x="132" y="170" font-family="Fraunces600" font-size="24" fill="#2B1B12">Ember &amp; Oak</text>
+  <text x="133" y="190" font-family="Manrope600" font-size="9.5" fill="#9b6b3a" letter-spacing="4">COFFEE ROASTERS</text>
+  <text x="980" y="180" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#4a3826">Shop</text>
+  <text x="1066" y="180" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#4a3826">Subscriptions</text>
+  <text x="1186" y="180" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#4a3826">Our Story</text>
+  <text x="1286" y="180" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#4a3826">Wholesale</text>
+  <circle cx="1380" cy="174" r="11" fill="none" stroke="#4a3826" stroke-width="2"/><line x1="1388" y1="182" x2="1396" y2="190" stroke="#4a3826" stroke-width="2"/>
+  <path d="M1430 166 h26 l-3 22 h-20 z" fill="none" stroke="#4a3826" stroke-width="2"/><path d="M1436 166 a7 7 0 0 1 14 0" fill="none" stroke="#4a3826" stroke-width="2"/>
+  <circle cx="1456" cy="162" r="9" fill="#D2691E"/><text x="1456" y="166" text-anchor="middle" font-family="Manrope700" font-size="11" fill="#FFF">2</text>
+  <rect x="1490" y="152" width="110" height="44" rx="22" fill="#D2691E"/><text x="1545" y="179" text-anchor="middle" font-family="Manrope700" font-size="14" fill="#FFF">Shop beans</text>
+
+  <!-- HERO -->
+  <text x="92" y="300" font-family="Manrope700" font-size="13" fill="#D2691E" letter-spacing="3">SMALL-BATCH · DEVON ROASTED</text>
+  <text x="90" y="378" font-family="Fraunces700" font-size="62" fill="#2B1B12">Coffee worth</text>
+  <text x="90" y="448" font-family="Fraunces700" font-size="62" fill="#2B1B12">waking up for.</text>
+  <text x="92" y="504" font-family="Manrope400" font-size="18" fill="#6b5742">Ethically sourced, roasted by hand in small batches and shipped</text>
+  <text x="92" y="532" font-family="Manrope400" font-size="18" fill="#6b5742">to your door within days. Find the roast that&#8217;s right for you.</text>
+  <rect x="92" y="572" width="186" height="56" rx="28" fill="#D2691E"/><text x="185" y="607" text-anchor="middle" font-family="Manrope700" font-size="16" fill="#FFF">Shop beans</text>
+  <rect x="294" y="572" width="200" height="56" rx="28" fill="none" stroke="#8A5A33" stroke-width="1.6"/><text x="394" y="607" text-anchor="middle" font-family="Manrope700" font-size="16" fill="#5C3A21">Find your roast &#8594;</text>
+  <g fill="#C9772E"><use href="#star" x="92" y="660" width="16" height="16"/><use href="#star" x="112" y="660" width="16" height="16"/><use href="#star" x="132" y="660" width="16" height="16"/><use href="#star" x="152" y="660" width="16" height="16"/><use href="#star" x="172" y="660" width="16" height="16"/></g>
+  <text x="200" y="673" font-family="Manrope600" font-size="14" fill="#6b5742">Loved by 2,000+ home brewers</text>
+
+  <!-- hero right bag -->
+  <circle cx="1300" cy="450" r="170" fill="url(#kraft)"/>
+  <use href="#bag" x="1230" y="360" width="140" height="182"/>
+  <rect x="1404" y="318" width="170" height="52" rx="26" fill="#2B1B12"/><text x="1489" y="350" text-anchor="middle" font-family="Manrope700" font-size="13" fill="#E7D6BC">Subscribe &amp; save 15%</text>
+
+  <!-- LOWER bestsellers -->
+  <rect x="40" y="724" width="1600" height="432" fill="#EFE3CC"/>
+  <text x="92" y="800" font-family="Fraunces600" font-size="32" fill="#2B1B12">This week&#8217;s bestsellers</text>
+  <text x="1588" y="800" text-anchor="end" font-family="Manrope700" font-size="15" fill="#D2691E">Shop all coffee &#8594;</text>
+
+  <!-- product cards -->
+  <g font-family="Manrope700">
+    <!-- 1 -->
+    <rect x="92" y="836" width="362" height="284" rx="18" fill="#FBF6EB"/>
+    <rect x="92" y="836" width="362" height="150" rx="18" fill="#B5651D"/><use href="#bag" x="232" y="852" width="88" height="114"/>
+    <rect x="112" y="852" width="86" height="26" rx="13" fill="#2B1B12"/><text x="155" y="869" text-anchor="middle" font-size="11" fill="#E7D6BC">BESTSELLER</text>
+    <text x="112" y="1024" font-family="Fraunces600" font-size="20" fill="#2B1B12">Harbour Blend</text>
+    <text x="112" y="1050" font-family="Manrope400" font-size="13" fill="#8a7355">Medium roast · chocolate &amp; hazelnut</text>
+    <text x="112" y="1090" font-size="18" fill="#D2691E">£12.00</text>
+    <rect x="334" y="1066" width="98" height="36" rx="18" fill="#2B1B12"/><text x="383" y="1089" text-anchor="middle" font-size="12.5" fill="#FFF">Add +</text>
+  </g>
+  <g font-family="Manrope700">
+    <rect x="478" y="836" width="362" height="284" rx="18" fill="#FBF6EB"/>
+    <rect x="478" y="836" width="362" height="150" rx="18" fill="#6E4B2A"/><use href="#bag" x="618" y="852" width="88" height="114"/>
+    <text x="498" y="1024" font-family="Fraunces600" font-size="20" fill="#2B1B12">Ethiopia Guji</text>
+    <text x="498" y="1050" font-family="Manrope400" font-size="13" fill="#8a7355">Light roast · floral &amp; citrus</text>
+    <text x="498" y="1090" font-size="18" fill="#D2691E">£14.00</text>
+    <rect x="720" y="1066" width="98" height="36" rx="18" fill="#2B1B12"/><text x="769" y="1089" text-anchor="middle" font-size="12.5" fill="#FFF">Add +</text>
+  </g>
+  <g font-family="Manrope700">
+    <rect x="864" y="836" width="362" height="284" rx="18" fill="#FBF6EB"/>
+    <rect x="864" y="836" width="362" height="150" rx="18" fill="#3F6F5A"/><use href="#bag" x="1004" y="852" width="88" height="114"/>
+    <rect x="884" y="852" width="58" height="26" rx="13" fill="#2B1B12"/><text x="913" y="869" text-anchor="middle" font-size="11" fill="#E7D6BC">DECAF</text>
+    <text x="884" y="1024" font-family="Fraunces600" font-size="20" fill="#2B1B12">Swiss Water Decaf</text>
+    <text x="884" y="1050" font-family="Manrope400" font-size="13" fill="#8a7355">Medium roast · caramel &amp; almond</text>
+    <text x="884" y="1090" font-size="18" fill="#D2691E">£13.00</text>
+    <rect x="1106" y="1066" width="98" height="36" rx="18" fill="#2B1B12"/><text x="1155" y="1089" text-anchor="middle" font-size="12.5" fill="#FFF">Add +</text>
+  </g>
+  <g font-family="Manrope700">
+    <rect x="1250" y="836" width="362" height="284" rx="18" fill="#FBF6EB"/>
+    <rect x="1250" y="836" width="362" height="150" rx="18" fill="#2B1B12"/><use href="#bag" x="1390" y="852" width="88" height="114"/>
+    <text x="1270" y="1024" font-family="Fraunces600" font-size="20" fill="#2B1B12">Espresso No.4</text>
+    <text x="1270" y="1050" font-family="Manrope400" font-size="13" fill="#8a7355">Dark roast · cocoa &amp; brown sugar</text>
+    <text x="1270" y="1090" font-size="18" fill="#D2691E">£12.00</text>
+    <rect x="1492" y="1066" width="98" height="36" rx="18" fill="#2B1B12"/><text x="1541" y="1089" text-anchor="middle" font-size="12.5" fill="#FFF">Add +</text>
+  </g>
+</g>
+</svg>

@@ -2,7 +2,6 @@ import type { SVGProps } from "react";
 import Link from "next/link";
 import Badge from "@/components/Badge";
 import Reveal from "@/components/Reveal";
-import CountUp from "@/components/CountUp";
 import { UserMark, PinMark, CheckCircle, BoltMark } from "@/components/icons";
 
 /**
@@ -66,7 +65,7 @@ export default function WhyCharged() {
             className="flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2"
           >
             <span className="font-anton text-lg leading-none text-accent">
-              <CountUp end={100} />
+              100
             </span>
             <span className="font-inter text-xs text-text/60">{label}</span>
           </div>

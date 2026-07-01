@@ -1,0 +1,136 @@
+<svg width="1680" height="1200" viewBox="0 0 1680 1200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ECE9E2"/><stop offset="1" stop-color="#E2DED5"/></linearGradient>
+  <linearGradient id="euca" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4B7361"/><stop offset="1" stop-color="#28392F"/></linearGradient>
+  <linearGradient id="euca2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C56B4A"/><stop offset="1" stop-color="#9A4E32"/></linearGradient>
+  <filter id="winShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="34" flood-color="#3a2f23" flood-opacity="0.28"/></filter>
+  <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#28392F" flood-opacity="0.22"/></filter>
+  <filter id="cardsh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="26" flood-color="#28392F" flood-opacity="0.18"/></filter>
+  <clipPath id="win"><rect x="40" y="44" width="1600" height="1112" rx="18"/></clipPath>
+  <clipPath id="panel"><rect x="828" y="252" width="784" height="556" rx="34"/></clipPath>
+</defs>
+<rect width="1680" height="1200" fill="url(#bg)"/>
+<rect x="40" y="44" width="1600" height="1112" rx="18" fill="#F4EFE5" filter="url(#winShadow)"/>
+<g clip-path="url(#win)">
+  <rect x="40" y="44" width="1600" height="54" fill="#EAE3D4"/>
+  <circle cx="74" cy="71" r="7" fill="#E2685C"/><circle cx="98" cy="71" r="7" fill="#E9B14C"/><circle cx="122" cy="71" r="7" fill="#5FB85C"/>
+  <rect x="300" y="56" width="600" height="30" rx="15" fill="#F4EFE5" stroke="#d3c9b4"/>
+  <text x="605" y="76" font-family="Manrope400" font-size="14" fill="#82785f">alignwellness.co.uk</text>
+
+  <!-- utility bar -->
+  <rect x="40" y="98" width="1600" height="32" fill="#2C463A"/>
+  <text x="80" y="119" font-family="Manrope500" font-size="12.5" fill="#cfe0d4">Exeter Clinic · Mon–Sat, 8am–7pm</text>
+  <text x="1600" y="119" text-anchor="end" font-family="Manrope500" font-size="12.5" fill="#cfe0d4">★ 5.0 on Google  ·  01392 000 000</text>
+
+  <!-- NAV -->
+  <rect x="40" y="130" width="1600" height="84" fill="#F4EFE5"/>
+  <g stroke="#2C463A" stroke-width="3" fill="none" stroke-linecap="round"><path d="M84 158 c14 8 14 22 0 30 c-14 8 -14 22 0 30"/></g><circle cx="84" cy="158" r="3.5" fill="#C56B4A"/><circle cx="84" cy="218" r="3.5" fill="#C56B4A"/>
+  <text x="108" y="176" font-family="Fraunces700" font-size="28" fill="#21302A">Align</text>
+  <text x="110" y="194" font-family="Manrope600" font-size="9.5" fill="#7a8a7e" letter-spacing="3.5">SPINE &amp; WELLNESS</text>
+  <text x="720" y="184" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3d4a42">Treatments</text>
+  <text x="838" y="184" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3d4a42">Conditions</text>
+  <text x="952" y="184" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3d4a42">Pricing</text>
+  <text x="1052" y="184" text-anchor="middle" font-family="Manrope600" font-size="15" fill="#3d4a42">Our Team</text>
+  <rect x="1430" y="158" width="180" height="48" rx="24" fill="#C56B4A"/><text x="1520" y="187" text-anchor="middle" font-family="Manrope700" font-size="14.5" fill="#FFF">Book online</text>
+
+  <!-- HERO right layered image panel -->
+  <g clip-path="url(#panel)">
+    <rect x="828" y="252" width="784" height="556" fill="url(#euca)"/>
+    <!-- topographic contour lines -->
+    <g stroke="#EFE9DD" stroke-opacity="0.12" stroke-width="2" fill="none">
+      <path d="M828 400 C980 350 1120 470 1280 420 C1430 374 1540 470 1612 440"/>
+      <path d="M828 470 C980 420 1120 540 1280 490 C1430 444 1540 540 1612 510"/>
+      <path d="M828 540 C980 490 1120 610 1280 560 C1430 514 1540 610 1612 580"/>
+      <path d="M828 610 C980 560 1120 680 1280 630 C1430 584 1540 680 1612 650"/>
+      <path d="M828 330 C980 280 1120 400 1280 350 C1430 304 1540 400 1612 370"/>
+    </g>
+    <!-- eucalyptus branch line art -->
+    <g stroke="#EFE9DD" stroke-opacity="0.5" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M980 760 C1120 660 1240 520 1500 340"/>
+    </g>
+    <g fill="#EFE9DD" fill-opacity="0.32">
+      <ellipse cx="1050" cy="690" rx="34" ry="16" transform="rotate(-30 1050 690)"/>
+      <ellipse cx="1110" cy="638" rx="34" ry="16" transform="rotate(-30 1110 638)"/>
+      <ellipse cx="1175" cy="586" rx="34" ry="16" transform="rotate(-32 1175 586)"/>
+      <ellipse cx="1245" cy="528" rx="34" ry="16" transform="rotate(-34 1245 528)"/>
+      <ellipse cx="1320" cy="470" rx="32" ry="15" transform="rotate(-36 1320 470)"/>
+      <ellipse cx="1395" cy="416" rx="30" ry="14" transform="rotate(-38 1395 416)"/>
+      <ellipse cx="1130" cy="700" rx="30" ry="14" transform="rotate(28 1130 700)"/>
+      <ellipse cx="1200" cy="648" rx="30" ry="14" transform="rotate(26 1200 648)"/>
+      <ellipse cx="1275" cy="592" rx="30" ry="14" transform="rotate(24 1275 592)"/>
+      <ellipse cx="1350" cy="536" rx="28" ry="13" transform="rotate(22 1350 536)"/>
+    </g>
+  </g>
+  <!-- floating: next available chip -->
+  <rect x="782" y="330" width="262" height="64" rx="16" fill="#FFFFFF" filter="url(#cardsh)"/>
+  <circle cx="816" cy="362" r="18" fill="#E7F0EA"/><circle cx="816" cy="362" r="6" fill="#3F8F62"/>
+  <text x="846" y="356" font-family="Manrope700" font-size="13.5" fill="#21302A">Next available</text>
+  <text x="846" y="378" font-family="Manrope500" font-size="12.5" fill="#6b7a71">Today · 4:30pm</text>
+  <!-- floating: reviews badge -->
+  <circle cx="868" cy="724" r="58" fill="#FFFFFF" filter="url(#cardsh)"/>
+  <text x="868" y="716" text-anchor="middle" font-family="Fraunces700" font-size="30" fill="#21302A">5.0</text>
+  <text x="868" y="740" text-anchor="middle" font-family="Manrope600" font-size="10.5" fill="#C56B4A" letter-spacing="1">★★★★★</text>
+  <text x="868" y="758" text-anchor="middle" font-family="Manrope500" font-size="10" fill="#6b7a71">600+ reviews</text>
+  <!-- floating: result stat card -->
+  <rect x="1300" y="724" width="280" height="72" rx="16" fill="#FFFFFF" filter="url(#cardsh)"/>
+  <text x="1324" y="758" font-family="Fraunces700" font-size="30" fill="#C56B4A">94%</text>
+  <text x="1392" y="752" font-family="Manrope600" font-size="13" fill="#21302A">report less pain</text>
+  <text x="1392" y="772" font-family="Manrope500" font-size="12" fill="#6b7a71">within just 4 weeks</text>
+
+  <!-- HERO left -->
+  <text x="82" y="300" font-family="Manrope700" font-size="13" fill="#C56B4A" letter-spacing="3">CHIROPRACTIC &amp; SPORTS THERAPY</text>
+  <text x="80" y="378" font-family="Fraunces700" font-size="66" fill="#21302A">Feel like</text>
+  <text x="80" y="448" font-family="Fraunces700" font-size="66" fill="#3F6552"><tspan font-family="Fraunces600It">yourself</tspan> again.</text>
+  <text x="82" y="498" font-family="Manrope400" font-size="18" fill="#5c6960">Hands-on, evidence-based care to ease pain and restore movement</text>
+  <text x="82" y="524" font-family="Manrope400" font-size="18" fill="#5c6960">— so you can get back to the life you love, faster.</text>
+
+  <!-- functional booking widget -->
+  <rect x="80" y="558" width="690" height="252" rx="20" fill="#FFFFFF" filter="url(#cardsh)"/>
+  <text x="108" y="600" font-family="Fraunces600" font-size="22" fill="#21302A">Book your first visit</text>
+  <rect x="608" y="580" width="134" height="28" rx="14" fill="#E7F0EA"/><text x="675" y="599" text-anchor="middle" font-family="Manrope700" font-size="11.5" fill="#3F8F62">Takes 30 seconds</text>
+  <!-- service chips -->
+  <rect x="108" y="620" width="146" height="40" rx="20" fill="#2C463A"/><text x="181" y="645" text-anchor="middle" font-family="Manrope600" font-size="13.5" fill="#FFF">Chiropractic</text>
+  <rect x="266" y="620" width="160" height="40" rx="20" fill="none" stroke="#cdd8d0"/><text x="346" y="645" text-anchor="middle" font-family="Manrope600" font-size="13.5" fill="#3d4a42">Sports Massage</text>
+  <rect x="438" y="620" width="110" height="40" rx="20" fill="none" stroke="#cdd8d0"/><text x="493" y="645" text-anchor="middle" font-family="Manrope600" font-size="13.5" fill="#3d4a42">Rehab</text>
+  <!-- date pills -->
+  <text x="108" y="694" font-family="Manrope600" font-size="12" fill="#8a978d" letter-spacing="1">CHOOSE A DAY</text>
+  <g font-family="Manrope600">
+    <rect x="108" y="704" width="96" height="50" rx="12" fill="none" stroke="#dfe6e0"/><text x="156" y="726" text-anchor="middle" font-size="11" fill="#8a978d">MON</text><text x="156" y="744" text-anchor="middle" font-size="15" fill="#21302A">14</text>
+    <rect x="214" y="704" width="96" height="50" rx="12" fill="none" stroke="#dfe6e0"/><text x="262" y="726" text-anchor="middle" font-size="11" fill="#8a978d">TUE</text><text x="262" y="744" text-anchor="middle" font-size="15" fill="#21302A">15</text>
+    <rect x="320" y="704" width="96" height="50" rx="12" fill="#C56B4A"/><text x="368" y="726" text-anchor="middle" font-size="11" fill="#ffe2d6">WED</text><text x="368" y="744" text-anchor="middle" font-size="15" fill="#FFF">16</text>
+    <rect x="426" y="704" width="96" height="50" rx="12" fill="none" stroke="#dfe6e0"/><text x="474" y="726" text-anchor="middle" font-size="11" fill="#8a978d">THU</text><text x="474" y="744" text-anchor="middle" font-size="15" fill="#21302A">17</text>
+    <rect x="532" y="704" width="96" height="50" rx="12" fill="none" stroke="#dfe6e0"/><text x="580" y="726" text-anchor="middle" font-size="11" fill="#8a978d">FRI</text><text x="580" y="744" text-anchor="middle" font-size="15" fill="#21302A">18</text>
+  </g>
+  <!-- times + button -->
+  <g font-family="Manrope600">
+    <rect x="108" y="766" width="80" height="34" rx="17" fill="#EAF1EC"/><text x="148" y="788" text-anchor="middle" font-size="12.5" fill="#2C463A">09:00</text>
+    <rect x="196" y="766" width="80" height="34" rx="17" fill="#EAF1EC"/><text x="236" y="788" text-anchor="middle" font-size="12.5" fill="#2C463A">10:30</text>
+    <rect x="284" y="766" width="80" height="34" rx="17" fill="#EAF1EC"/><text x="324" y="788" text-anchor="middle" font-size="12.5" fill="#2C463A">14:00</text>
+  </g>
+  <rect x="556" y="762" width="186" height="42" rx="21" fill="#2C463A"/><text x="649" y="789" text-anchor="middle" font-family="Manrope700" font-size="14" fill="#FFF">See all times &#8594;</text>
+
+  <!-- conditions marquee -->
+  <rect x="40" y="846" width="1600" height="52" fill="#2C463A"/>
+  <text x="80" y="879" font-family="Manrope600" font-size="15" fill="#dCe7df" letter-spacing="2">BACK PAIN  ·  SCIATICA  ·  SPORTS INJURIES  ·  POSTURE  ·  NECK &amp; SHOULDERS  ·  HEADACHES  ·  PREGNANCY CARE  ·  JOINT PAIN  ·  REHAB</text>
+
+  <!-- path stepper -->
+  <text x="80" y="966" font-family="Fraunces700" font-size="34" fill="#21302A">Your path back to full movement</text>
+  <text x="1600" y="966" text-anchor="end" font-family="Manrope600" font-size="15" fill="#C56B4A">How it works &#8594;</text>
+  <line x1="150" y1="1042" x2="1500" y2="1042" stroke="#cdd8d0" stroke-dasharray="2 8"/>
+  <g>
+    <circle cx="150" cy="1042" r="30" fill="#E7F0EA"/><text x="150" y="1051" text-anchor="middle" font-family="Fraunces700" font-size="22" fill="#2C463A">1</text>
+    <text x="200" y="1036" font-family="Fraunces600" font-size="24" fill="#21302A">Assess</text>
+    <text x="200" y="1068" font-family="Manrope400" font-size="14" fill="#6b7a71">A thorough first consultation to find the root cause.</text>
+  </g>
+  <g>
+    <circle cx="610" cy="1042" r="30" fill="#E7F0EA"/><text x="610" y="1051" text-anchor="middle" font-family="Fraunces700" font-size="22" fill="#2C463A">2</text>
+    <text x="660" y="1036" font-family="Fraunces600" font-size="24" fill="#21302A">Treat</text>
+    <text x="660" y="1068" font-family="Manrope400" font-size="14" fill="#6b7a71">Gentle, tailored adjustments and hands-on therapy.</text>
+  </g>
+  <g>
+    <circle cx="1070" cy="1042" r="30" fill="#C56B4A"/><text x="1070" y="1051" text-anchor="middle" font-family="Fraunces700" font-size="22" fill="#FFF">3</text>
+    <text x="1120" y="1036" font-family="Fraunces600" font-size="24" fill="#21302A">Strengthen</text>
+    <text x="1120" y="1068" font-family="Manrope400" font-size="14" fill="#6b7a71">A simple plan to keep you moving and pain-free.</text>
+  </g>
+</g>
+</svg>
