@@ -265,7 +265,7 @@ export const SERVICES: Service[] = [
     h1: "Get found by the customers already searching for you.",
     metaTitle: "Local SEO Services in Exeter & Devon | Charged Studio",
     metaDescription:
-      "Local SEO, Google Business Profile, Core Web Vitals and AEO for businesses across Exeter, Devon and the South West. SEO retainers from £295/month.",
+      "Local SEO, Google Business Profile, Core Web Vitals and AEO for businesses across Exeter, Devon and the South West. SEO retainers from £295/month; one-off AEO setup from £450.",
     intro:
       "Being the best in town means nothing if nobody can find you. We get your business ranking for the searches that actually bring in work — locally, where it counts. That means technical SEO, a fully-optimised Google Business Profile, fast Core Web Vitals, and content built to rank. We also do AEO (Answer Engine Optimisation), so AI tools and search recommend you, not your competitor.",
     outcome: "Local SEO, Google Business Profile, speed and AEO.",
@@ -343,8 +343,13 @@ export const SERVICES: Service[] = [
           price: "From £1,500/month",
           body: "Aggressive multi-town, multi-service growth, built to own your local market and outrank everyone in it.",
         },
+        {
+          label: "AEO Setup & Audit",
+          price: "From £450",
+          body: "A one-off setup so AI answer engines — ChatGPT, Google AI Overviews, Perplexity — can find and recommend you: schema, structured content, FAQs, llms.txt and entity setup.",
+        },
       ],
-      note: "SEO works best as an ongoing partnership. We'll recommend the right level after reviewing your site and your local market.",
+      note: "SEO works best as an ongoing partnership — we'll recommend the right level after reviewing your site and your local market. The AEO Setup & Audit is a one-off, and a great standalone starting point that plugs straight into ongoing SEO.",
     },
     whyTitle: "Why it matters",
     whyBody: [
@@ -354,7 +359,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: "What is AEO?",
-        a: "Answer Engine Optimisation — structuring your site so AI assistants and AI search can understand and recommend your business. Schema, clean structure and FAQs. It's the next frontier of getting found.",
+        a: "Answer Engine Optimisation — structuring your site so AI assistants and AI search can understand and recommend your business. Schema, clean structure and FAQs. It's the next frontier of getting found. We offer it as a one-off AEO Setup & Audit from £450, which plugs straight into ongoing SEO.",
       },
       {
         q: "How much does SEO cost?",

@@ -3,138 +3,206 @@ import Image from "next/image";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import CTASection from "@/components/CTASection";
+import Reveal from "@/components/Reveal";
+import {
+  UserMark,
+  CheckCircle,
+  BoltMark,
+  PinMark,
+  Stars,
+  GoogleG,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "About Charged Studio — The Story Behind the Brand",
+  title: "About Charged Studio — Who You'll Be Working With",
   description:
-    "Learn about Charged Studio, founder Charlie Norona, and the belief-led approach that makes us different. Based in Exeter, built for businesses ready to grow.",
+    "Charged Studio is a founder-led web design studio in Exeter. You work directly with Charlie Norona — a qualified project manager and designer — on websites built to grow your business across Devon and the South West.",
   alternates: { canonical: "https://chargedstudio.co.uk/about" },
   openGraph: {
-    title: "About Charged Studio — The Story Behind the Brand",
+    title: "About Charged Studio — Who You'll Be Working With",
     description:
-      "The belief-led studio behind Charged. Based in Exeter, working with businesses across the South West.",
+      "A founder-led web studio in Exeter. Work directly with the person building your site — invested in your growth across Devon and the South West.",
     url: "https://chargedstudio.co.uk/about",
     siteName: "Charged Studio",
     type: "website",
   },
 };
 
-const VALUES = [
-  {
-    title: "Websites that work",
-    body: "Not just good-looking — built to load fast, rank locally, and turn visitors into enquiries. A website should earn its keep.",
-  },
-  {
-    title: "A real partner",
-    body: "We're not a vendor you brief and forget. We learn your business, stay close, and treat your growth as the measure of our work.",
-  },
-  {
-    title: "Local and hands-on",
-    body: "Based in Exeter, working across Devon and the South West. You get a real person who knows your patch — not a faceless agency.",
-  },
-];
-
-const STATS = [
-  { value: "APM PMQ", label: "Qualified Project Manager" },
-  { value: "100%", label: "Client Satisfaction" },
-  { value: "Exeter", label: "Devon, UK" },
+const PROOF = [
+  { value: "APM PMQ", label: "Qualified project manager" },
+  { value: "5.0", label: "From 16 Google reviews", stars: true },
+  { value: "100/100", label: "Google PageSpeed score" },
+  { value: "Exeter", label: "Devon & the South West" },
 ];
 
 const PROCESS = [
   {
     step: "01",
-    title: "Immerse",
-    body: "Before a pixel moves, we get inside your business — your customers, your goals, what winning actually looks like. The hard thinking happens first.",
+    title: "We get to know you",
+    body: "Before a pixel moves, we get inside your business — your customers, your goals, how you actually win work — so what we build fits you, not a template.",
   },
   {
     step: "02",
-    title: "Plan",
-    body: "A clear scope, timeline and milestones up front. Drawing on a formal project-management background, you always know what's happening and what comes next.",
+    title: "You get a clear plan",
+    body: "A scope, timeline and milestones agreed up front. You always know what's happening, what's next, and what it costs. No surprises, ever.",
   },
   {
     step: "03",
-    title: "Design & build",
-    body: "We build sharp, fast, on-brand work — with structured feedback points along the way, so nothing's signed off until it's right.",
+    title: "You stay in control",
+    body: "We design and build sharp, fast, on-brand work with regular check-ins — nothing is signed off until you're genuinely happy with it.",
   },
   {
     step: "04",
-    title: "Launch & look after",
-    body: "We go live, then stick around — hosting, updates and ongoing support, so your site keeps pulling its weight long after launch.",
+    title: "We look after it",
+    body: "We go live, then stick around — hosting, updates and support — so your site keeps earning long after launch. You never touch a thing.",
   },
 ];
+
+const REASONS = [
+  {
+    Icon: UserMark,
+    title: "You deal with the founder",
+    body: "Work directly with Charlie from the first call to launch and beyond — fast answers, real accountability, no being passed around a team.",
+  },
+  {
+    Icon: CheckCircle,
+    title: "Delivered to a plan",
+    body: "A qualified project manager (APM PMQ) runs every build to a clear scope and timeline — so it lands on time, with no chaos and no surprises.",
+  },
+  {
+    Icon: BoltMark,
+    title: "Built to win work",
+    body: "Fast, modern and engineered to convert. Your site is built to turn local searches into real enquiries — not just to look the part.",
+  },
+  {
+    Icon: PinMark,
+    title: "Local and invested",
+    body: "Based in Exeter, working across Devon and the South West. We know your market — and your growth is how we measure our own.",
+  },
+];
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Charged Studio",
+  url: "https://chargedstudio.co.uk/about",
+  mainEntity: {
+    "@type": "Person",
+    name: "Charlie Norona",
+    jobTitle: "Founder & Creative Director",
+    worksFor: {
+      "@type": "Organization",
+      name: "Charged Studio",
+      url: "https://chargedstudio.co.uk",
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "APM Project Management Qualification (PMQ)",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Exeter",
+      addressRegion: "Devon",
+      addressCountry: "GB",
+    },
+    knowsAbout: [
+      "Web design",
+      "Web development",
+      "Local SEO",
+      "Answer Engine Optimisation",
+      "Brand design",
+      "Project management",
+    ],
+  },
+};
 
 export default function AboutPage() {
   return (
     <>
-      {/* Studio intro — the page leads with Charged Studio */}
-      <section className="mx-auto w-full max-w-5xl px-6 pt-32 md:pt-40">
-        <Badge>About the studio</Badge>
-        <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl lg:text-6xl">
-          Built to perform.
-          <br />
-          Charged to last.
-        </h1>
-        <div className="mt-8 grid grid-cols-1 gap-6 font-inter text-lg leading-relaxed text-text/70 lg:grid-cols-2 lg:gap-12">
-          <p>
-            Charged Studio is a creative partner for growing businesses —
-            websites first, plus the software, visibility and brand to back them
-            up. We believe the businesses that deserve to win are too often let
-            down by their digital presence. We&apos;re here to change that.
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
+
+      {/* Hero — framed around the client from the first line */}
+      <section className="mx-auto w-full max-w-5xl px-6 pt-32 text-center md:pt-40">
+        <Reveal>
+          <Badge>About Charged Studio</Badge>
+          <h1 className="mx-auto mt-6 max-w-4xl font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl lg:text-6xl">
+            A studio built around{" "}
+            <span className="text-accent">your business</span>.
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl font-inter text-lg leading-relaxed text-text/70 sm:text-xl">
+            Charged is a small, founder-led web studio in Exeter. You work
+            directly with the person designing and building your site — someone
+            as invested in your growth as you are. No account managers, no
+            hand-offs, no jargon.
           </p>
-          <p>
-            Based in Exeter and working across Devon and the South West, we build
-            sharp, fast, modern sites — then stick around to keep them working.
-            Small and deliberate, so you always deal with the people actually
-            doing the work.
-          </p>
-        </div>
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button href="/start-a-project">Start a Project</Button>
+            <Button href="#founder" variant="secondary">
+              Meet Charlie ↓
+            </Button>
+          </div>
+        </Reveal>
       </section>
 
-      {/* Why we exist — the belief the studio was built on */}
-      <section className="mx-auto mt-8 w-full max-w-5xl border-t border-border px-6 py-16 md:py-24">
-        <Badge>Why we exist</Badge>
-        <div className="mt-8 max-w-3xl space-y-6 font-inter text-xl leading-relaxed text-text/80">
-          <p>
-            Small businesses are stuck between two bad options: do it all
-            yourself and figure it out from scratch, or go to a big agency and
-            pay for a generic product that doesn&apos;t fit how you actually
-            work.
-          </p>
-          <p>
-            Charged was built to close that gap. We build websites, software,
-            and brand systems tailored to each client&apos;s exact goals and
-            budget. There are very few clients we turn down — we know what it
-            feels like when these products feel out of reach.
-          </p>
-          <p className="font-semibold text-text">
-            We believe anyone with the drive to run their own business deserves
-            access to affordable, tailored digital products that help them
-            compete.
-          </p>
-        </div>
+      {/* Proof strip — quick trust, real numbers */}
+      <section className="mx-auto mt-16 w-full max-w-6xl px-6 md:mt-24">
+        <Reveal
+          stagger
+          className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-border shadow-e1 lg:grid-cols-4"
+        >
+          {PROOF.map((p) => (
+            <div
+              key={p.label}
+              className="flex flex-col items-center bg-surface/60 px-4 py-8 text-center"
+            >
+              <span className="font-anton text-3xl uppercase leading-none text-accent sm:text-4xl">
+                {p.value}
+              </span>
+              {p.stars && (
+                <Stars
+                  className="mt-2 h-3.5 w-3.5"
+                  label="Rated 5.0 out of 5 on Google"
+                />
+              )}
+              <span className="mt-3 font-inter text-xs leading-snug text-text/60">
+                {p.label}
+              </span>
+            </div>
+          ))}
+        </Reveal>
       </section>
 
-      {/* Founder section — the person behind the studio */}
-      <section className="mx-auto mt-8 w-full max-w-7xl border-t border-border px-6 py-16 md:py-24">
+      {/* Who you're dealing with — the founder */}
+      <section
+        id="founder"
+        className="mx-auto mt-8 w-full max-w-7xl scroll-mt-28 px-6 py-20 md:py-28"
+      >
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          {/* Founder cut-out, base blended into the background */}
-          <div className="order-1 lg:order-none">
+          {/* Founder cut-out on a soft accent glow */}
+          <Reveal className="order-1 lg:order-none">
             <div className="relative mx-auto aspect-square w-full max-w-sm">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-8 top-6 bottom-0 rounded-full bg-accent/15 blur-3xl"
+              />
               <Image
                 src="/images/charlie-norona.png"
                 alt="Charlie Norona, Founder & Creative Director of Charged Studio"
                 fill
                 sizes="(max-width: 1024px) 80vw, 36vw"
-                className="object-contain object-bottom"
+                className="relative object-contain object-bottom"
               />
-              {/* gradient fade so the photo blends into the background */}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-bg to-transparent" />
             </div>
-          </div>
+          </Reveal>
 
-          {/* Intro */}
-          <div className="order-2 lg:order-none">
-            <Badge>Founder</Badge>
+          {/* Intro — reframed around what the client gets */}
+          <Reveal className="order-2 lg:order-none">
+            <Badge>Who you&apos;ll work with</Badge>
             <h2 className="mt-5 font-anton text-5xl uppercase leading-[0.9] text-text sm:text-6xl lg:text-7xl">
               Charlie
               <br />
@@ -146,67 +214,76 @@ export default function AboutPage() {
 
             <div className="mt-7 max-w-xl space-y-4 font-inter text-lg leading-relaxed text-text/70">
               <p>
-                I started Charged on a belief most agencies don&apos;t act on:
-                that a website isn&apos;t a one-off project you tick off — it&apos;s
-                the foundation a business grows on, and it deserves looking
-                after.
+                When you hire Charged, you get me — the person who&apos;ll design
+                your site, build it, and pick up the phone when you need
+                something. Not an account manager, not a junior, not a queue.
               </p>
               <p>
                 I&apos;m a{" "}
                 <span className="font-semibold text-text">
                   qualified project manager (APM PMQ)
                 </span>{" "}
-                as well as a designer — so every project runs on a real process,
-                not guesswork. Structured planning and psychology-led design
-                thinking, brought to work most studios treat as purely creative.
-                That&apos;s the difference you feel.
+                as well as a designer — and that combination is the difference
+                you feel. Your project runs to a clear plan with no surprises,
+                and it comes out sharp, fast and built to bring in work. The
+                polish of a creative studio, with the reliability of someone who
+                runs projects for a living.
               </p>
             </div>
-
-            {/* Stat row */}
-            <dl className="mt-9 grid max-w-xl grid-cols-3 gap-4 border-t border-border pt-7">
-              {STATS.map((s) => (
-                <div key={s.label}>
-                  <dt className="font-anton text-2xl uppercase leading-none text-text sm:text-3xl">
-                    {s.value}
-                  </dt>
-                  <dd className="mt-2 font-inter text-xs leading-snug text-text/60">
-                    {s.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
 
             <Button href="/contact" className="mt-9">
               Get in touch →
             </Button>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Process — leans on the project-management background */}
+      {/* Why we exist — the belief we'll fight for you on */}
+      <section className="mx-auto w-full max-w-5xl border-t border-border px-6 py-20 md:py-28">
+        <Reveal>
+          <Badge>Why we exist</Badge>
+          <div className="mt-8 max-w-3xl space-y-6 font-inter text-xl leading-relaxed text-text/80">
+            <p>
+              Most small businesses get two bad options: do it all yourself from
+              scratch, or pay a big agency for a generic product that
+              doesn&apos;t fit how you actually work.
+            </p>
+            <p>
+              Charged exists to close that gap — websites, software and brand
+              systems tailored to your exact goals and budget. We know what it
+              feels like when good tools feel out of reach, so there are very few
+              businesses we turn away.
+            </p>
+            <p className="font-semibold text-text">
+              If you&apos;ve got the drive to run your own business, you deserve
+              digital that helps you compete — not hold you back.
+            </p>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* How we help you — the process, framed as the client's experience */}
       <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <Badge>How we work</Badge>
           <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
-            Structured, not chaotic.
+            What working with us feels like.
           </h2>
           <p className="mt-5 font-inter text-lg leading-relaxed text-text/70">
-            Every project runs on a clear process — as intentional and organised
-            as it is creative. That&apos;s why working with Charged feels
-            effortless: the hard thinking happens long before the design does.
+            Every project runs on a clear process — as organised as it is
+            creative. The hard thinking happens long before the design does, so
+            the whole thing feels effortless from your side.
           </p>
-        </div>
+        </Reveal>
 
-        <ol className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal
+          stagger
+          as="ul"
+          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {PROCESS.map((p) => (
-            <li
-              key={p.step}
-              className="rounded-xl bg-surface/40 shadow-e1 p-7"
-            >
-              <span className="font-anton text-3xl text-accent">
-                {p.step}
-              </span>
+            <li key={p.step} className="rounded-xl bg-surface/40 p-7 shadow-e1">
+              <span className="font-anton text-3xl text-accent">{p.step}</span>
               <h3 className="mt-4 font-inter text-lg font-bold text-text">
                 {p.title}
               </h3>
@@ -215,26 +292,66 @@ export default function AboutPage() {
               </p>
             </li>
           ))}
-        </ol>
+        </Reveal>
       </section>
 
-      {/* Values */}
+      {/* Why choose us — the differentiators, as customer benefits */}
       <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {VALUES.map((v) => (
+        <Reveal className="max-w-2xl">
+          <Badge>Why choose Charged</Badge>
+          <h2 className="mt-5 font-anton text-3xl uppercase leading-tight text-text sm:text-4xl lg:text-5xl">
+            Why businesses pick us.
+          </h2>
+        </Reveal>
+
+        <Reveal
+          stagger
+          className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2"
+        >
+          {REASONS.map(({ Icon, title, body }) => (
             <div
-              key={v.title}
-              className="rounded-xl bg-surface/40 shadow-e1 p-8"
+              key={title}
+              className="flex gap-5 rounded-xl bg-surface/40 p-7 shadow-e1"
             >
-              <h2 className="font-inter text-xl font-bold text-text">
-                {v.title}
-              </h2>
-              <p className="mt-3 font-inter text-base leading-relaxed text-text/70">
-                {v.body}
-              </p>
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent">
+                <Icon className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="font-inter text-lg font-bold text-text">
+                  {title}
+                </h3>
+                <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
+                  {body}
+                </p>
+              </div>
             </div>
           ))}
-        </div>
+        </Reveal>
+      </section>
+
+      {/* Social proof — a real client, in their words */}
+      <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center md:py-24">
+        <Reveal>
+          <Stars className="mx-auto h-5 w-5" label="5 out of 5 stars" />
+          <blockquote className="mt-6 font-anton text-2xl uppercase leading-tight text-text sm:text-3xl lg:text-4xl">
+            &ldquo;They understood our vision and turned it into a platform our
+            clients love. Their attention to detail and genuine care made the
+            whole process{" "}
+            <span className="text-accent">effortless</span>.&rdquo;
+          </blockquote>
+          <div className="mt-8 flex items-center justify-center gap-2.5">
+            <GoogleG className="h-5 w-5" />
+            <span className="font-inter text-sm font-semibold text-text">
+              Tariq Salfo
+            </span>
+            <span aria-hidden className="text-text/30">
+              ·
+            </span>
+            <span className="font-inter text-sm text-text/60">
+              5.0 from 16 Google reviews
+            </span>
+          </div>
+        </Reveal>
       </section>
 
       <CTASection />

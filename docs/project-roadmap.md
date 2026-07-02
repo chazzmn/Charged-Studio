@@ -4,6 +4,19 @@
 
 ---
 
+## SESSION LOG (2026-07-02) — offering tiers, contact declutter, WhyCharged + About reworks
+
+All tsc clean; changes are on disk in the project (Charlie pushes to `main` → Vercel).
+
+- **"Website in a Day" £495** — new fixed-price entry tier on `/services/websites` (single-page site, live in a day). `priceFrom` → From £495; meta + pricing FAQ + a new "Can you really build a website in a day?" FAQ updated. Details in the 2026-07-01 backlog line below.
+- **AEO Setup & Audit £450** — one-off tier added to `/services/seo` (schema/structured content/FAQs/llms.txt/entity setup so AI engines recommend you). Backlog line below.
+- **Pricing grid** — `app/services/[slug]/page.tsx` now lays out 4 tiers cleanly (`lg:grid-cols-4`).
+- **Contact page decluttered** — `app/contact/page.tsx` rebuilt from five competing shadowed boxes to two airy columns (borderless details + one form card; audit/Start-a-Project demoted to text links). Later copy tweak: the consultation line reads "Prefer to talk it through?" → "Book a free 15-minute consultation →".
+- **WhyCharged simplified** — `components/WhyCharged.tsx` stripped to one job (quick trust → /about): heading + 4 icon+label pillars (no body copy) + one proof line (5.0 Google · 100/100 PageSpeed) + a button to /about. Charlie approved ("I like it").
+- **About page — COMPLETE REWORK (elevated, customer-framed).** `app/about/page.tsx` rebuilt to answer "who are you dealing with / can you trust us / why pick us", framed around the customer throughout. New flow: centred hero ("A studio built around **your business**") → **proof strip** (APM PMQ · 5.0/16 Google · 100/100 PageSpeed · Exeter) → **founder moment** (Charlie, reframed to what the client gets, photo on a soft accent glow, `id="founder"` anchor from the hero's "Meet Charlie ↓") → **Why we exist** belief → **process reframed to the client's experience** ("What working with us feels like": We get to know you / You get a clear plan / You stay in control / We look after it) → **"Why businesses pick us"** 2-up benefit cards (founder-led · delivered to a plan · built to win work · local & invested) → **pull-quote** proof (Tariq Salfo + 5.0/16) → CTASection. Added `AboutPage`+`Person` JSON-LD (Charlie, APM PMQ credential, knowsAbout) for AEO. Reveal animations throughout.
+
+---
+
 ## SESSION LOG (2026-07-01) — SITE IS LIVE · deep review, quick wins, hero rework, blog
 
 **Site is LIVE at chargedstudio.co.uk** (Charlie confirmed). Note: Vercel currently serves **www** as primary while all code canonicals are **non-www** — see backlog.
@@ -35,9 +48,9 @@
 
 ### Backlog — next sessions (Charlie's list, 2026-07-01)
 - [ ] **www/non-www** — set apex `chargedstudio.co.uk` as **Primary** domain in Vercel so `www` redirects to it (matches all canonicals). Dashboard action, no code. *(If he prefers www, flip SITE_URL + metadataBase + canonicals instead.)*
-- [~] **Card visual design pass** — service **hub** cards DONE (visual-first rebuild above). Still to lift if wanted: **case-study cards** (`FeaturedWork`), **testimonial cards** (`Testimonials` — note the duplicate `shadow-e1` class to clean), **why-charged pillars** (not carded).
+- [~] **Card visual design pass** — service **hub** cards DONE (visual-first rebuild above). **WhyCharged REWORKED (2026-07-02)** — Charlie: "don't like it, simplify, way less text-heavy; mobile was a bit much / makes me want to click off." Given one job: build quick trust + point to /about for proof. `components/WhyCharged.tsx` stripped to: heading only (dropped the intro paragraph), four **icon + label** pillars with **no body copy** (Founder-led · APM-qualified · Exeter & Devon · Long-term partner), a single compact proof line (5.0 Google · 100/100 PageSpeed — replaced the 4-pill PageSpeed bar), and one secondary Button → /about. Much shorter mobile stack. tsc clean. Still to lift if wanted: **case-study cards** (`FeaturedWork`), **testimonial cards** (`Testimonials` — note the duplicate `shadow-e1` class to clean).
 - [x] **Urgency card** — DONE. Simplified to a static "Limited project spaces available" pill (Charlie chose clean-and-always-true over a self-updating mechanism).
-- [ ] **AEO consulting/package** — add to the SEO service (`/services/seo`).
+- [x] **AEO consulting/package** — DONE (2026-07-02). Charlie's calls: **one-off "AEO Setup & Audit" from £450**, placement **new pricing tier only**. Added as a 4th SEO pricing tier (last position, to keep the £295→£750→£1,500/mo retainer ladder clean) in `app/services/services-data.ts`: schema, structured content, FAQs, llms.txt + entity setup so ChatGPT/Google AI Overviews/Perplexity can recommend the business. Also: metaDescription appended "one-off AEO setup from £450", pricing `note` explains it's a standalone one-off that feeds ongoing SEO, and the "What is AEO?" FAQ now names the £450 package (feeds FAQPage schema). SEO `priceFrom` left as "From £295/mo" (still the lowest recurring entry). 4-tier grid already handled by the earlier `lg:grid-cols-4` template fix. tsc clean.
 - [x] **1-day website option** — DONE (2026-07-02). Charlie's calls: name **"Website in a Day"**, **fixed £495**, placement **new pricing tier only** (lightest touch — no dedicated section/page). Added as the **first** Websites pricing tier in `app/services/services-data.ts` (single-page site, live in a day, on your own domain). Consequent accuracy edits: `priceFrom` anchor **From £695 → From £495** (updates the /services hub featured + grid cards), metaDescription final line → "One-day websites from £495", pricing `note` now leads with the fixed-£495 day build, and the "How much does a website cost?" FAQ + a new "Can you really build a website in a day?" FAQ introduce it (feeds FAQPage schema/AEO). Pricing grid in `app/services/[slug]/page.tsx` now uses `lg:grid-cols-4` for 4 tiers (was orphaning the 4th card). Left `lib/locations.ts` town-page FAQs untouched (they describe bespoke project pricing). tsc clean.
 - [ ] **More blog posts** to specific goals (topics TBC — proposed: custom vs Wix/Squarespace, AEO/get-recommended-by-AI, Exeter buyer's guide).
 - [ ] **Hero (optional follow-up)** — literal wordmark→nav morph; per-scene captions.
