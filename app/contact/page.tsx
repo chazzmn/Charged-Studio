@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Badge from "@/components/Badge";
-import Button from "@/components/Button";
 import ProjectForm from "@/components/ProjectForm";
 
 export const metadata: Metadata = {
@@ -21,31 +21,30 @@ export const metadata: Metadata = {
 const CALENDLY = "https://calendly.com/hello-chargedstudio/15min";
 const EMAIL = "hello@chargedstudio.co.uk";
 
-const linkClass =
-  "font-inter text-text/80 transition-colors hover:text-text";
-
 export default function ContactPage() {
   return (
-    <section className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 pb-24 pt-32 md:pt-40 lg:grid-cols-2 lg:gap-16">
-      {/* Details */}
-      <div>
+    <section className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-14 px-6 pb-28 pt-32 md:pt-40 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
+      {/* Left — intro + how to reach us */}
+      <div className="lg:pt-1">
         <Badge>Contact</Badge>
         <h1 className="mt-5 font-anton text-4xl uppercase leading-[0.95] text-text sm:text-5xl">
           Let&apos;s start something.
         </h1>
         <p className="mt-5 max-w-md font-inter text-lg leading-relaxed text-text/70">
-          Send a quick message and we&apos;ll get back to you within one working
-          day. Prefer to talk it through first? Book a free consultation — no
-          pressure, no hard sell.
+          Send a message and we&apos;ll get back to you within one working day.
+          No pressure, no hard sell.
         </p>
 
-        <dl className="mt-10 space-y-6">
+        <dl className="mt-12 space-y-8">
           <div>
             <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
               Email
             </dt>
-            <dd className="mt-1">
-              <a href={`mailto:${EMAIL}`} className={linkClass}>
+            <dd className="mt-1.5">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="font-inter text-lg text-text transition-colors hover:text-accent"
+              >
                 {EMAIL}
               </a>
             </dd>
@@ -54,24 +53,12 @@ export default function ContactPage() {
             <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
               Phone
             </dt>
-            <dd className="mt-1">
-              <a href="tel:+447453388798" className={linkClass}>
-                +44 7453 388798
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
-              Book a free consultation
-            </dt>
-            <dd className="mt-1">
+            <dd className="mt-1.5">
               <a
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass}
+                href="tel:+447453388798"
+                className="font-inter text-lg text-text transition-colors hover:text-accent"
               >
-                Grab a free 15-minute slot →
+                +44 7453 388798
               </a>
             </dd>
           </div>
@@ -79,56 +66,58 @@ export default function ContactPage() {
             <dt className="font-inter text-xs font-semibold uppercase tracking-wider text-text/50">
               Studio
             </dt>
-            <dd className="mt-1 font-inter text-text/80">
+            <dd className="mt-1.5 font-inter text-lg text-text/80">
               Exeter, Devon — working across the South West
             </dd>
           </div>
         </dl>
 
-        {/* Free audit → sits under the intro/details */}
-        <div className="mt-10 rounded-xl bg-surface/40 shadow-e1 p-6">
-          <h2 className="font-inter text-lg font-bold text-text">
-            Want a free website audit?
-          </h2>
-          <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
-            We&apos;ll review your current site and send back clear, no-pressure
-            pointers on what to fix.
-          </p>
-          <Button
-            href="/audit"
-            size="sm"
-            variant="secondary"
-            className="mt-5"
+        <div className="mt-12 border-t border-border pt-8">
+          <p className="font-inter text-text/70">Prefer to talk it through?</p>
+          <a
+            href={CALENDLY}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 inline-block font-inter text-lg font-semibold text-text transition-colors hover:text-accent"
           >
-            Free Website Audit
-          </Button>
+            Book a free 15-minute consultation →
+          </a>
         </div>
       </div>
 
-      {/* Right column → quick message form + bigger-project path */}
-      <div className="lg:self-start">
-        <div className="rounded-xl bg-surface/40 shadow-e1 p-6 sm:p-8">
-          <h2 className="font-inter text-sm font-semibold uppercase tracking-wider text-text/50">
-            Send a quick message
+      {/* Right — the message form (primary action) */}
+      <div>
+        <div className="rounded-2xl border border-border bg-surface/40 p-6 shadow-e1 sm:p-8">
+          <h2 className="font-anton text-2xl uppercase text-text">
+            Send a message
           </h2>
-          <div className="mt-5">
+          <p className="mt-2 font-inter text-sm leading-relaxed text-text/60">
+            A line about what you&apos;re after is plenty — we&apos;ll take it
+            from there.
+          </p>
+          <div className="mt-6">
             <ProjectForm kind="project" />
           </div>
         </div>
 
-        {/* Bigger project → the full step-by-step brief */}
-        <div className="mt-6 rounded-xl bg-surface/40 shadow-e1 p-6">
-          <h2 className="font-inter text-lg font-bold text-text">
-            Got a bigger project in mind?
-          </h2>
-          <p className="mt-2 font-inter text-sm leading-relaxed text-text/70">
-            Walk us through it step by step and we&apos;ll come back with a
-            tailored plan and quote.
-          </p>
-          <Button href="/start-a-project" size="sm" className="mt-5">
-            Start a Project
-          </Button>
-        </div>
+        {/* Secondary paths — light text, not competing cards */}
+        <p className="mt-6 font-inter text-sm leading-relaxed text-text/60">
+          Got a bigger project?{" "}
+          <Link
+            href="/start-a-project"
+            className="font-semibold text-text transition-colors hover:text-accent"
+          >
+            Start a detailed brief →
+          </Link>
+          <br />
+          Want a free review of your current site?{" "}
+          <Link
+            href="/audit"
+            className="font-semibold text-text transition-colors hover:text-accent"
+          >
+            Get a free audit →
+          </Link>
+        </p>
       </div>
     </section>
   );

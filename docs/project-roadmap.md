@@ -24,12 +24,21 @@
 
 **Blog:** added `/blog/website-in-a-day` ("Website in a day: when fast is the right call") — seeds the planned 1-day website offering. In `posts.ts` + page; auto-added to sitemap.
 
+**Service hub `/services` — REBUILT visual-first (Charlie: old grid was "dry / copy-heavy / no variation"; wanted "more visuals, more photos, like the hero — the hero is the style pillar"):**
+- `app/services/page.tsx` rebuilt as a **bento**: one full-width **featured Websites card** + a 3-up grid (Software / SEO / Branding), then a 6-up **"a few of the sites we've built"** real-photo strip.
+- Every visual uses the **hero browser-frame** language (chrome + 16:10 + glow) via local `Frame`/`Media` helpers. Real screenshots from `public/images/work/` (brightwater-dental, tend-dashboard, chazzmn + strip); SEO uses the coded `SearchGraphic`. Photos are easily swapped in the `VISUALS`/`RECENT_WORK` maps.
+- Copy trimmed to scannable: feature titles from `services-data` shown as bolt-marker points (featured) / chips (cards).
+- **Card heading hierarchy fixed** (Charlie): removed the yellow eyebrow **pill**; the bold Anton heading is now the **service name** (`s.name` — "Website Design", "Software & Apps", …) so the eye lands on *what it is*; the faint line is the description (`s.outcome`). Featured keeps a small "Where we start" accent label.
+- Fixed a latent bug: old hub cards had `hover:border-accent` with **no `border`** (no-op).
+
+**Availability/urgency pill — SIMPLIFIED site-wide (Charlie's call — supersedes the "self-updating urgency" backlog idea):** `components/AvailabilityPill.tsx` is now a plain presentational pill reading **"Limited project spaces available"** (+ amber pulsing dot). All month-flip date logic removed — nothing to drift out of accuracy. Shows in `Hero` + `CTASection`. Now a server component (dropped `"use client"`).
+
 ### Backlog — next sessions (Charlie's list, 2026-07-01)
 - [ ] **www/non-www** — set apex `chargedstudio.co.uk` as **Primary** domain in Vercel so `www` redirects to it (matches all canonicals). Dashboard action, no code. *(If he prefers www, flip SITE_URL + metadataBase + canonicals instead.)*
-- [ ] **Card visual design pass** — "make the cards look better" (a big one): case studies, services, testimonials, why-charged. Scope the treatment (depth, borders, hover, imagery framing) then apply via tokens.
-- [ ] **Urgency card** — rework the availability/urgency signal into something clever that **auto-updates and always stays accurate** (beyond the month-flip `AvailabilityPill`).
+- [~] **Card visual design pass** — service **hub** cards DONE (visual-first rebuild above). Still to lift if wanted: **case-study cards** (`FeaturedWork`), **testimonial cards** (`Testimonials` — note the duplicate `shadow-e1` class to clean), **why-charged pillars** (not carded).
+- [x] **Urgency card** — DONE. Simplified to a static "Limited project spaces available" pill (Charlie chose clean-and-always-true over a self-updating mechanism).
 - [ ] **AEO consulting/package** — add to the SEO service (`/services/seo`).
-- [ ] **1-day website option** — new fast-turnaround offering (needs name, price, what's included) → `/services/websites` + pricing; blog post now seeds it.
+- [x] **1-day website option** — DONE (2026-07-02). Charlie's calls: name **"Website in a Day"**, **fixed £495**, placement **new pricing tier only** (lightest touch — no dedicated section/page). Added as the **first** Websites pricing tier in `app/services/services-data.ts` (single-page site, live in a day, on your own domain). Consequent accuracy edits: `priceFrom` anchor **From £695 → From £495** (updates the /services hub featured + grid cards), metaDescription final line → "One-day websites from £495", pricing `note` now leads with the fixed-£495 day build, and the "How much does a website cost?" FAQ + a new "Can you really build a website in a day?" FAQ introduce it (feeds FAQPage schema/AEO). Pricing grid in `app/services/[slug]/page.tsx` now uses `lg:grid-cols-4` for 4 tiers (was orphaning the 4th card). Left `lib/locations.ts` town-page FAQs untouched (they describe bespoke project pricing). tsc clean.
 - [ ] **More blog posts** to specific goals (topics TBC — proposed: custom vs Wix/Squarespace, AEO/get-recommended-by-AI, Exeter buyer's guide).
 - [ ] **Hero (optional follow-up)** — literal wordmark→nav morph; per-scene captions.
 - [ ] **New real case study** — blocked until the next client lands.
@@ -74,8 +83,8 @@ Each `/services/[slug]` page is currently thin. Before launching more local SEO 
 
 ### Content: Contact page — simplify primary form
 
-- [ ] Keep the detailed Start-a-Project wizard (`/start-a-project`) as-is.
-- [ ] Simplify the primary contact form on `/contact` to just: name, email, message, send. The current form is too heavy for low-intent visitors. The wizard is the path for serious leads — the contact page should be frictionless.
+- [x] Keep the detailed Start-a-Project wizard (`/start-a-project`) as-is. — untouched.
+- [x] **Contact page DECLUTTERED (2026-07-02).** Charlie: page "felt cluttered and dense". The form was already name/email/message (`ProjectForm kind="project"`) — the density came from **five competing shadowed blocks**. Rebuilt `app/contact/page.tsx` as two airy columns: LEFT = intro + borderless contact details (email/phone/studio, larger type, no card) + one clear "Book a free 15-min call →" link under a divider; RIGHT = a single form card ("Send a message") as the primary action, with the free-audit and Start-a-Project paths demoted to two subtle text links below (were heavy `shadow-e1` cards). Removed the `Button` import (no longer used); still a server component. tsc clean.
 
 ### Case studies — add a third
 

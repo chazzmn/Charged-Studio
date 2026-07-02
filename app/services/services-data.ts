@@ -39,11 +39,11 @@ export const SERVICES: Service[] = [
     h1: "Websites that turn local searches into customers.",
     metaTitle: "Website Design in Exeter & Devon | Charged Studio",
     metaDescription:
-      "Custom, fast, fully-managed website design for businesses across Exeter, Devon and the South West. Built to rank locally and turn visitors into enquiries. Landing pages from £695.",
+      "Custom, fast, fully-managed website design for businesses across Exeter, Devon and the South West. Built to rank locally and turn visitors into enquiries. One-day websites from £495.",
     intro:
       "Your website is your hardest-working salesperson — open 24/7, in front of every customer who searches for what you do. We design and build fast, modern, mobile-first sites that look sharp and turn local searches into booked jobs and enquiries. And because we manage everything — hosting, domain, updates, maintenance — you never have to touch a thing.",
     outcome: "Custom, fast, fully-managed sites built to convert.",
-    priceFrom: "From £695",
+    priceFrom: "From £495",
     lead: true,
     outcomes: [
       "More enquiries from the traffic you already have.",
@@ -108,6 +108,11 @@ export const SERVICES: Service[] = [
     pricing: {
       tiers: [
         {
+          label: "Website in a Day",
+          price: "£495",
+          body: "A sharp, single-page website — designed, built and live on your own domain in a day. Ideal for launches, campaigns and getting online fast.",
+        },
+        {
           label: "Landing pages",
           price: "From £695",
           body: "Ideal for new businesses, launches, and focused lead-generation campaigns.",
@@ -123,7 +128,7 @@ export const SERVICES: Service[] = [
           body: "For businesses that need more complex user journeys, integrations, or custom functionality.",
         },
       ],
-      note: "Every project is scoped to what you need — we'll give you a clear, fixed quote after a 15-minute call. No surprise costs.",
+      note: "The Website in a Day build is a fixed £495 — just tell us what you're launching. Everything else is scoped to what you need, with a clear, fixed quote after a 15-minute call. No surprise costs.",
     },
     whyTitle: "Why it matters",
     whyBody: [
@@ -133,11 +138,15 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         q: "How much does a website cost?",
-        a: "Landing pages start from £695, business websites from £1,495, and e-commerce or specialised builds from £2,495. Every project is scoped to what you need — tell us about yours and we'll send a tailored quote within a working day.",
+        a: "Our fixed-price Website in a Day build is £495 — a sharp single-page site, live in a day. From there, custom landing pages start from £695, business websites from £1,495, and e-commerce or specialised builds from £2,495. Every project is scoped to what you need — tell us about yours and we'll send a tailored quote within a working day.",
+      },
+      {
+        q: "Can you really build a website in a day?",
+        a: "Yes — our fixed £495 Website in a Day is a focused, single-page site, not a twenty-page build rushed into a day. Speed comes from a tight process: a short brief, your logo and words, then we design, you review, and we launch on your own domain. It's perfect for a launch, campaign or getting online fast, and it can grow into a bigger build later.",
       },
       {
         q: "How long does it take?",
-        a: "Most websites take 2–4 weeks from kickoff, depending on scope. You'll get a clear timeline up front so you always know what's happening.",
+        a: "The Website in a Day build goes live in a day. Most other websites take 2–4 weeks from kickoff, depending on scope. You'll get a clear timeline up front so you always know what's happening.",
       },
       {
         q: "What happens after launch?",

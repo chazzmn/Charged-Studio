@@ -163,9 +163,11 @@ export default async function ServicePage({ params }: Params) {
         </h2>
         <div
           className={`mt-10 grid grid-cols-1 gap-6 ${
-            service.pricing.tiers.length > 1
-              ? "sm:grid-cols-2 lg:grid-cols-3"
-              : "max-w-md"
+            service.pricing.tiers.length >= 4
+              ? "sm:grid-cols-2 lg:grid-cols-4"
+              : service.pricing.tiers.length > 1
+                ? "sm:grid-cols-2 lg:grid-cols-3"
+                : "max-w-md"
           }`}
         >
           {service.pricing.tiers.map((t) => (
