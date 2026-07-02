@@ -4,6 +4,39 @@
 
 ---
 
+## SESSION LOG (2026-07-01) — SITE IS LIVE · deep review, quick wins, hero rework, blog
+
+**Site is LIVE at chargedstudio.co.uk** (Charlie confirmed). Note: Vercel currently serves **www** as primary while all code canonicals are **non-www** — see backlog.
+
+**Deep review done.** Verdict: strong, not perfect (~85%). Real work shows well (marquee + case-study cards are real screenshots), copy/local-SEO/structure are solid. Biggest gaps flagged: (1) hero/services used grey "loading-state" skeleton graphics as the lead visual; (2) www/non-www canonical mismatch; (3) review volume (16 vs competitors' 60+) — off-site, Charlie building naturally; (4) chatbot decision — Charlie: **keep the scripted bot as-is for now**.
+
+**Quick wins — SHIPPED (tsc clean):**
+- **Nav CTA fixed** — "Start a Project" now → `/start-a-project` (was pointing at `/contact`, bypassing the wizard). `components/Nav.tsx` `CTA` const.
+- **Trust count-ups removed** — PageSpeed scores (`WhyCharged`) + Google rating (`Testimonials`) render final values (100 / 5.0 / 16) and just pop/fade in via `Reveal` instead of counting from zero. `components/CountUp.tsx` now **unused** (safe to delete later).
+- **Footer tagline** → "Built to perform. Charged to last." (`components/Footer.tsx`).
+- **Stray files** — 36 committed `.fuse_hidden*` files untracked from git (`git rm --cached`, staged as deletions); duplicate `.gitignore` rule collapsed to one. (On-disk copies are gitignored; iCloud+dev-server regenerate them — restart dev server to clear.)
+
+**Hero rework — SHIPPED (Charlie approved, then "up a level"):**
+- Scene 0 "Coming soon" replaced with a **brand reveal**: real `logo.svg` wordmark + accent underline + "Built to perform. Charged to last." (this also fixed the near-blank mobile hero frame — the old scene was `text/10`, invisible).
+- **Scale + fade** scene transitions (was opacity-only) + **progress dots** (active stretches to an accent pill).
+- **Pacing slowed** to 4500ms/scene (was 2800) with **more build-up** — `reveal-stagger` delays extended to `nth-child(12)` in `globals.css`.
+- **Richer, fuller scenes** in `components/graphics.tsx` (shared with `Services.tsx` rows, both 16:10): Website = nav+hero+3 feature cards+trust strip; SEO = search+tabs+#1 result+2 results+impressions trend; Software = sidebar+topbar+3 stat cards+chart+table; Branding = logo lockup+palette+type specimen+application tiles. Same palette/vibe, denser.
+
+**Blog:** added `/blog/website-in-a-day` ("Website in a day: when fast is the right call") — seeds the planned 1-day website offering. In `posts.ts` + page; auto-added to sitemap.
+
+### Backlog — next sessions (Charlie's list, 2026-07-01)
+- [ ] **www/non-www** — set apex `chargedstudio.co.uk` as **Primary** domain in Vercel so `www` redirects to it (matches all canonicals). Dashboard action, no code. *(If he prefers www, flip SITE_URL + metadataBase + canonicals instead.)*
+- [ ] **Card visual design pass** — "make the cards look better" (a big one): case studies, services, testimonials, why-charged. Scope the treatment (depth, borders, hover, imagery framing) then apply via tokens.
+- [ ] **Urgency card** — rework the availability/urgency signal into something clever that **auto-updates and always stays accurate** (beyond the month-flip `AvailabilityPill`).
+- [ ] **AEO consulting/package** — add to the SEO service (`/services/seo`).
+- [ ] **1-day website option** — new fast-turnaround offering (needs name, price, what's included) → `/services/websites` + pricing; blog post now seeds it.
+- [ ] **More blog posts** to specific goals (topics TBC — proposed: custom vs Wix/Squarespace, AEO/get-recommended-by-AI, Exeter buyer's guide).
+- [ ] **Hero (optional follow-up)** — literal wordmark→nav morph; per-scene captions.
+- [ ] **New real case study** — blocked until the next client lands.
+- [ ] Optional: delete now-unused `components/CountUp.tsx`.
+
+---
+
 ## SESSION LOG (2026-06-26) — quick wins, About story, service pages
 
 Done this session (tsc clean throughout; pushed to `main`):

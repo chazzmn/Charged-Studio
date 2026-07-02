@@ -15,6 +15,16 @@ export type PostMeta = {
  */
 export const POSTS: PostMeta[] = [
   {
+    slug: "website-in-a-day",
+    title: "Website in a day: when fast is the right call",
+    excerpt:
+      "Sometimes you don't need a six-week build — you need to be online now. Here's when a focused, one-day website makes sense, and what you can realistically get.",
+    date: "2026-07-01",
+    dateDisplay: "1 July 2026",
+    category: "Web Design",
+    readingTime: "4 min read",
+  },
+  {
     slug: "how-much-does-a-website-cost-uk",
     title: "How much does a website cost in the UK? (2026 guide)",
     excerpt:
